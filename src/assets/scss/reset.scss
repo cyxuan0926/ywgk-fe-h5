@@ -1,1 +1,30 @@
 // 重置饿了么的样式
+.el-container{
+    height: 100%;
+    background: #f5f5f5;
+}
+.box{
+    .flex-column{
+        flex-direction: column;
+    }
+    .el-main{
+        &>div{
+            border-radius: 3px;
+            box-sizing: border-box;
+        }
+    }
+}
+.el-header{
+    width: 100%;
+    background: #37474f;
+    border-bottom: 1px solid #4b5960;
+    padding: 0 20px;
+    color: #fff;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    .el-badge__content{
+        border: 0;
+    }
+}
