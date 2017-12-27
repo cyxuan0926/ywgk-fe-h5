@@ -1,6 +1,23 @@
 <template>
-    <div class="box">
-        <el-container class="flex-column">
+<el-container>
+  <el-header>
+       <v-header></v-header>
+  </el-header>
+  <el-container>
+    <el-aside width="200px">
+        <v-aside></v-aside>
+    </el-aside>
+    <el-container>
+        <el-main>
+            <transition name="router-fade" mode="out-in">
+                <router-view :api="apiList"></router-view>
+            </transition>
+        </el-main>
+      <el-footer>Footer</el-footer>
+    </el-container>
+  </el-container>
+</el-container>
+        <!-- <el-container>
             <v-header></v-header>
             <el-container>
                 <v-aside></v-aside>
@@ -14,8 +31,7 @@
                     <v-footer></v-footer>
                 </el-container>
             </el-container>
-        </el-container>
-    </div>
+        </el-container> -->
 </template>
 <script>
 import vHeader from './header'
