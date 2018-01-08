@@ -1,8 +1,6 @@
 <template>
     <el-container>
-        <el-header>
-            <v-header></v-header>
-        </el-header>
+        <v-header></v-header>
         <el-container>
             <vAside> </vAside>
             <el-container>
