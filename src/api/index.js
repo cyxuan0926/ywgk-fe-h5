@@ -3,7 +3,7 @@ import resCode from './resCode'
 
 let state = ''
 const baseUrl = '/baseUrl'
-axios.defaults.baseURL = 'http://127.0.0.1'
+axios.defaults.baseURL = 'http://localhost:7777'
 const handleApiErr = (res) => {
     let prev = resCode[res.status === 200 ? res.data.code : res.status]
     if (!prev) return res.data

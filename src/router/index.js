@@ -24,7 +24,28 @@ let routes = [
         children: [
             {
                 path: '/test/test',
-                name: '刑罚变动',
+                name: '测试',
+                component: resolve => require(['@/app/test/test'], resolve)
+            }
+        ]
+    },
+    {
+        path: '/page',
+        component: main,
+        children: [
+            {
+                path: '/page/readme',
+                name: 'readme',
+                component: resolve => require(['@/app/page/readme'], resolve)
+            },
+            {
+                path: '/shopping/setting',
+                name: '店铺设置',
+                component: resolve => require(['@/app/page/readme'], resolve)
+            },
+            {
+                path: '/shopping/template',
+                name: '模板',
                 component: resolve => require(['@/app/test/test'], resolve)
             }
         ]
