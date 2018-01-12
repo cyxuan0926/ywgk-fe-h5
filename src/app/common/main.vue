@@ -1,20 +1,38 @@
 <template>
+
+  <el-container class="isVertical">
+    <v-header></v-header>
     <el-container>
-        <el-header>
-            <v-header></v-header>
-        </el-header>
+      <vAside> </vAside>
+      <!-- <el-aside width="200px">Aside</el-aside> -->
+      <el-container>
+        <el-main>
+          <transition name="router-fade" mode="out-in">
+             <router-view :api="apiList"></router-view>
+         </transition>
+        </el-main>
+        <el-footer>Footer</el-footer>
+      </el-container>
+    </el-container>
+  </el-container>
+
+
+
+
+    <!-- <el-container>
+        <v-header></v-header>
         <el-container>
             <vAside> </vAside>
             <el-container>
                 <el-main>
-                    <!-- <router-view></router-view> -->
+                    <router-view></router-view>
                      <transition name="router-fade" mode="out-in">
                         <router-view :api="apiList"></router-view>
                     </transition>
                 </el-main>
             </el-container>
         </el-container>
-    </el-container>
+    </el-container> -->
 </template>
 <script>
 import vHeader from './header'
