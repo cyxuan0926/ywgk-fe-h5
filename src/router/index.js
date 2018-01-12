@@ -47,6 +47,11 @@ let routes = [
                 path: '/shopping/template',
                 name: '模板',
                 component: resolve => require(['@/app/test/test'], resolve)
+            },
+            {
+                path: '/shopping/orderManage',
+                name: '订单列表管理',
+                component: resolve => require(['@/app/page/orderManage'], resolve)
             }
         ]
     }

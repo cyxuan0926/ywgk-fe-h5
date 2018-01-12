@@ -36,5 +36,18 @@ export default [
                 collapse: true
             }
         ]
+    },
+    {
+        index: '3',
+        name: '订单管理',
+        collapse: true,
+        children: [
+            {
+                index: '3-1',
+                name: '订单列表管理',
+                path: '/shopping/orderManage',
+                collapse: true
+            }
+        ]
     }
 ]
