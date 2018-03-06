@@ -1,12 +1,5 @@
-import { Message } from 'element-ui'
-
 const tips = (msg = '请求失败') => {
-    Message({
-        showClose: true,
-        message: msg,
-        duration: 3000,
-        type: 'error'
-    })
+    console.log(msg)
 }
 
 export default {

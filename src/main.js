@@ -5,18 +5,11 @@ import App from './App'
 import routes from './router'
 import Router from 'vue-router'
 import store from './store/'
-import ElementUI from 'element-ui'
-import components from './components'
-import 'element-ui/lib/theme-chalk/index.css'
+import './assets/fonts/iconfont.css'
 import './assets/scss/style.scss'
 Vue.config.productionTip = false
 Vue.use(Router)
-Vue.use(ElementUI)
 
-Object.keys(components).forEach(item => {
-    let name = item.replace(/(\w)/, (v) => v.toUpperCase())
-    Vue.component(`my${ name }`, components[item])
-})
 window.router = new Router({
     routes,
     mode: 'history',

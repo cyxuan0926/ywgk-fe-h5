@@ -1,29 +1,36 @@
-// 全局样式
-.el-container.isVertical{
-  height: 100%;
-  flex-direction: column;
+$text-color: #262626;
+body{
+  background: #F0F0F0;
+  color: $text-color;
 }
-.is-vertical{
-  margin-left: 200px;
-}
-.el-header{
-  padding: 0;
-}
-.el-footer {
-    background-color: #B3C0D1;
-    color: #333;
-    text-align: center;
-    line-height: 60px;
+.tab-view{
+  li{
+    margin-bottom: 0.5rem;
+    padding: 1rem;
+    background: #fff;
+    line-height: 1rem;
+    color: $text-color;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    span{
+      max-width: calc(100% - 3.2rem);
+      flex-shrink: 0;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+    }
   }
-
-  .el-aside {
-    background-color: #D3DCE6;
-    color: #333;
-    position: fixed;
+  .iconfont{
+    color: #999;
+  }
+}
+// <style lang="scss" scoped>
+.loading {
+    background: url(../images/loading.svg) no-repeat;
     height: 100%;
-  }
-  .el-main {
-    background-color: #E9EEF3;
-    color: #333;
-    height: calc(100% - 121px);
-  }
+    width: 100%;
+    position: fixed;
+    background-position: center;
+}
+// </style>

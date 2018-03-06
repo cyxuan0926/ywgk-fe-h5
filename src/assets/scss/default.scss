@@ -3,7 +3,22 @@ html, body {
   width: 100%;
   overflow-x: hidden;
 }
-html, body, header, ul, li{
+html, body, ul{
   padding: 0;
   margin: 0;
+  font-size: 14px;
+}
+ul{
+  list-style: none;
+}
+@media all and (min-width: 400px) {
+    html {
+        font-size: 22px;
+    }
+}
+
+@media all and (min-width: 600px) {
+    html {
+        font-size: 32px;
+    }
 }
