@@ -1,5 +1,5 @@
 const tips = (msg = '请求失败') => {
-    console.log(msg)
+    // console.log(msg)
 }
 
 export default {

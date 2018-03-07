@@ -14,7 +14,7 @@ export default {
     props: ['api'],
     data() {
         return {
-            lawList: [1, 2, 3, 4, 5],
+            lawList: [],
             loading: true
         }
     },

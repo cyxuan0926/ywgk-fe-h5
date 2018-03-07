@@ -6,13 +6,15 @@ body{
 .tab-view{
   li{
     margin-bottom: 0.5rem;
-    padding: 1rem;
+    padding: 1rem 1rem;
     background: #fff;
     line-height: 1rem;
     color: $text-color;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    font-size: 1rem;
+    box-shadow: 0 0.1rem 0.5rem 0 #6394EC;
     span{
       max-width: calc(100% - 3.2rem);
       flex-shrink: 0;
