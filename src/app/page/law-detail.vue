@@ -1,7 +1,10 @@
 <template>
     <div class="detail">
       <div class="loading" v-if="loading"></div>
-      <div class="content" v-else v-html="law.contents"></div>
+      <!-- <div class="content" v-else> -->
+        <!-- <h3>{{ law.title }}</h3> -->
+        <div class="content" v-html="law.contents"></div>
+      <!-- </div> -->
     </div>
 </template>
 <script>
@@ -39,7 +42,11 @@ export default {
 .content{
   background: #fff;
   border-radius: 0.1rem;
-  box-shadow: 0 0 5px #6394EC;
-  padding: 0.3rem;
+  // box-shadow: 0 0 5px #aaa;
+  padding: 1rem 0.3rem;
+  // display: flex;
+  // flex-direction: column;
+  // align-items: center;
+  color: #666;
 }
 </style>

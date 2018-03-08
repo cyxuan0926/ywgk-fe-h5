@@ -1,31 +1,8 @@
 $text-color: #262626;
 body{
-  background: #F0F0F0;
+  // background: #F0F0F0;
+  font-family: "Microsoft YaHei", sans-serif;
   color: $text-color;
-}
-.tab-view{
-  li{
-    margin-bottom: 0.5rem;
-    padding: 1rem 1rem;
-    background: #fff;
-    line-height: 1rem;
-    color: $text-color;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-size: 1rem;
-    box-shadow: 0 0.1rem 0.5rem 0 #6394EC;
-    span{
-      max-width: calc(100% - 3.2rem);
-      flex-shrink: 0;
-      overflow: hidden;
-      white-space: nowrap;
-      text-overflow: ellipsis;
-    }
-  }
-  .iconfont{
-    color: #999;
-  }
 }
 // <style lang="scss" scoped>
 .loading {
@@ -36,3 +13,18 @@ body{
     background-position: center;
 }
 // </style>
+@media all and (max-width: 400px) {
+    html {
+        font-size: 12px;
+    }
+}
+
+@media all and (max-width: 600px) and (min-width: 401px) {
+    html {
+        font-size: 14px;
+    }
+}
+
+table{
+  width: 100% !important;
+}

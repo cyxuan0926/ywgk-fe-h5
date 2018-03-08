@@ -40,7 +40,7 @@ export const apiList = {
         return axios({ method: params.method, url: `${ params.url }`, [str]: params.options }).then(res => res)
     },
     getLawList: params => { // get请求
-        return axios.get(`${ baseUrl }/v1/laws/1/list`, { params: params }).then(res => res)
+        return axios.get(`${ baseUrl }/v1/laws/2/list`, { params: params }).then(res => res)
     },
     getLawDetail: params => { // get请求
         return axios.get(`${ baseUrl }/v1/laws/${ params }`).then(res => res)
