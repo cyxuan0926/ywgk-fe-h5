@@ -12,7 +12,7 @@ Vue.use(Router)
 
 window.router = new Router({
     routes,
-    mode: 'history',
+    // mode: 'history',
     // mode: 'hash',
     scrollBehavior(to, from, savedPosition) {
         window.scrollTo(0, 0)

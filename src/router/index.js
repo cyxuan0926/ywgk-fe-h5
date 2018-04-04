@@ -20,6 +20,10 @@ let routes = [
                 component: resolve => require(['@/app/page/law-detail'], resolve)
             }
         ]
+    },
+    {
+        path: '*',
+        redirect: '/'
     }
 ]
 
