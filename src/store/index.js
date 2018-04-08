@@ -1,14 +1,14 @@
-import mutations from './mutations'
-// import test from '@/app/test/vuex/store'
-import actions from './actions'
-import Vuex from 'vuex'
 import Vue from 'vue'
+import Vuex from 'vuex'
+
+import img from './modules/img'
+
 Vue.use(Vuex)
-// console.log(stores)
-let store = new Vuex.Store({
+
+const store = new Vuex.Store({
     modules: {
-        mutations
-    },
-    actions
+        img
+    }
 })
+
 export default store

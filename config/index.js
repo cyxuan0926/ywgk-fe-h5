@@ -61,7 +61,7 @@ module.exports = {
 
         // Paths
         assetsRoot: path.resolve(__dirname, '../dist'),
-        assetsSubDirectory: 'laws/static',
+        assetsSubDirectory: 'h5/static',
         assetsPublicPath: '/',
 
         /**

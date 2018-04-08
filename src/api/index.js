@@ -3,7 +3,7 @@ import resCode from './resCode'
 
 let state = ''
 const baseUrl = 'https://www.yuwugongkai.com/api'
-axios.defaults.baseURL = 'https://www.yuwugongkai.com/api'
+axios.defaults.baseURL = 'http://39.108.185.51:8081/ywgk'
 const handleApiErr = (res) => {
     let prev = resCode[res.status === 200 ? res.data.code : res.status]
     if (!prev) return res.data
@@ -39,11 +39,17 @@ export const apiList = {
         let str = params.method === 'get' ? 'params' : 'data'
         return axios({ method: params.method, url: `${ params.url }`, [str]: params.options }).then(res => res)
     },
-    getLawList: params => { // get请求
+    getLawList: params => {
         return axios.get(`${ baseUrl }/v1/laws/2/list`, { params: params }).then(res => res)
     },
-    getLawDetail: params => { // get请求
+    getLawDetail: params => {
         return axios.get(`${ baseUrl }/v1/laws/${ params }`).then(res => res)
+    },
+    getNewsDetail: params => {
+        return axios.get(`/api/news/details?id=${ params }`).then(res => res)
+    },
+    getPrisonDetail: params => {
+        return axios.get(`/api/jails/details?id=${ params }`).then(res => res)
     },
     testPost: params => { // post请求
         return axios.post(`${ baseUrl }/testUrl`, params).then(res => res)

@@ -22,8 +22,8 @@ export default {
     methods: {
         render() {
             // 调接口的方式，记住在前面加props: ['api']
-            if (!this.$route.query.id) return
-            this.api.getLawDetail(this.$route.query.id).then(res => {
+            if (!this.$route.params.id) return
+            this.api.getLawDetail(this.$route.params.id).then(res => {
                 if (res && res.code === 200) {
                     this.law = res.laws[0]
                     this.loading = false

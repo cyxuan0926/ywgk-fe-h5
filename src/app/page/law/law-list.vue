@@ -34,7 +34,7 @@ export default {
             })
         },
         onNavigate(e) {
-            this.$router.push(`/law-detail?id=${ e }`)
+            this.$router.push(`/law/detail/${ e }`)
         }
     }
 }

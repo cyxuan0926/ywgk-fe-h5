@@ -1,1 +1,1 @@
-export const HANDLECOLLAPSE = 'HANDLECOLLAPSE'
+export const GET_IMG_TOKEN = 'getImgToken'
