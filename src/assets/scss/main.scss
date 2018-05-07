@@ -1,20 +1,19 @@
 $text-color: #262626;
 body{
-  // background: #F0F0F0;
   font-family: "Microsoft YaHei", sans-serif;
   color: $text-color;
 }
-// <style lang="scss" scoped>
 .loading {
     background: url(../images/loading.svg) no-repeat;
     height: 88px;
     width: 88px;
     margin: auto;
-    position: fixed;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
     background-position: center;
+    position: absolute;
+    margin-left:-44px;
+    margin-top:-44px;
 }
 img{
   max-width: 100%;
