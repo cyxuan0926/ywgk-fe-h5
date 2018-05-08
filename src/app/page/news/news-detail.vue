@@ -8,9 +8,7 @@
           <img v-if="news.imageUrl" :src="news.imageUrl + '?token=' + $store.state.img.imgToken" alt="">
           <div v-html="news.contents"></div>
         </template>
-        <template v-else>
-          <p class="time" style="text-align: center;">暂无内容</p>
-        </template>
+        <div v-else class="no-content"></div>
       </div>
     </div>
 </template>

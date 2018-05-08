@@ -6,7 +6,7 @@
       <ul :key="index" class="tab-view">
         <template v-for="(law, order) in item">
           <li :key="order" @click="onNavigate(law.id)">
-            <img class="image" :src="'https://www.yuwugongkai.com' + law.image" alt="">
+            <img class="image" :src="law.image_url + '?token=523b87c4419da5f9186dbe8aa90f37a3876b95e448fe2a'" alt="">
             <span>{{ law.title }}</span>
           </li>
         </template>
@@ -29,17 +29,16 @@ export default {
     methods: {
         render() {
             this.api.getLawList().then(res => {
-                if (res && res.code === 200) {
-                    let lawList = []
-                    res.laws.forEach((item, index) => {
-                        if (index % 3 === 0) {
-                            lawList.push([])
-                        }
-                        lawList[parseInt(index / 3)].push(item)
-                    })
-                    this.lawList = lawList
-                    this.loading = false
-                }
+                if (!res) return
+                let lawList = []
+                res.laws.forEach((item, index) => {
+                    if (index % 3 === 0) {
+                        lawList.push([])
+                    }
+                    lawList[parseInt(index / 3)].push(item)
+                })
+                this.lawList = lawList
+                this.loading = false
             })
         },
         onNavigate(e) {

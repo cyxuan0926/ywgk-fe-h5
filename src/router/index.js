@@ -20,12 +20,12 @@ let routes = [
             },
             {
                 path: '/law/detail/:id',
-                name: '法律法规',
+                name: '法律法规详情',
                 component: resolve => require(['@/app/page/law/law-detail'], resolve)
             },
             {
                 path: '/law/detail-new',
-                name: '中华人民共和国安全生产法',
+                name: '中华人民共和国国家赔偿法',
                 component: resolve => require(['@/app/page/law/detail'], resolve)
             }
         ]

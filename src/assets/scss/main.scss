@@ -28,3 +28,22 @@ table{
     line-height: 2rem;
   }
 }
+.no-content::after{
+  content: '暂无内容';
+  color: #999;
+  text-align: center;
+  display: block;
+  line-height: 5rem;
+}
+.law-box{
+  padding: 0.3rem 0.4rem 1rem;
+  box-sizing: border-box;
+  overflow-x: hidden;
+  text-align: justify;
+}
+.law-content{
+  p{padding: 0;margin: 0;font-size: 1.2rem;line-height: 2rem;color: #222;}
+  .bold{font-weight: bold;}
+  .indent{text-indent: 2rem;}
+  .law-title{color: red;text-align: center;line-height: 3rem;font-size: 1.5rem;margin: 0;}
+}
