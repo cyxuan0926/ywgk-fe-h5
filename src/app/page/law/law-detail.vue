@@ -23,8 +23,10 @@ export default {
             if (!this.$route.params.id) return
             this.api.getLawDetail(this.$route.params.id).then(res => {
                 if (!res) return
+                res.law.contents = res.law.contents.replace(this.$route.query.tag, `<span id="tag">${ this.$route.query.tag }</span>`)
                 this.law = res.law
                 this.loading = false
+                this.$router.replace({ hash: 'tag', query: this.$route.query })
             })
         }
     }

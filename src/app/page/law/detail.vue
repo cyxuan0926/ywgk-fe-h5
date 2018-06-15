@@ -61,7 +61,7 @@
         <p class="indent">对组织、领导犯罪集团的首要分子，按照集团所犯的全部罪行处罚。</p>
         <p class="indent">对于第三款规定以外的主犯，应当按照其所参与的或者组织、指挥的全部犯罪处罚。</p>
         <p class="indent">第二十七条　【从犯】在共同犯罪中起次要或者辅助作用的，是从犯。</p>
-        <p class="indent">对于从犯，应当从轻、减轻处罚或者免除处罚。</p>
+        <p id="aaa" class="indent">对于从犯，应当从轻、减轻处罚或者免除处罚。</p>
         <p class="indent">第二十八条　【胁从犯】对于被胁迫参加犯罪的，应当按照他的犯罪情节减轻处罚或者免除处罚。</p>
         <p class="indent">第二十九条　【教唆犯】教唆他人犯罪的，应当按照他在共同犯罪中所起的作用处罚。教唆不满十八周岁的人犯罪的，应当从重处罚。</p>
         <p class="indent">如果被教唆的人没有犯被教唆的罪，对于教唆犯，可以从轻或者减轻处罚。</p>
@@ -540,6 +540,7 @@ export default {
     },
     mounted() {
         // this.render()
+        this.$router.push({ hash: 'aaa' })
     },
     methods: {
         render() {
