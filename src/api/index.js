@@ -3,14 +3,16 @@ import resCode from './resCode'
 
 let state = ''
 // const baseUrl = 'https://www.yuwugongkai.com/ywgk/api'
-const baseUrl = 'http://123.57.7.159:8081/ywgk/api'
-axios.defaults.baseURL = 'http://39.108.185.51:8081/ywgk'
+const baseUrl = '/ywgk/api' // 测试
+// const baseUrl = 'http://123.57.7.159:8083/ywgk-demo/api' // 演示
+// axios.defaults.baseURL = 'http://39.108.185.51:8081/ywgk'
 const handleApiErr = (res) => {
     if (!res.status) {
         return res.message
     }
     let prev = resCode[res.status === 200 ? res.data.code : res.status]
     if (!prev) {
+        console.log(res)
         return res.data ? (res.data.msg ? res.data.msg : res.data) : (res.message ? res.message : '')
     }
     prev.do && prev.do(res.data)
@@ -33,10 +35,18 @@ axios.interceptors.response.use(
         return handleApiErr(response)
     },
     error => {
+        if (state && history.state.key !== state.key) return
         if (error.response) {
-            if (state && history.state.key !== state.key) return
+            console.log(error.response.status)
             return handleApiErr(error.response)
         }
+        else if (error.request) {
+            console.log(error.request)
+        }
+        else {
+            console.log('Error', error.message)
+        }
+        console.log(error.config)
         return handleApiErr(error)
     }
 )
@@ -60,10 +70,10 @@ export const apiList = {
         return axios.get(`${ baseUrl }/laws/details`, { params: { id: params } }).then(res => res.code === 200 && res.data)
     },
     getNewsDetail: params => {
-        return axios.get(`/api/news/details?id=${ params }`).then(res => res)
+        return axios.get(`${ baseUrl }/news/details?id=${ params }`).then(res => res)
     },
     getPrisonDetail: params => {
-        return axios.get(`/api/jails/details?id=${ params }`).then(res => res)
+        return axios.get(`${ baseUrl }/jails/details?id=${ params }`).then(res => res)
     },
     testPost: params => { // post请求
         return axios.post(`${ baseUrl }/testUrl`, params).then(res => res)

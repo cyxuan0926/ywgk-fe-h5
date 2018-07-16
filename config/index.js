@@ -11,11 +11,11 @@ module.exports = {
         assetsPublicPath: '/',
         port: 7777, // can be overwritten by process.env.PORT, if port is in use, a free one will be determined
         proxyTable: {
-            '/baseUrl': {
-                target: '127.0.1.1',
+            '/ywgk/api': {
+                target: 'http://123.57.7.159:8081',
                 changeOrigin: true,
                 pathRewrite: {
-                    '^/baseUrl': '/baseUrl'
+                    '^/ywgk/api': '/ywgk/api'
                 }
             }
         },
