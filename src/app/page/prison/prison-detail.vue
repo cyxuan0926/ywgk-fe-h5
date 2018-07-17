@@ -1,23 +1,23 @@
 <template>
-    <div class="detail">
-      <div class="loading" v-if="loading"></div>
-      <div class="content inner-content" v-else>
-        <template v-if="prison && prison.createdAt">
+    <div
+      class="detail"
+      :class="[
+        { 'loading' : fullLoading },
+        { 'no-content' : !fullLoading && (!prison || !prison.createdAt) }
+      ]">
+      <div class="content inner-content"  v-if="prison && prison.createdAt">
           <h3 class="title">{{ prison.title }}</h3>
           <p class="time">发布于  {{ prison.createdAt | formatDate }}</p>
           <img v-if="prison.imageUrl" :src="prison.imageUrl + '?token=' + $store.state.img.imgToken" alt="">
           <div v-html="prison.description"></div>
-        </template>
-        <div v-else class="no-content"></div>
       </div>
     </div>
 </template>
 <script>
 export default {
-    props: ['api'],
+    props: ['api', 'fullLoading'],
     data() {
         return {
-            loading: true,
             prison: {}
         }
     },
@@ -30,7 +30,6 @@ export default {
             this.api.getPrisonDetail(this.$route.params.id).then(res => {
                 if (res && res.code === 200) {
                     this.prison = res.data.jails
-                    this.loading = false
                 }
             })
         }

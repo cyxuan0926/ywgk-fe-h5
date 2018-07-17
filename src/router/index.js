@@ -6,7 +6,24 @@ let routes = [
     {
         path: '/',
         component: main,
-        redirect: '/law/list'
+        redirect: '/index',
+        children: [
+            {
+                path: '/index',
+                name: '目录',
+                component: resolve => require(['@/app/common/index'], resolve)
+            },
+            {
+                path: '/error',
+                name: '出错了',
+                component: resolve => require(['@/app/common/error'], resolve)
+            },
+            {
+                path: '/net-error',
+                name: '连接失败',
+                component: resolve => require(['@/app/common/net-error'], resolve)
+            }
+        ]
     },
     {
         path: '/law',

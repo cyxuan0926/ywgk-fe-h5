@@ -1,16 +1,21 @@
 <template>
-    <div class="law-box">
-      <div v-if="loading" class="loading"></div>
-      <div v-else-if="law.contents" class="law-content" v-html="law.contents"></div>
-      <div v-else class="no-content"></div>
+    <div
+      class="law-box"
+      :class="[
+        { 'loading' : fullLoading },
+        { 'no-content' : !fullLoading && !law.contents }
+      ]">
+      <div
+        v-if="!fullLoading && law.contents"
+        class="law-content"
+        v-html="law.contents"></div>
     </div>
 </template>
 <script>
 export default {
-    props: ['api'],
+    props: ['api', 'fullLoading'],
     data() {
         return {
-            loading: true,
             law: {}
         }
     },
@@ -23,10 +28,10 @@ export default {
             if (!this.$route.params.id) return
             this.api.getLawDetail(this.$route.params.id).then(res => {
                 if (!res) return
+                if (!res.law) return
                 let tag = this.$route.query.tag.split('**')[0]
                 res.law.contents = res.law.contents.replace(tag, `<span id="tag">${ tag }</span>`)
                 this.law = res.law
-                this.loading = false
                 this.$router.replace({ hash: 'tag', query: this.$route.query })
             })
         }

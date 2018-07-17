@@ -1,23 +1,23 @@
 <template>
-    <div class="detail">
-      <div class="loading" v-if="loading"></div>
-      <div class="content inner-content" v-else>
-        <template v-if="news && news.createdAt">
+    <div
+      class="detail"
+      :class="[
+        { 'loading' : fullLoading },
+        { 'no-content' : !fullLoading && (!news || !news.createdAt) }
+      ]">
+      <div class="content inner-content" v-if="news && news.createdAt">
           <h3 class="title">{{ news.title }}</h3>
           <p class="time">发布于  {{ news.createdAt | formatDate }}</p>
           <img v-if="news.imageUrl" :src="news.imageUrl + '?token=' + $store.state.img.imgToken" alt="">
           <div v-html="news.contents"></div>
-        </template>
-        <div v-else class="no-content"></div>
       </div>
     </div>
 </template>
 <script>
 export default {
-    props: ['api'],
+    props: ['api', 'fullLoading'],
     data() {
         return {
-            loading: true,
             news: {}
         }
     },
@@ -30,7 +30,6 @@ export default {
             this.api.getNewsDetail(this.$route.params.id).then(res => {
                 if (res && res.code === 200) {
                     this.news = res.data
-                    this.loading = false
                 }
             })
         }

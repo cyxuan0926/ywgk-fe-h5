@@ -1,13 +1,14 @@
 <template>
-    <section>
+    <section class="outer">
       <transition name="router-fade" mode="out-in">
-          <router-view :api="apiList"></router-view>
+          <router-view :api="apiList" :fullLoading="fullLoading"></router-view>
       </transition>
     </section>
 </template>
 
 <script>
 import { apiList } from '@/api/'
+import { mapGetters } from 'vuex'
 
 export default {
     data() {
@@ -15,11 +16,16 @@ export default {
             apiList
         }
     },
-    methods: {
+    computed: {
+        ...mapGetters(['fullLoading'])
     }
 }
 
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
+.outer{
+  height: 100%;
+  width: 100%;
+}
 </style>
