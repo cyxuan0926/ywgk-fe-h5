@@ -3,8 +3,8 @@ import resCode from './resCode'
 import store from '@/store'
 
 let state = ''
-// const baseUrl = 'https://www.yuwugongkai.com/ywgk/api'
-const baseUrl = '/ywgk/api' // 测试
+const baseUrl = 'https://www.yuwugongkai.com/ywgk/api'
+// const baseUrl = 'http://123.57.7.159:8081/ywgk/api' // 测试
 // const baseUrl = 'http://123.57.7.159:8083/ywgk-demo/api' // 演示
 // axios.defaults.baseURL = 'http://39.108.185.51:8081/ywgk'
 const handleApiErr = (res) => {

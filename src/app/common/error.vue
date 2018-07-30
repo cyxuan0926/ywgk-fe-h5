@@ -9,7 +9,7 @@ export default {
 }
 </script>
 
-<style lang="css" scoped>
+<style lang="scss" scoped>
 .error{
   line-height: 10rem;
   text-align: center;

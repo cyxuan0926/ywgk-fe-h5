@@ -21,7 +21,7 @@ export default {
                             if (!clientWidth) return
                             // 根据设备的比例调整初始font-size大小
                             if (clientWidth > 640) clientWidth = 640
-                            docEl.style.fontSize = `${ 10 * (clientWidth / 320) }px`
+                            docEl.style.fontSize = `${ 24 * clientWidth / 720 }px`
                         }
                     if (!doc.addEventListener) return
                     win.addEventListener(resizeEvt, recalc, false)

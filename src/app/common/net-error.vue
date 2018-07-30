@@ -22,14 +22,12 @@ export default {
   width: 100%;
   height: 100%;
   padding-top: 6rem;
-  // position: fixed;
   background: #F9F8FD;
   color: #666;
   img{
-    height: 12.5rem;
+    height: 8.33333rem;
     display: block;
     margin: auto;
-    // margin-top: 6rem;
     margin-bottom: 2.5rem;
   }
 }
