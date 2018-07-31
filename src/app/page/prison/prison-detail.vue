@@ -9,7 +9,7 @@
           <h3 class="title">{{ prison.title }}</h3>
           <p class="time">发布于  {{ prison.createdAt | formatDate }}</p>
           <img v-if="prison.imageUrl" :src="prison.imageUrl + '?token=' + $store.state.img.imgToken" alt="">
-          <div v-html="prison.desc"></div>
+          <div v-html="prison.description"></div>
       </div>
     </div>
 </template>
@@ -29,11 +29,10 @@ export default {
             if (!this.$route.params.id) return
             this.api.getPrisonDetail(this.$route.params.id).then(res => {
                 if (res && res.code === 200) {
-                    let description = res.data.jails.description
-                    console.log(description)
-                    description.replace('<video', '<video preload="auto"')
-                    res.data.jails.desc = description
-                    console.log(res.data.jails.desc)
+                    // let description = res.data.jails.description
+                    // description.replace('<video', '<video preload="auto"')
+                    // res.data.jails.desc = description
+                    // console.log(res.data.jails.desc)
                     this.prison = res.data.jails
                 }
             })
