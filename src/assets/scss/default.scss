@@ -17,3 +17,10 @@ html{
 div{
   box-sizing: border-box;
 }
+video{
+  display: block;
+  margin: auto;
+}
+table, img, video{
+  max-width: 100%;
+}

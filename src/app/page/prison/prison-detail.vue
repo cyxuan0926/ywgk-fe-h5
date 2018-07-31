@@ -23,16 +23,15 @@ export default {
     },
     mounted() {
         this.render()
+        // console.log(this.$route, location)
     },
     methods: {
         render() {
             if (!this.$route.params.id) return
             this.api.getPrisonDetail(this.$route.params.id).then(res => {
                 if (res && res.code === 200) {
-                    // let description = res.data.jails.description
-                    // description.replace('<video', '<video preload="auto"')
-                    // res.data.jails.desc = description
-                    // console.log(res.data.jails.desc)
+                    let description = res.data.jails.description.replace(/poster="\/static\/images\/video-cover.png"/g, `poster="${ location.pathname }static/images/video-cover.png"`).replace(/(<video\s[^>]*)\sheight="\d*"/g, '$1')
+                    res.data.jails.description = description
                     this.prison = res.data.jails
                 }
             })
