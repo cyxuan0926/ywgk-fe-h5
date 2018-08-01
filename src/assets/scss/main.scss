@@ -48,3 +48,13 @@ table{
   .center{text-align: center;}
   .law-title{color: red;text-align: center;line-height: 3rem;font-size: 1.2rem;margin: 0;}
 }
+.prison-detail{
+  img{
+    display: block;
+    max-width: 100%;
+  }
+  video{
+    object-fit: cover;
+    margin-bottom: 1rem;
+  }
+}

@@ -9,7 +9,7 @@
           <h3 class="title">{{ prison.title }}</h3>
           <p class="time">发布于  {{ prison.createdAt | formatDate }}</p>
           <img v-if="prison.imageUrl" :src="prison.imageUrl + '?token=' + $store.state.img.imgToken" alt="">
-          <div v-html="prison.description"></div>
+          <div class="prison-detail" v-html="prison.description"></div>
       </div>
     </div>
 </template>
@@ -30,7 +30,7 @@ export default {
             if (!this.$route.params.id) return
             this.api.getPrisonDetail(this.$route.params.id).then(res => {
                 if (res && res.code === 200) {
-                    let description = res.data.jails.description.replace(/poster="\/static\/images\/video-cover.png"/g, `poster="${ location.pathname }static/images/video-cover.png"`).replace(/(<video\s[^>]*)\sheight="\d*"/g, '$1')
+                    let description = res.data.jails.description.replace(/poster="\/static\/images\/video-cover.png"/g, `poster="${ location.pathname }static/images/video-cover.png"`).replace(/(<(\S*?)[^>]*)\sheight="\d*"/g, '$1')
                     res.data.jails.description = description
                     this.prison = res.data.jails
                 }
@@ -43,6 +43,7 @@ export default {
 .detail{
   padding: 0.3rem;
   box-sizing: border-box;
+  overflow-x: hidden;
   .title{
     font-size: 1.3rem;
     color: #444;
