@@ -30,6 +30,7 @@ export default {
             if (!this.$route.params.id) return
             this.api.getPrisonDetail(this.$route.params.id).then(res => {
                 if (res && res.code === 200) {
+                    if (!res.data.jails) return
                     let description = res.data.jails.description.replace(/poster="\/static\/images\/video-cover.png"/g, `poster="${ location.pathname }static/images/video-cover.png"`).replace(/(<(\S*?)[^>]*)\sheight="\d*"/g, '$1')
                     res.data.jails.description = description
                     this.prison = res.data.jails
