@@ -42,11 +42,19 @@
                 <div class="circle"></div>
             </div>
         </div>
+        <div class="detail-button">
+            <div class="button" @click="goForwordSet">继续</div>
+        </div>
     </div>
 </template>
 
 <script>
 export default {
+    methods: {
+        goForwordSet() {
+            window.JSInterface.goSetting()
+        }
+    }
 }
 </script>
 
@@ -79,6 +87,19 @@ export default {
         img {
             width: 15.9rem;
             height: 17.3rem;
+        }
+    }
+    .detail-button {
+        padding: 3.6rem 1.1rem 1.9rem 1.7rem;
+        .button {
+            line-height: 4rem;
+            text-align: center;
+            background:linear-gradient(-90deg,rgba(255,255,255,1) 0%,rgba(56,87,144,1) 0%,rgba(102,102,102,1) 0%,rgba(100,140,214,1) 0%,rgba(83,119,185,1) 100%);
+            border-radius:.4rem;
+            font-size:1.3rem;
+            font-family:PingFang-SC-Medium;
+            font-weight:500;
+            color:rgba(255,255,255,1);
         }
     }
 }
