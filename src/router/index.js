@@ -70,6 +70,17 @@ let routes = [
         ]
     },
     {
+        path: '/guidance',
+        component: main,
+        children: [
+            {
+                path: '/guidance/guidance-detail',
+                name: '自启动权限设置引导',
+                component: resolve => require(['@/app/page/guidance/guidance-detail'], resolve)
+            }
+        ]
+    },
+    {
         path: '*',
         redirect: '/'
     }
