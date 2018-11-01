@@ -5,8 +5,8 @@ import store from '@/store'
 let state = ''
 // const baseUrl = 'https://www.yuwugongkai.com/ywgk/api'
 // const baseUrl = 'http://120.78.190.101:8081/ywgk/api' // 测试
-const baseUrl = 'http://120.78.190.101:8083/ywgk-demo/api' // 演示
-// const baseUrl = 'http://120.78.190.101:8085/ywgk-auth/api' // 认证授权
+// const baseUrl = 'http://120.78.190.101:8083/ywgk-demo/api' // 演示
+const baseUrl = 'http://120.78.190.101:8085/ywgk-auth/api' // 认证授权
 // axios.defaults.baseURL = 'http://39.108.185.51:8081/ywgk'
 const handleApiErr = (res) => {
     if (res.status && res.status >= 500) {

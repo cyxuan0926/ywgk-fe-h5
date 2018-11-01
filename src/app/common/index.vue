@@ -3,6 +3,7 @@
     <li @click="goPage('/law/list?prisonerId=88')">法律法规</li>
     <li @click="goPage('/news/detail/1')">新闻详情</li>
     <li @click="goPage('/prison/detail/104')">监狱详情</li>
+    <li @click="goPage('/guidance/guidance-detail')">自启动权限设置引导</li>
   </ul>
 </template>
 
