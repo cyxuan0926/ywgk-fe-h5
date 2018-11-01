@@ -31,13 +31,37 @@
                     <img src="@/assets/images/second-step.png">
                 </div>
             </div>
-            <div class="fourth-step" style="border-bottom: none;padding: 1.6rem 0 0">
+            <div class="fourth-step" style="border-bottom: none;padding: 1.6rem 0 2.8rem">
                 <div >
                     <img src="@/assets/images/fourth-step.png">
                 </div>
                 <div style="margin-left: 7.7rem;padding-right: .8rem">
                     <p style="text-align: right;width: 3rem;">第4步</p>
                     <p style="text-align: right;width: 3rem;">完成</p>
+                </div>
+                <div class="circle"></div>
+            </div>
+            <div class="tip-content">
+                * 若您的设备为魅族手机，请操作如下两步，将“锁
+                屏下显示界面”权限设置为“允许”:
+            </div>
+            <div class="additional-first-step" style="padding: 1.9rem 0 1.8rem">
+                <div class="circle"></div>
+                <div style="margin-right: 2rem;padding-left: .6rem">
+                    <p>附加第1步</p>
+                    <p>定位置“锁屏下显示界面”</p>
+                </div>
+                <div>
+                    <img src="@/assets/images/additional-first-step.png">
+                </div>
+            </div>
+            <div class="additional-second-step" style="border-bottom: none;padding-top: 1.4rem">
+                <div>
+                    <img src="@/assets/images/addintional-second-step.png">
+                </div>
+                <div style="margin-left: 6.8rem;padding-right: .8rem">
+                    <p style="width: 4.3rem">附加第2步</p>
+                    <p>选择“允许”</p>
                 </div>
                 <div class="circle"></div>
             </div>
@@ -63,7 +87,7 @@ export default {
     box-sizing: border-box;
     .detail-content{
         padding: 2.3rem 2.1rem 0 2.2rem;
-        .first-step,.second-step,.third-step,.fourth-step {
+        .first-step,.second-step,.third-step,.fourth-step, .additional-first-step, .additional-second-step {
             display: flex;
             flex-wrap: nowrap;
             justify-content: center;
@@ -87,6 +111,13 @@ export default {
         img {
             width: 15.9rem;
             height: 17.3rem;
+        }
+        .tip-content {
+            font-size: 1.3rem;
+            font-family:PingFang-SC-Medium;
+            font-weight:500;
+            color:rgba(102,102,102,1);
+            line-height:1.8rem;
         }
     }
     .detail-button {
