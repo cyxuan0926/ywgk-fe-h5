@@ -59,9 +59,9 @@
                 <div>
                     <img src="@/assets/images/addintional-second-step.png">
                 </div>
-                <div style="margin-left: 6.8rem;padding-right: .8rem">
-                    <p style="width: 4.3rem">附加第2步</p>
-                    <p>选择“允许”</p>
+                <div style="margin-left: 6rem;padding-right: .8rem;width: 6.8rem">
+                    <p style="text-align: right">附加第2步</p>
+                    <p style="text-align: right">选择“允许”</p>
                 </div>
                 <div class="circle"></div>
             </div>
