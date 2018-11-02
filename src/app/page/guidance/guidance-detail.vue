@@ -56,14 +56,13 @@ export default {
         'others': components.others
     },
     mounted() {
-        let val = window.location.href.substring(window.location.href.lastIndexOf('=') + 1)
-        // this.$router.replace({ path: '/guidance/guidance-detail', query: { devicename: `${ val }` } })
+        // let val = this.$route.query.devicename.toLocaleLowerCase()
+        let val = window.location.href.substring(window.location.href.lastIndexOf('=') + 1).toLocaleLowerCase()
         if (val) {
-            let temp = val.toLocaleLowerCase()
-            if (temp === 'oppo' || temp === 'vivo') {
+            if (val === 'oppo' || val === 'vivo') {
                 this.showComponent = 'OppoVivo'
             }
-            else if (temp === 'meizu') {
+            else if (val === 'meizu') {
                 this.showComponent = 'Meizu'
             }
             else {
