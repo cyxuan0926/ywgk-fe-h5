@@ -45,6 +45,7 @@ export default {
   padding: 0.3rem;
   box-sizing: border-box;
   overflow-x: hidden;
+  word-break:break-all;
   .title{
     font-size: 1.3rem;
     color: #444;

@@ -40,6 +40,7 @@ export default {
 .detail{
   padding: 0.3rem;
   box-sizing: border-box;
+  word-break:break-all;
   .title{
     font-size: 1.3rem;
     color: #444;
