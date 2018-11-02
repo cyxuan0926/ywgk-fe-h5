@@ -43,6 +43,7 @@ export default {
 <style lang="scss" scoped>
 .detail{
   padding: 0.3rem;
+  width: 100%;
   box-sizing: border-box;
   overflow-x: hidden;
   word-break:break-all;
