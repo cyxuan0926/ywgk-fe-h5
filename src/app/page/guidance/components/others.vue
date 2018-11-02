@@ -36,7 +36,7 @@
             </div>
             <div style="padding-right: .8rem;width: 15rem;margin-left: 1.8rem">
                 <p style="text-align: right;">第6步</p>
-                <p style="text-align: right;">点击“锁频显示”</p>
+                <p style="text-align: right;">点击“锁屏显示”</p>
             </div>
             <div class="circle"></div>
         </div>
