@@ -12,6 +12,9 @@ export default {
     methods: {
         goPage(e) {
             this.$router.push(e)
+        },
+        a() {
+            console.log(1111)
         }
     }
 }
