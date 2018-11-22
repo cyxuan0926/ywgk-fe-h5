@@ -207,6 +207,7 @@ export default {
     img {
         display: block !important;
         max-width: 100%;
+        margin: auto !important;
     }
 }
 .audio-container-right {
@@ -222,7 +223,6 @@ export default {
 .progress__bar {
     height: .16rem;
     background: #264c90;
-    /*margin-left: .4rem*/
 }
 .audio-container-time {
     font-size:.9rem;
