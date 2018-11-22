@@ -63,10 +63,10 @@
                       @timeupdate="handleTimeUpdate"
                       @loadedmetadata="getTotalDuration">
                       <source
-                          :src="prison.audioPath"
+                          :src="prison.audioPath + '?token=' + $store.state.img.imgToken"
                           type="audio/mp3">
                       <source
-                          :src="prison.audioPath"
+                          :src="prison.audioPath + '?token=' + $store.state.img.imgToken"
                           type="audio/ogg">
                       您的浏览器不支持Audio标签
                   </audio>
@@ -158,6 +158,7 @@ export default {
   padding: 1.9rem 1.4rem 2.7rem;
   box-sizing: border-box;
   overflow-x: hidden;
+  word-break:break-all;
   .title{
       font-size:1.5rem;
       font-family:PingFang-SC-Bold;
