@@ -10,7 +10,7 @@
           <p class="time">发布于  {{ prison.createdAt | formatDate }}</p>
           <div
               class="video-container"
-              style="margin-bottom: 1.4rem"
+              style="margin-bottom: 1rem"
               v-if="prison.videoPath">
               <video
                   style="object-fit:fill"
@@ -35,12 +35,12 @@
           </div>
           <div
               class="image-container"
-              style="margin-bottom: 1.4rem"
+              style="margin-bottom: 1rem"
               v-if="prison.imageUrl">
               <img
                   class="prison-image"
                   :src="prison.imageUrl + '?token=' + $store.state.img.imgToken"
-                  alt="监狱图片">
+                  alt="">
           </div>
           <div
               class="audio-container"
@@ -51,7 +51,7 @@
                   <img
                   src="@/assets/images/audio-icon.png"
                   style="width: 2.1rem;vertical-align: middle;cursor: pointer"
-                  alt="音频icon">
+                  alt="">
               </button>
               <div class="audio-container-right">
                   <div
@@ -135,7 +135,7 @@ export default {
       font-family:PingFang-SC-Bold;
       font-weight:bold;
       color:rgba(0,0,0,1);
-      margin-bottom: .9rem;
+      margin-bottom: .7rem;
       margin-top: 0;
   }
   .time{
@@ -144,7 +144,7 @@ export default {
       font-family:PingFang-SC-Medium;
       font-weight:500;
       color:rgba(102,102,102,1);
-      margin-bottom: 1.9rem;
+      margin-bottom: 1.2rem;
   }
 }
 .content{
@@ -168,7 +168,7 @@ export default {
     align-items:center;
     background:rgba(235,235,235,1);
     padding: 1rem 1.3rem;
-    margin-bottom: 1.4rem;
+    margin-bottom: 1rem;
 }
 .prison-detail {
     font-size:1.1rem !important;
