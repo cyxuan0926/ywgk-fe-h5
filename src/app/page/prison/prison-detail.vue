@@ -8,8 +8,77 @@
       <div class="content inner-content"  v-if="prison && prison.createdAt">
           <h3 class="title">{{ prison.title }}</h3>
           <p class="time">发布于  {{ prison.createdAt | formatDate }}</p>
-          <img v-if="prison.imageUrl" :src="prison.imageUrl + '?token=' + $store.state.img.imgToken" alt="">
-          <div class="prison-detail" v-html="prison.description"></div>
+          <div
+              class="video-container"
+              style="margin-bottom: 1rem"
+              v-if="prison.videoPath">
+              <video
+                  style="object-fit:fill"
+                  webkit-playsinline
+                  playsinline
+                  x5-video-player-type="h5"
+                  x5-video-player-fullscreen="true"
+                  x5-video-orientation="portraint"
+                  controls
+                  preload="metadata">
+                  <source
+                      :src="prison.videoPath + '?token=' + $store.state.img.imgToken"
+                      type="video/mp4">
+                  <source
+                      :src="prison.videoPath + '?token=' + $store.state.img.imgToken"
+                      type="video/webm">
+                  <source
+                      :src="prison.videoPath + '?token=' + $store.state.img.imgToken"
+                      type="video/ogg">
+                  您的浏览器不支持Video标签。
+              </video>
+          </div>
+          <div
+              class="image-container"
+              style="margin-bottom: 1rem"
+              v-if="prison.imageUrl">
+              <img
+                  class="prison-image"
+                  :src="prison.imageUrl + '?token=' + $store.state.img.imgToken"
+                  alt="">
+          </div>
+          <div
+              class="audio-container"
+              v-if="prison.audioPath">
+              <button
+                  style="outline: none;margin: 0;padding: 0;border: none;background: transparent;"
+                  @click.prevent="handleAudio">
+                  <img
+                  src="@/assets/images/audio-icon.png"
+                  style="width: 2.1rem;vertical-align: middle;cursor: pointer"
+                  alt="">
+              </button>
+              <div class="audio-container-right">
+                  <div
+                      class="progress__bar"
+                      :style="{'width':progressBarVal+'%'}"
+                      ref="progress-bar"/>
+                  <audio
+                      ref="audio"
+                      @timeupdate="handleTimeUpdate">
+                      <source
+                          :src="prison.audioPath + '?token=' + $store.state.img.imgToken"
+                          type="audio/mp3">
+                      <source
+                          :src="prison.audioPath + '?token=' + $store.state.img.imgToken"
+                          type="audio/ogg">
+                      您的浏览器不支持Audio标签
+                  </audio>
+              </div>
+          </div>
+          <p
+              class="prison-description-title"
+              style="margin-bottom: .9rem;margin-top: 0">
+              监狱简介
+          </p>
+          <div
+              class="prison-detail"
+               v-html="prison.description" />
       </div>
     </div>
 </template>
@@ -18,12 +87,12 @@ export default {
     props: ['api', 'fullLoading'],
     data() {
         return {
-            prison: {}
+            prison: {},
+            progressBarVal: 0
         }
     },
     mounted() {
         this.render()
-        // console.log(this.$route, location)
     },
     methods: {
         render() {
@@ -36,26 +105,90 @@ export default {
                     this.prison = res.data.jails
                 }
             })
+        },
+        handleTimeUpdate() {
+            if (this.$refs.audio.currentTime / this.$refs.audio.duration === 1 || this.$refs.audio.ended || this.$refs.audio.paused || this.progressBarVal >= 96) {
+                this.progressBarVal = 0
+            }
+            else {
+                this.progressBarVal += 32
+            }
+        },
+        handleAudio() {
+            if (this.$refs.audio.paused) {
+                this.$refs.audio.play()
+            }
+            else {
+                this.$refs.audio.pause()
+            }
         }
     }
 }
 </script>
 <style lang="scss" scoped>
 .detail{
-  padding: 0.3rem;
+  padding: 1.9rem 1.4rem 2.7rem;
   box-sizing: border-box;
   overflow-x: hidden;
   .title{
-    font-size: 1.3rem;
-    color: #444;
+      font-size:1.5rem;
+      font-family:PingFang-SC-Bold;
+      font-weight:bold;
+      color:rgba(0,0,0,1);
+      margin-bottom: .7rem;
+      margin-top: 0;
   }
   .time{
-    color: #999;
+      margin-top: 0;
+      font-size:1.1rem;
+      font-family:PingFang-SC-Medium;
+      font-weight:500;
+      color:rgba(102,102,102,1);
+      margin-bottom: 1.2rem;
   }
 }
 .content{
   background: #fff;
   border-radius: 0.1rem;
-  padding: 0 0.3rem 1rem;
+}
+.prison-image {
+    display: block;
+    max-width: 100%;
+    margin: 0 auto;
+}
+.prison-description-title {
+    font-size:1.3rem;
+    font-family:PingFang-SC-Bold;
+    font-weight:bold;
+    color:rgba(51,51,51,1);
+}
+.audio-container {
+    display: flex;
+    justify-items: flex-start;
+    align-items:center;
+    background:rgba(235,235,235,1);
+    padding: 1rem 1.3rem;
+    margin-bottom: 1rem;
+}
+.prison-detail {
+    font-size:1.1rem !important;
+    font-family:PingFang-SC-Medium !important;
+    font-weight:500 !important;
+    color:rgba(102,102,102,1) !important;
+    text-indent: 2.4rem;
+}
+.audio-container-right {
+    width: 86%;
+    height: .7rem;
+    border: .05rem solid #2B569A;
+    margin: 0 auto;
+    border-radius: .4rem;
+    display:flex;
+    align-items:center;
+}
+.progress__bar {
+    height: .16rem;
+    background: #264c90;
+    margin-left: .4rem
 }
 </style>
