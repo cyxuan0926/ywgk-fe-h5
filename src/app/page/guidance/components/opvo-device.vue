@@ -10,7 +10,7 @@
                     <img src="@/assets/images/opvo-third-step.png">
                 </div>
             </div>
-            <div class="fourth-step" style="padding: 1.6rem 0 2.8rem">
+            <div class="fourth-step" style="padding: 1.6rem 0 1.8rem">
                 <div >
                     <img src="@/assets/images/opvp-fourth-step.png">
                 </div>
