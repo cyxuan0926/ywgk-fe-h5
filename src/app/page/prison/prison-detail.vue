@@ -43,6 +43,7 @@
                   alt="">
           </div>
           <div
+              v-if="prison.audioPath"
               class="audio-container">
               <button
                   style="outline: none;margin: 0;padding: 0;border: none;background: transparent;"
@@ -62,10 +63,10 @@
                       @timeupdate="handleTimeUpdate"
                       @loadedmetadata="getTotalDuration">
                       <source
-                          src="http://120.78.190.101:1339/audio-server/audios/GALA - Young For You-1542795853654.mp3?token=523b87c4419da5f9186dbe8aa90f37a3876b95e448fe2a"
+                          :src="prison.audioPath"
                           type="audio/mp3">
                       <source
-                          src="http://120.78.190.101:1339/audio-server/audios/GALA - Young For You-1542795853654.mp3?token=523b87c4419da5f9186dbe8aa90f37a3876b95e448fe2a"
+                          :src="prison.audioPath"
                           type="audio/ogg">
                       您的浏览器不支持Audio标签
                   </audio>
@@ -98,7 +99,8 @@ export default {
             progressBarVal: 0,
             showTime: null,
             audioImgs: [AudioOne, audioTwo, AudioThree],
-            audioImg: AudioThree
+            audioImg: AudioThree,
+            interval: null
         }
     },
     mounted() {
@@ -132,9 +134,17 @@ export default {
         handleAudio() {
             if (this.$refs.audio.paused) {
                 this.$refs.audio.play()
+                let index = 0
+                this.interval = setInterval(() => {
+                    this.audioImg = this.audioImgs[index]
+                    index++
+                    if (index > 2) index = 0
+                }, 1000)
             }
             else {
                 this.$refs.audio.pause()
+                clearInterval(this.interval)
+                this.audioImg = AudioThree
             }
         },
         getTotalDuration() {
@@ -194,9 +204,13 @@ export default {
     font-weight:500 !important;
     color:rgba(102,102,102,1) !important;
     text-indent: 2.4rem;
+    img {
+        display: block !important;
+        max-width: 100%;
+    }
 }
 .audio-container-right {
-    width: 78%;
+    width: 80%;
     height: .7rem;
     border: .05rem solid #2B569A;
     margin: 0 auto;
