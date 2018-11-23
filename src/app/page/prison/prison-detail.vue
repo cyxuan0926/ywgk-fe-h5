@@ -20,7 +20,8 @@
                   x5-video-player-fullscreen="true"
                   x5-video-orientation="portraint"
                   controls
-                  preload="metadata">
+                  preload="auto"
+                  ref="video">
                   <source
                       :src="prison.videoPath + '?token=' + $store.state.img.imgToken"
                       type="video/mp4">
@@ -43,7 +44,7 @@
                   alt="">
           </div>
           <div
-              v-if="prison.audioPath"
+              v-if="prison.audioPath && showTime"
               class="audio-container">
               <button
                   style="outline: none;margin: 0;padding: 0;border: none;background: transparent;"
@@ -58,23 +59,24 @@
                       class="progress__bar"
                       :style="{'width':progressBarVal+'%'}"
                       ref="progress-bar"/>
-                  <audio
-                      ref="audio"
-                      @timeupdate="handleTimeUpdate"
-                      @loadedmetadata="getTotalDuration">
-                      <source
-                          :src="prison.audioPath + '?token=' + $store.state.img.imgToken"
-                          type="audio/mp3">
-                      <source
-                          :src="prison.audioPath + '?token=' + $store.state.img.imgToken"
-                          type="audio/ogg">
-                      您的浏览器不支持Audio标签
-                  </audio>
               </div>
               <div class="audio-container-time">
                   <span>{{ showTime }}</span>
               </div>
           </div>
+          <audio
+              preload="auto"
+              ref="audio"
+              @timeupdate="handleTimeUpdate"
+              @loadedmetadata="getTotalDuration">
+              <source
+                  :src="prison.audioPath + '?token=' + $store.state.img.imgToken"
+                  type="audio/mp3">
+              <source
+                  :src="prison.audioPath + '?token=' + $store.state.img.imgToken"
+                  type="audio/ogg">
+              您的浏览器不支持Audio标签
+          </audio>
           <p
               class="prison-description-title"
               style="margin-bottom: .9rem;margin-top: 0">
@@ -126,6 +128,8 @@ export default {
             if (this.$refs.audio.currentTime / this.$refs.audio.duration === 1 || this.$refs.audio.ended) {
                 this.progressBarVal = 0
                 this.showTime = helper.time(totalTime)
+                clearInterval(this.interval)
+                this.audioImg = AudioThree
             }
             else {
                 this.progressBarVal = (currentTime / totalTime * 100)
