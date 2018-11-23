@@ -7,7 +7,7 @@
       ]">
       <div class="content inner-content"  v-if="prison && prison.createdAt">
           <h3 class="title">{{ prison.title }}</h3>
-          <p class="time">发布于  {{ prison.createdAt | formatDate }}</p>
+          <p class="time">发布于  {{ (prison.updatedAt || prison.createdAt) | formatDate }}</p>
           <div
               class="video-container"
               style="margin-bottom: 1rem"
