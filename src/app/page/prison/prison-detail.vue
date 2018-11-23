@@ -20,6 +20,7 @@
                   x5-video-player-fullscreen="true"
                   x5-video-orientation="portraint"
                   controls
+                  poster="@/assets/images/video-background.png"
                   preload="auto"
                   ref="video">
                   <source
