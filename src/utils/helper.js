@@ -16,5 +16,15 @@ export default {
             if (new RegExp(`(${ k })`).test(fmt)) fmt = fmt.replace(RegExp.$1, (RegExp.$1.length === 1) ? (o[k]) : ((`00${ o[k] }`).substr((`${ o[k] }`).length)))
         }
         return fmt
+    },
+    time(seconds) {
+        const hours = ~~(seconds / 3600)
+        const minutes = ~~(seconds % 3600 / 60)
+        const second = seconds % 3600 % 60
+        let result = ''
+        result += hours ? `${ hours }:` : ''
+        result += minutes ? `${ minutes }:` : '0:'
+        result += second ? second < 10 ? `0${ second }` : `${ second }` : '00'
+        return result
     }
 }
