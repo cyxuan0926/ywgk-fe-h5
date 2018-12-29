@@ -5,6 +5,7 @@ import App from './App'
 import routes from './router'
 import Router from 'vue-router'
 import store from './store/'
+import components from '@/components'
 import * as filters from './filters'
 import './assets/fonts/iconfont.css'
 import './assets/scss/style.scss'
@@ -12,6 +13,11 @@ Vue.config.productionTip = false
 Vue.use(Router)
 
 Object.keys(filters).forEach(k => { Vue.filter(k, filters[k]) }) // 注册过滤器
+// 声明公共功能组件
+Object.keys(components).forEach((key) => {
+    let name = key.replace(/(\w)/, (v) => v.toUpperCase())
+    Vue.component(`m${ name }`, components[key])
+})
 window.router = new Router({
     routes,
     // mode: 'history',
