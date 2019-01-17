@@ -46,7 +46,11 @@
         @click="handlePause">
       <span class="time-container">{{ currentTime }} / {{ totalTime }}</span>
       <div class="progress">
-        <div class="bar"></div>
+        <div
+          class="bar"
+          :style="'left: ' + percentage + '%;'"
+          @touchmove="handleTouchMove"
+          @touchstart="handleTouchStart"></div>
       </div>
     </div>
   </div>
@@ -66,12 +70,23 @@ export default {
             canPlay: true,
             showPlay: true,
             showPause: false,
-            currentTime: '000:00',
-            totalTime: '000:00',
+            currentTime: '00:00',
+            totalTime: '00:00',
             percentage: 0
         }
     },
     methods: {
+        handleTouchStart(e) {
+            console.log('开始移动')
+            console.dir(e)
+            console.dir(e.targetTouches[0])
+            console.log(e.targetTouches[0].pageX - 134)
+        },
+        handleTouchMove(e) {
+            console.log('移动中')
+            console.dir(e.targetTouches[0])
+            console.log(e.targetTouches[0].pageX - 134)
+        },
         onVideoClick(e) {
             if (!this.showPause && e.target.tagName !== 'IMG' && !this.showPlay) {
                 this.showPause = true
@@ -98,17 +113,29 @@ export default {
             this.$refs.video.pause()
         },
         onUpdate(e) {
-            console.log(e.timeStamp)
+            if (this.$refs.video.currentTime / this.$refs.video.duration === 1 || this.$refs.video.ended) {
+                this.percentage = 0
+                this.currentTime = '00:00'
+            }
+            else {
+                this.currentTime = this.timeFormate(Math.ceil(this.$refs.video.currentTime))
+                this.percentage = this.$refs.video.currentTime * 100 / this.$refs.video.duration
+            }
         },
         onLoad() {
             document.querySelector('.poster').style.height = `${ this.$refs.video.offsetHeight }px`
             document.querySelector('.player').style.height = `${ this.$refs.video.offsetHeight }px`
-            console.dir(this.$refs.video)
+            this.totalTime = this.timeFormate(Math.ceil(this.$refs.video.duration), 's')
         },
         timeFormate(time, unit = 'ms') {
-            if (unit !== 'ms') time = parseInt(Number(time) * 1000)
-            else time = parseInt(time)
-            console.log(time)
+            let second = time % 60, munite = parseInt(time / 60), hour = parseInt(munite / 60), timeStr = ''
+            if (hour > 0) timeStr = `${ this.fillPre(hour) }:${ this.fillPre(munite) }:${ this.fillPre(second) }`
+            else if (munite > 0) timeStr = `${ this.fillPre(munite) }:${ this.fillPre(second) }`
+            else timeStr = `00:${ this.fillPre(second) }`
+            return timeStr
+        },
+        fillPre(num) {
+            return `00${ num }`.slice(-2)
         }
     }
 }
