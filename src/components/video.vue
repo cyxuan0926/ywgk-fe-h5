@@ -3,6 +3,8 @@
     <video
       v-if="value"
       ref="video"
+      playsinline
+      webkit-playsinline
       @pause="onPause"
       @play="onPlay"
       @timeupdate="onUpdate"
@@ -33,7 +35,9 @@
         src="@/assets/images/pause.png"
         @click="handlePause">
     </div>
-    <div class="control-container">
+    <div
+      v-if="loaded"
+      class="control-container">
       <img
         v-if="canPlay"
         src="@/assets/images/icon-play.png"
@@ -45,12 +49,15 @@
         class="control-btn"
         @click="handlePause">
       <span class="time-container">{{ currentTime }} / {{ totalTime }}</span>
-      <div class="progress">
+      <div
+        class="progress"
+        @click="handleTapProgress">
         <div
           class="bar"
           :style="'left: ' + percentage + '%;'"
+          @touchstart="handleTouchStart"
           @touchmove="handleTouchMove"
-          @touchstart="handleTouchStart"></div>
+          @touchend="handleTouchEnd"></div>
       </div>
     </div>
   </div>
@@ -72,20 +79,48 @@ export default {
             showPause: false,
             currentTime: '00:00',
             totalTime: '00:00',
-            percentage: 0
+            percentage: 0,
+            touch: {
+                startX: 0,
+                moveX: 0,
+                endX: 0,
+                maxMove: 0,
+                offset: 0
+            },
+            moving: false,
+            loaded: false
         }
     },
     methods: {
         handleTouchStart(e) {
-            console.log('开始移动')
-            console.dir(e)
-            console.dir(e.targetTouches[0])
-            console.log(e.targetTouches[0].pageX - 134)
+            this.touch.startX = e.targetTouches[0].pageX
+            this.moving = true
         },
         handleTouchMove(e) {
-            console.log('移动中')
-            console.dir(e.targetTouches[0])
-            console.log(e.targetTouches[0].pageX - 134)
+            this.touch.moveX = e.targetTouches[0].pageX
+            if (this.touch.moveX <= this.touch.offset) {
+                this.touch.moveX = this.offset
+                this.percentage = 0
+            }
+            else if (this.touch.moveX >= this.touch.offset + this.touch.maxMove) {
+                this.touch.moveX = this.touch.offset + this.touch.maxMove
+                this.percentage = 100
+            }
+            else {
+                this.percentage = (this.touch.moveX - this.touch.offset) / this.touch.maxMove * 100
+            }
+        },
+        handleTouchEnd(e) {
+            this.moving = false
+            this.setCurrentTime()
+        },
+        handleTapProgress(e) {
+            if (e.pageX >= this.touch.offset + this.touch.maxMove) this.percentage = 100
+            else this.percentage = (e.pageX - this.touch.offset) / this.touch.maxMove * 100
+            this.setCurrentTime()
+        },
+        setCurrentTime() {
+            this.$refs.video.currentTime = this.percentage * this.$refs.video.duration / 100
         },
         onVideoClick(e) {
             if (!this.showPause && e.target.tagName !== 'IMG' && !this.showPlay) {
@@ -113,19 +148,25 @@ export default {
             this.$refs.video.pause()
         },
         onUpdate(e) {
+            if (this.moving) return
             if (this.$refs.video.currentTime / this.$refs.video.duration === 1 || this.$refs.video.ended) {
                 this.percentage = 0
                 this.currentTime = '00:00'
             }
             else {
-                this.currentTime = this.timeFormate(Math.ceil(this.$refs.video.currentTime))
+                this.currentTime = this.timeFormate(Math.round(this.$refs.video.currentTime))
                 this.percentage = this.$refs.video.currentTime * 100 / this.$refs.video.duration
             }
         },
         onLoad() {
+            this.loaded = true
             document.querySelector('.poster').style.height = `${ this.$refs.video.offsetHeight }px`
             document.querySelector('.player').style.height = `${ this.$refs.video.offsetHeight }px`
-            this.totalTime = this.timeFormate(Math.ceil(this.$refs.video.duration), 's')
+            this.totalTime = this.timeFormate(Math.round(this.$refs.video.duration), 's')
+            setTimeout(() => {
+                this.touch.maxMove = document.querySelector('.video-container .progress').getBoundingClientRect().width
+                this.touch.offset = document.querySelector('.video-container .progress').getBoundingClientRect().left
+            }, 300)
         },
         timeFormate(time, unit = 'ms') {
             let second = time % 60, munite = parseInt(time / 60), hour = parseInt(munite / 60), timeStr = ''
@@ -150,17 +191,22 @@ video{
   width: 100%;
   float: left;
 }
+video::-webkit-media-controls {
+  display:none !important;
+}
 .poster, .player{
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   vertical-align: top;
+  height: 6rem;
 }
 .player{
   position: relative;
   img{
     position: absolute;
+    vertical-align: middle;
     height: 3.66rem;
     width: 3.66rem;
     left: 50%;
@@ -195,7 +241,7 @@ video{
   .progress{
     height: 0.17rem;
     background: #264C90;
-    width: 16.8rem;
+    width: calc(100% - 10rem);
     float: right;
     position: relative;
     margin-top: 1.58rem;
@@ -208,6 +254,8 @@ video{
     position: absolute;
     top: -0.32rem;
     left: 0;
+    transition: left 0.1s linear;
+    cursor: pointer;
   }
 }
 </style>
