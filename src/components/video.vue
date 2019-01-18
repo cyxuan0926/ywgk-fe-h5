@@ -109,17 +109,22 @@ export default {
             else {
                 this.percentage = (this.touch.moveX - this.touch.offset) / this.touch.maxMove * 100
             }
+            this.currentTime = this.timeFormate(Math.round(this.percentage * this.$refs.video.duration / 100))
         },
         handleTouchEnd(e) {
-            this.moving = false
             this.setCurrentTime()
         },
         handleTapProgress(e) {
-            if (e.pageX >= this.touch.offset + this.touch.maxMove) this.percentage = 100
-            else this.percentage = (e.pageX - this.touch.offset) / this.touch.maxMove * 100
+            if (e.pageX >= this.touch.offset + this.touch.maxMove) {
+                this.percentage = 100
+            }
+            else {
+                this.percentage = (e.pageX - this.touch.offset) / this.touch.maxMove * 100
+            }
             this.setCurrentTime()
         },
         setCurrentTime() {
+            this.moving = false
             this.$refs.video.currentTime = this.percentage * this.$refs.video.duration / 100
         },
         onVideoClick(e) {
