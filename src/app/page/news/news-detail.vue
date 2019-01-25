@@ -10,23 +10,15 @@
         class="content inner-content">
           <h3 class="title">{{ news.title }}</h3>
           <p class="time">{{ news.jailName }}&nbsp;发布于&nbsp;{{ news.updatedAt || news.createdAt | formatDate }}</p>
-          <video
+          <m-video
             v-if="news.videoPath"
-            controls
-            poster="@/assets/images/video-background.png"
-            style="">
-            <source
-              :src="news.videoPath + '?token=' + $store.state.img.imgToken"
-              type='video/mp4'>
-            <source
-              :src="news.videoPath + '?token=' + $store.state.img.imgToken"
-              type='video/webm'>
-            <source
-              :src="news.videoPath + '?token=' + $store.state.img.imgToken"
-              type='video/ogg'>您的浏览器不支持Video标签。
-          </video>
-          <img v-if="news.imageUrl" :src="news.imageUrl + '?token=' + $store.state.img.imgToken" alt="">
+            :value="news.videoPath + '?token=' + $store.state.img.imgToken" />
+          <img
+            v-if="news.imageUrl"
+            :src="news.imageUrl + '?token=' + $store.state.img.imgToken"
+            alt="">
           <m-audio
+            v-if="news.audioPath"
             :value="news.audioPath + '?token=' + $store.state.img.imgToken"
             width="100%" />
           <div v-html="news.contents"></div>

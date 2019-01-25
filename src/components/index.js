@@ -1,7 +1,9 @@
 import form from './form'
 import audio from './audio'
+import video from './video'
 
 export default {
     form,
-    audio
+    audio,
+    video
 }
