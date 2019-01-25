@@ -8,7 +8,10 @@
       <div class="content inner-content"  v-if="prison && prison.createdAt">
           <h3 class="title">{{ prison.title }}</h3>
           <p class="time">发布于  {{ (prison.updatedAt || prison.createdAt) | formatDate }}</p>
-          <div
+          <m-video
+            v-if="prison.videoPath"
+            :value="prison.videoPath + '?token=' + $store.state.img.imgToken" />
+          <!-- <div
               class="video-container"
               style="margin-bottom: 1rem"
               v-if="prison.videoPath">
@@ -34,7 +37,7 @@
                       type="video/ogg">
                   您的浏览器不支持Video标签。
               </video>
-          </div>
+          </div> -->
           <div
               class="image-container"
               style="margin-bottom: 1rem"
