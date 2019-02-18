@@ -11,33 +11,6 @@
           <m-video
             v-if="prison.videoPath"
             :value="prison.videoPath + '?token=' + $store.state.img.imgToken" />
-          <!-- <div
-              class="video-container"
-              style="margin-bottom: 1rem"
-              v-if="prison.videoPath">
-              <video
-                  style="object-fit:fill"
-                  webkit-playsinline
-                  playsinline
-                  x5-video-player-type="h5"
-                  x5-video-player-fullscreen="true"
-                  x5-video-orientation="portraint"
-                  controls
-                  poster="@/assets/images/video-background.png"
-                  preload="auto"
-                  ref="video">
-                  <source
-                      :src="prison.videoPath + '?token=' + $store.state.img.imgToken"
-                      type="video/mp4">
-                  <source
-                      :src="prison.videoPath + '?token=' + $store.state.img.imgToken"
-                      type="video/webm">
-                  <source
-                      :src="prison.videoPath + '?token=' + $store.state.img.imgToken"
-                      type="video/ogg">
-                  您的浏览器不支持Video标签。
-              </video>
-          </div> -->
           <div
               class="image-container"
               style="margin-bottom: 1rem"
@@ -47,7 +20,11 @@
                   :src="prison.imageUrl + '?token=' + $store.state.img.imgToken"
                   alt="">
           </div>
-          <div
+          <m-audio
+            v-if="prison.audioPath"
+            :value="prison.audioPath + '?token=' + $store.state.img.imgToken"
+            width="100%" />
+          <!-- <div
               v-if="prison.audioPath && showTime"
               class="audio-container">
               <button
@@ -67,8 +44,8 @@
               <div class="audio-container-time">
                   <span>{{ showTime }}</span>
               </div>
-          </div>
-          <audio
+          </div> -->
+          <!-- <audio
               preload="auto"
               ref="audio"
               @timeupdate="handleTimeUpdate"
@@ -80,7 +57,7 @@
                   :src="prison.audioPath + '?token=' + $store.state.img.imgToken"
                   type="audio/ogg">
               您的浏览器不支持Audio标签
-          </audio>
+          </audio> -->
           <p
               class="prison-description-title"
               style="margin-bottom: .9rem;margin-top: 0">
