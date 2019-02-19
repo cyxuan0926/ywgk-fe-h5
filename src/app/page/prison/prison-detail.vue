@@ -24,40 +24,6 @@
             v-if="prison.audioPath"
             :value="prison.audioPath + '?token=' + $store.state.img.imgToken"
             width="100%" />
-          <!-- <div
-              v-if="prison.audioPath && showTime"
-              class="audio-container">
-              <button
-                  style="outline: none;margin: 0;padding: 0;border: none;background: transparent;"
-                  @click.prevent="handleAudio">
-                  <img
-                  :src="audioImg"
-                  style="width: 2.1rem;vertical-align: middle;cursor: pointer"
-                  alt="">
-              </button>
-              <div class="audio-container-right">
-                  <div
-                      class="progress__bar"
-                      :style="{'width':progressBarVal+'%'}"
-                      ref="progress-bar"/>
-              </div>
-              <div class="audio-container-time">
-                  <span>{{ showTime }}</span>
-              </div>
-          </div> -->
-          <!-- <audio
-              preload="auto"
-              ref="audio"
-              @timeupdate="handleTimeUpdate"
-              @loadedmetadata="getTotalDuration">
-              <source
-                  :src="prison.audioPath + '?token=' + $store.state.img.imgToken"
-                  type="audio/mp3">
-              <source
-                  :src="prison.audioPath + '?token=' + $store.state.img.imgToken"
-                  type="audio/ogg">
-              您的浏览器不支持Audio标签
-          </audio> -->
           <p
               class="prison-description-title"
               style="margin-bottom: .9rem;margin-top: 0">
