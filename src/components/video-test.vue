@@ -1,8 +1,9 @@
 <template>
   <div
     class="video-container"
-    :style="canshow ? 'padding-bottom: 3.33rem;' : ''">
+    v-if="value">
     <video
+      v-show="loaded"
       ref="video"
       playsinline
       webkit-playsinline
@@ -38,7 +39,7 @@
         @click="handlePause">
     </div>
     <div
-      v-show="canshow"
+      v-if="canshow"
       class="control-container">
       <img
         v-if="canPlay"
@@ -96,15 +97,7 @@ export default {
     },
     watch: {
         loaded(val) {
-            if (val) {
-                setTimeout(() => {
-                    this.canshow = val
-                    this.setTouch()
-                }, 100)
-            }
-            else {
-                this.canshow = false
-            }
+            this.canshow = val
         }
     },
     methods: {
@@ -163,7 +156,7 @@ export default {
         },
         handlePlay() {
             this.$refs.video.play()
-            if (this.begining) this.begining = false
+            this.begining = false
         },
         handlePause() {
             this.$refs.video.pause()
@@ -180,11 +173,17 @@ export default {
             }
         },
         onLoad() {
-            this.totalTime = this.timeFormate(Math.round(this.$refs.video.duration), 's')
             this.loaded = true
             setTimeout(() => {
+                // document.querySelector('.poster').style.height = `${ document.querySelector('video').offsetHeight }px`
+                this.totalTime = this.timeFormate(Math.round(this.$refs.video.duration), 's')
+                setTimeout(() => {
+                    this.touch.maxMove = document.querySelector('.video-container .progress').getBoundingClientRect().width
+                    this.touch.offset = document.querySelector('.video-container .progress').getBoundingClientRect().left
+                }, 300)
                 document.querySelector('.video-container').style.height = `calc(${ this.$refs.video.offsetHeight }px + 3.33rem)`
-            }, 100)
+                this.$forceUpdate()
+            }, 300)
         },
         timeFormate(time, unit = 'ms') {
             let second = time % 60, munite = parseInt(time / 60), hour = parseInt(munite / 60), timeStr = ''
@@ -196,11 +195,10 @@ export default {
         fillPre(num) {
             return `00${ num }`.slice(-2)
         },
-        setTouch() {
+        getStyle(selector, attr) {
             setTimeout(() => {
-                this.touch.maxMove = document.querySelector('.video-container .progress').getBoundingClientRect().width
-                this.touch.offset = document.querySelector('.video-container .progress').getBoundingClientRect().left
-            }, 100)
+                return document.querySelector(selector)[attr]
+            }, 300)
         }
     }
 }
@@ -211,8 +209,8 @@ export default {
   overflow: hidden;
   margin-bottom: 0.8rem;
   position: relative;
-  // background-color: blue;
-  // padding-bottom: 3.33rem;
+  background-color: red;
+  padding-bottom: 3.33rem;
   height: 0;
 }
 video{
