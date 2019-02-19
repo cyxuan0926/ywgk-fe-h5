@@ -11,33 +11,6 @@
           <m-video
             v-if="prison.videoPath"
             :value="prison.videoPath + '?token=' + $store.state.img.imgToken" />
-          <!-- <div
-              class="video-container"
-              style="margin-bottom: 1rem"
-              v-if="prison.videoPath">
-              <video
-                  style="object-fit:fill"
-                  webkit-playsinline
-                  playsinline
-                  x5-video-player-type="h5"
-                  x5-video-player-fullscreen="true"
-                  x5-video-orientation="portraint"
-                  controls
-                  poster="@/assets/images/video-background.png"
-                  preload="auto"
-                  ref="video">
-                  <source
-                      :src="prison.videoPath + '?token=' + $store.state.img.imgToken"
-                      type="video/mp4">
-                  <source
-                      :src="prison.videoPath + '?token=' + $store.state.img.imgToken"
-                      type="video/webm">
-                  <source
-                      :src="prison.videoPath + '?token=' + $store.state.img.imgToken"
-                      type="video/ogg">
-                  您的浏览器不支持Video标签。
-              </video>
-          </div> -->
           <div
               class="image-container"
               style="margin-bottom: 1rem"
@@ -47,40 +20,10 @@
                   :src="prison.imageUrl + '?token=' + $store.state.img.imgToken"
                   alt="">
           </div>
-          <div
-              v-if="prison.audioPath && showTime"
-              class="audio-container">
-              <button
-                  style="outline: none;margin: 0;padding: 0;border: none;background: transparent;"
-                  @click.prevent="handleAudio">
-                  <img
-                  :src="audioImg"
-                  style="width: 2.1rem;vertical-align: middle;cursor: pointer"
-                  alt="">
-              </button>
-              <div class="audio-container-right">
-                  <div
-                      class="progress__bar"
-                      :style="{'width':progressBarVal+'%'}"
-                      ref="progress-bar"/>
-              </div>
-              <div class="audio-container-time">
-                  <span>{{ showTime }}</span>
-              </div>
-          </div>
-          <audio
-              preload="auto"
-              ref="audio"
-              @timeupdate="handleTimeUpdate"
-              @loadedmetadata="getTotalDuration">
-              <source
-                  :src="prison.audioPath + '?token=' + $store.state.img.imgToken"
-                  type="audio/mp3">
-              <source
-                  :src="prison.audioPath + '?token=' + $store.state.img.imgToken"
-                  type="audio/ogg">
-              您的浏览器不支持Audio标签
-          </audio>
+          <m-audio
+            v-if="prison.audioPath"
+            :value="prison.audioPath + '?token=' + $store.state.img.imgToken"
+            width="100%" />
           <p
               class="prison-description-title"
               style="margin-bottom: .9rem;margin-top: 0">
