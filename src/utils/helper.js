@@ -1,4 +1,7 @@
 // 工具类函数
+let fillPre = (val) => {
+    return `00${ val }`.slice(-2)
+}
 export default {
     formatDate: (timestamp, fmt) => {
         var date = new Date(timestamp),
@@ -26,5 +29,25 @@ export default {
         result += minutes ? `${ minutes }:` : '0:'
         result += second ? second < 10 ? `0${ second }` : `${ second }` : '00'
         return result
+    },
+    durationFormat: (duration, { format = 'HH:mm:ss', unit = 's' }) => {
+        if ([undefined, null, ''].indexOf(duration) > -1) {
+            return duration
+        }
+        if (unit !== 's') {
+            return 'unkown-unit'
+        }
+        duration = parseInt(duration)
+        let ss, mm, hh
+        ss = duration % 60
+        if (unit === 's' && format === 'HH:mm:ss') {
+            mm = parseInt(duration / 60) % 60
+            hh = parseInt(duration / 60 / 60)
+            return `${ fillPre(hh) }:${ fillPre(mm) }:${ fillPre(ss) }`
+        }
+        if (unit === 's' && format === 'mm:ss') {
+            mm = (duration - ss) / 60
+            return `${ mm >= 100 ? mm : fillPre(mm) }:${ fillPre(ss) }`
+        }
     }
 }
