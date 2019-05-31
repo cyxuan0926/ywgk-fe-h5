@@ -1,3 +1,4 @@
+/* eslint-disable import/no-duplicates */
 import main from '@/app/common/main'
 // 导入第三级菜单
 // import third from '@/app/common/third'

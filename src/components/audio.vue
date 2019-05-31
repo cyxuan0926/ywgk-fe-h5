@@ -35,6 +35,7 @@
   </div>
 </template>
 <script>
+/* eslint-disable import/no-duplicates */
 import AudioThree from '@/assets/images/audio-icon.png'
 import AudioOne from '@/assets/images/audio-no.png'
 import audioTwo from '@/assets/images/audio-one.png'

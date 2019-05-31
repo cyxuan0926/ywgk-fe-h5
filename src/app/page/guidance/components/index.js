@@ -1,3 +1,4 @@
+/* eslint-disable import/no-duplicates */
 import coolPad from './coolpad-device'
 import huaWei from './huawei-device'
 import LG from './LG-device'

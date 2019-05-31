@@ -1,3 +1,4 @@
+/* eslint-disable import/no-duplicates */
 import Vue from 'vue'
 import Vuex from 'vuex'
 

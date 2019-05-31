@@ -5,22 +5,13 @@
   "author": "GKZX",
   "private": true,
   "scripts": {
-    "dev": "cross-env CURRENT_ENV=dev webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",
+    "dev": "webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",
     "start": "npm run dev",
     "unit": "jest --config test/unit/jest.conf.js --coverage",
     "e2e": "node test/e2e/runner.js",
     "test": "npm run unit && npm run e2e",
     "lint": "eslint --ext .js,.vue src test/unit/specs test/e2e/specs",
-    "build:dev": "cross-env CURRENT_ENV=dev node build/build.js",
-    "build:prod": "cross-env CURRENT_ENV=production node build/build.js",
-    "deploy:dev": "npx deployment-cli deploy deploy/deploy.dev.conf.js",
-    "deploy:prod": "npx deployment-cli deploy deploy/deploy.prod.conf.js",
-    "commit": "git-cz"
-  },
-  "config": {
-    "commitizen": {
-      "path": "node_modules/cz-conventional-changelog"
-    }
+    "build": "node build/build.js"
   },
   "dependencies": {
     "axios": "^0.17.1",
@@ -44,9 +35,7 @@
     "babel-register": "^6.22.0",
     "chalk": "^2.0.1",
     "chromedriver": "^2.27.2",
-    "commitizen": "^3.1.1",
     "copy-webpack-plugin": "^4.0.1",
-    "cross-env": "^5.2.0",
     "cross-spawn": "^5.0.1",
     "css-loader": "^0.28.0",
     "element-ui": "^2.3.3",

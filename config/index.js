@@ -17,22 +17,7 @@ module.exports = {
                 pathRewrite: {
                     '^/wqw': '/wqw'
                 }
-            },
-            '/ywgk/api': {
-                target: 'http://120.79.251.238:8021',
-                changeOrigin: true,
-                pathRewrite: {
-                    '^/ywgk/api': '/ywgk/api'
-                }  
             }
-            // '/ywgk/api': {
-            //     target: 'https://www.yuwugongkai.com',
-            //     changeOrigin: true,
-            //     secure: true,
-            //     pathRewrite: {
-            //         '^/ywgk/api': '/ywgk/api'
-            //     }  
-            // }
         },
 
         // Various Dev Server settings

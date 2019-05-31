@@ -32,6 +32,7 @@
 </template>
 
 <script>
+/* eslint-disable import/no-duplicates */
 import components from './components/index'
 export default {
     data() {

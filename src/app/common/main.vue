@@ -7,6 +7,7 @@
 </template>
 
 <script>
+/* eslint-disable import/no-duplicates */
 import { apiList } from '@/api/'
 import { mapGetters } from 'vuex'
 
