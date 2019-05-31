@@ -13,7 +13,7 @@
     "lint": "eslint --ext .js,.vue src test/unit/specs test/e2e/specs",
     "build:dev": "cross-env CURRENT_ENV=dev node build/build.js",
     "build:prod": "cross-env CURRENT_ENV=production node build/build.js",
-    "deploy:dev": "npx deployment-cli deploy deploy/deploy.test.conf.js",
+    "deploy:dev": "npx deployment-cli deploy deploy/deploy.dev.conf.js",
     "deploy:prod": "npx deployment-cli deploy deploy/deploy.prod.conf.js",
     "commit": "git-cz"
   },
