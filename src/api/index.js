@@ -2,13 +2,16 @@
 import axios from 'axios'
 import resCode from './resCode'
 import store from '@/store'
+import ulrs from './urls'
 
 let state = ''
 // const baseUrl = 'https://www.yuwugongkai.com/ywgk/api'
 // const baseUrl = 'http://120.78.190.101:8081/ywgk/api' // 测试
-const baseUrl = 'http://120.79.251.238:8021/ywgk/api' // 演示
+// const baseUrl = 'http://120.79.251.238:8021/ywgk/api' // 演示
 // const baseUrl = 'http://120.78.190.101:8085/ywgk-auth/api'
 // axios.defaults.baseURL = 'http://39.108.185.51:8081/ywgk'
+
+const proxyBaseUrl = ulrs.apiPath
 const handleApiErr = (res) => {
     if (res.status && res.status >= 500) {
         router.replace({ path: '/net-error', query: { r: router.currentRoute.fullPath } })
@@ -55,22 +58,22 @@ export const apiList = {
         return axios({ method: params.method, url: `${ params.url }`, [str]: params.options }).then(res => res)
     },
     getLawList: params => {
-        return axios.get(`${ baseUrl }/laws/list`, { params: { jailId: 2 } }).then(res => res.code === 200 && res.data)
+        return axios.get(`${ proxyBaseUrl }/laws/list`, { params: { jailId: 2 } }).then(res => res.code === 200 && res.data)
         // return axios.get('https://www.yuwugongkai.com/ywgk/api/laws/list', { params: { jailId: 2 } }).then(res => res.code === 200 && res.data)
     },
     getLawRelated: (params) => {
-        return axios.get(`${ baseUrl }/laws/related`, { params: { prisonerId: params } }).then(res => res && res.data)
+        return axios.get(`${ proxyBaseUrl }/laws/related`, { params: { prisonerId: params } }).then(res => res && res.data)
     },
     getLawDetail: params => {
-        return axios.get(`${ baseUrl }/laws/details`, { params: { id: params } }).then(res => res && res.data)
+        return axios.get(`${ proxyBaseUrl }/laws/details`, { params: { id: params } }).then(res => res && res.data)
     },
     getNewsDetail: params => {
-        return axios.get(`${ baseUrl }/news/details?id=${ params }`).then(res => res)
+        return axios.get(`${ proxyBaseUrl }/news/details?id=${ params }`).then(res => res)
     },
     getPrisonDetail: params => {
-        return axios.get(`${ baseUrl }/jails/details?id=${ params }`).then(res => res)
+        return axios.get(`${ proxyBaseUrl }/jails/details?id=${ params }`).then(res => res)
     },
     testPost: params => { // post请求
-        return axios.post(`${ baseUrl }/testUrl`, params).then(res => res)
+        return axios.post(`${ proxyBaseUrl }/testUrl`, params).then(res => res)
     }
 }
