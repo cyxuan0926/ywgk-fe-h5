@@ -82,6 +82,17 @@ let routes = [
         ]
     },
     {
+        path: '/meeting-notification',
+        component: main,
+        children: [
+            {
+                path: '/meeting-notification/detail',
+                name: '会见告知书详情页',
+                component: resolve => require(['@/app/page/meeting-notification'], resolve)
+            }
+        ]
+    },
+    {
         path: '*',
         redirect: '/'
     }

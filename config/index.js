@@ -20,10 +20,17 @@ module.exports = {
             },
             // 测试/开发环境 本地代理
             '/ywgk/api': {
-                target: 'http://120.79.251.238:8021',
+                target: 'http://47.107.245.151:8021',
                 changeOrigin: true,
                 pathRewrite: {
                     '^/ywgk/api': '/ywgk/api'
+                }
+            },
+            '/ywgk-auth/api': {
+                target: 'http://192.168.0.230:8088',
+                changeOrigin: true,
+                pathRewrite: {
+                    '^/ywgk-auth/api': '/ywgk-auth/api'
                 }
             }
             // 生产环境https 本地代理

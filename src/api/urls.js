@@ -2,12 +2,16 @@
 const env = CURRENT_ENV
 const config = {
     dev: {
-        apiHost: 'http://120.79.251.238:8021',
+        apiHost: 'http://qa-ywgk.yuwugongkai.com',
         apiPath: '/ywgk/api'
     },
     production: {
         apiHost: 'https://www.yuwugongkai.com',
         apiPath: '/ywgk/api'
+    },
+    auth: {
+        apiHost: 'http://192.168.0.230:8088',
+        apiPath: '/ywgk-auth/api'
     }
 }
 export default {

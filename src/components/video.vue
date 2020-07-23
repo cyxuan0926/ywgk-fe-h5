@@ -22,7 +22,7 @@
     </video>
     <img
       v-if="begining && loaded"
-      src="@/assets/images/video-background.png"
+      :src="backgroundImg"
       class="poster">
     <div
       v-if="loaded"
@@ -30,11 +30,11 @@
       @click="onVideoClick">
       <img
         v-if="showPlay"
-        src="@/assets/images/play.png"
+        :src="playImg"
         @click="handlePlay">
       <img
         v-if="showPause"
-        src="@/assets/images/pause.png"
+        :src="pauseImg"
         @click="handlePause">
     </div>
     <div
@@ -42,12 +42,12 @@
       class="control-container">
       <img
         v-if="canPlay"
-        src="@/assets/images/icon-play.png"
+        :src="iconPlay"
         class="control-btn"
         @click="handlePlay">
       <img
         v-else
-        src="@/assets/images/icon-pause.png"
+        :src="iconPause"
         class="control-btn"
         @click="handlePause">
       <span class="time-container">{{ currentTime }} / {{ totalTime }}</span>
@@ -66,15 +66,33 @@
 </template>
 <script>
 // import helper from '@/utils/helper'
+import backgroundImg from '@/assets/images/video-background.png'
+import playImg from '@/assets/images/play.png'
+import pauseImg from '@/assets/images/pause.png'
+import iconPlay from '@/assets/images/icon-play.png'
+import iconPause from '@/assets/images/icon-pause.png'
 export default {
     props: {
         value: {
             type: String,
             default: ''
+        },
+        audioStatus: {
+            type: Number,
+            default: 2
+        },
+        videoStatus: {
+            type: Number,
+            default: 2
         }
     },
     data() {
         return {
+            backgroundImg,
+            playImg,
+            pauseImg,
+            iconPlay,
+            iconPause,
             begining: true,
             canPlay: true,
             showPlay: true,
@@ -104,6 +122,11 @@ export default {
             }
             else {
                 this.canshow = false
+            }
+        },
+        videoStatus(val) {
+            if (!this.$refs.video.paused) {
+                if (!val) this.handlePause()
             }
         }
     },
@@ -163,10 +186,12 @@ export default {
         },
         handlePlay() {
             this.$refs.video.play()
+            this.$emit('update:audioStatus', 0)
             if (this.begining) this.begining = false
         },
         handlePause() {
             this.$refs.video.pause()
+            this.$emit('update:audioStatus', 1)
         },
         onUpdate(e) {
             if (this.moving) return

@@ -7,7 +7,7 @@
       :src="audioImg"
       style="width: 1.28rem;vertical-align: middle;cursor: pointer;height: 1.28rem;"
       @click="handleAudio"
-      alt="">
+      alt="按钮图片">
     <div class="audio-container-right">
       <div
         class="progress__bar"
@@ -15,7 +15,9 @@
         ref="progress-bar"/>
       <audio
         ref="audio"
+        @durationchange="getTotalDuration"
         @timeupdate="handleTimeUpdate"
+        @canplay="getTotalDuration"
         @loadedmetadata="getTotalDuration">
         <source
           :src="value"
@@ -49,6 +51,14 @@ export default {
         width: {
             type: String,
             default: '15.36rem'
+        },
+        audioStatus: {
+            type: Number,
+            default: 2
+        },
+        videoStatus: {
+            type: Number,
+            default: 2
         }
     },
     data() {
@@ -60,6 +70,19 @@ export default {
             audioImg: AudioThree,
             interval: null
         }
+    },
+    watch: {
+        audioStatus(val) {
+            if (!this.$refs.audio.paused) {
+                if (!val) {
+                    this.$refs.audio.pause()
+                    clearInterval(this.interval)
+                    this.$emit('update:videoStatus', 1)
+                    this.audioImg = AudioThree
+                }
+            }
+        }
+
     },
     methods: {
         handleTimeUpdate() {
@@ -80,6 +103,7 @@ export default {
         handleAudio() {
             if (this.$refs.audio.paused) {
                 this.$refs.audio.play()
+                this.$emit('update:videoStatus', 0)
                 let index = 0
                 this.interval = setInterval(() => {
                     this.audioImg = this.audioImgs[index]
@@ -89,13 +113,15 @@ export default {
             }
             else {
                 this.$refs.audio.pause()
+                this.$emit('update:videoStatus', 1)
                 clearInterval(this.interval)
                 this.audioImg = AudioThree
             }
         },
-        getTotalDuration(e) {
+        getTotalDuration(val) {
             this.leastTime = helper.durationFormat(parseInt(this.$refs.audio.duration), { format: 'mm:ss' })
             if (!this.show) this.show = true
+            // if (this.$refs.audio.duration && !isNaN(this.$refs.audio.duration) && !this.leastTime) this.leastTime = helper.durationFormat(parseInt(this.$refs.audio.duration), { format: 'mm:ss' })
         }
     }
 }

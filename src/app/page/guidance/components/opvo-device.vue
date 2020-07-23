@@ -7,12 +7,12 @@
                     <p style="width:9rem;">将“自启动”权限打开</p>
                 </div>
                 <div>
-                    <img src="@/assets/images/opvo-third-step.png">
+                    <img src="../../../../assets/images/opvo-third-step.png">
                 </div>
             </div>
             <div class="fourth-step" style="padding: 1.6rem 0 1.8rem">
                 <div >
-                    <img src="@/assets/images/opvp-fourth-step.png">
+                    <img src="../../../../assets/images/opvp-fourth-step.png">
                 </div>
                 <div style="padding-right: .8rem;width: 15rem;margin-left: 1.8rem">
                     <p style="text-align: right;">第4步</p>
@@ -27,7 +27,7 @@
                     <p>将“后台弹出界面”权限打开</p>
                 </div>
                 <div>
-                    <img src="@/assets/images/opvo-fifth-step.png" >
+                    <img src="../../../../assets/images/opvo-fifth-step.png" >
                 </div>
             </div>
             <!--<div class="tip-content">-->

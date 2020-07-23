@@ -9,6 +9,8 @@
           <h3 class="title">{{ prison.title }}</h3>
           <p class="time">发布于  {{ (prison.updatedAt || prison.createdAt) | formatDate }}</p>
           <m-video
+            :audioStatus.sync="audioStatus"
+            :videoStatus.sync="videoStatus"
             v-if="prison.videoPath"
             :value="prison.videoPath + '?token=' + $store.state.img.imgToken" />
           <div
@@ -21,6 +23,8 @@
                   alt="">
           </div>
           <m-audio
+            :videoStatus.sync="videoStatus"
+            :audioStatus.sync="audioStatus"
             v-if="prison.audioPath"
             :value="prison.audioPath + '?token=' + $store.state.img.imgToken"
             width="100%" />
@@ -50,7 +54,9 @@ export default {
             showTime: null,
             audioImgs: [AudioOne, audioTwo, AudioThree],
             audioImg: AudioThree,
-            interval: null
+            interval: null,
+            audioStatus: 2, // 音频状态：0：暂停 1：播放 2初始状态
+            videoStatus: 2  // 视频状态: 暂停/播放
         }
     },
     mounted() {
@@ -62,10 +68,12 @@ export default {
             this.api.getPrisonDetail(this.$route.params.id).then(res => {
                 if (res && res.code === 200) {
                     if (!res.data.jails) return
-                    let description = res.data.jails.description.replace(/poster="\/static\/images\/video-cover.png"/g, `poster="${ location.pathname }static/images/video-cover.png"`).replace(/(<(\S*?)[^>]*)\sheight="\d*"/g, '$1')
-                    res.data.jails.description = description
+                    let description
+                    if (res.data.jails.description) {
+                        description = res.data.jails.description.replace(/poster="\/static\/images\/video-cover.png"/g, `poster="${ location.pathname }static/images/video-cover.png"`).replace(/(<(\S*?)[^>]*)\sheight="\d*"/g, '$1')
+                        res.data.jails.description = description
+                    }
                     this.prison = res.data.jails
-                    this.$refs.audio && this.getTotalDuration()
                 }
             })
         },

@@ -7,12 +7,12 @@
                 <p style="width:9rem;">将“自启动”权限打开</p>
             </div>
             <div>
-                <img src="@/assets/images/others-third-step.png">
+                <img src="../../../../assets/images/others-third-step.png">
             </div>
         </div>
         <div class="fourth-step" style="padding: 1.6rem 0 1.8rem">
             <div >
-                <img src="@/assets/images/others-fourth-step.png">
+                <img src="../../../../assets/images/others-fourth-step.png">
             </div>
             <div style="padding-right: .8rem;width: 15rem;margin-left: 1.8rem">
                 <p style="text-align: right;">第4步</p>
@@ -27,12 +27,12 @@
                 <p>将“权限管理”打开</p>
             </div>
             <div>
-                <img src="@/assets/images/others-fifth-step.png" >
+                <img src="../../../../assets/images/others-fifth-step.png" >
             </div>
         </div>
         <div class="sixth-step" style="padding: 1.6rem 0 1.8rem">
             <div >
-                <img src="@/assets/images/others-fixth-step.png">
+                <img src="../../../../assets/images/others-fixth-step.png">
             </div>
             <div style="padding-right: .8rem;width: 15rem;margin-left: 1.8rem">
                 <p style="text-align: right;">第6步</p>
@@ -47,7 +47,7 @@
                 <p>选择“允许”</p>
             </div>
             <div>
-                <img src="@/assets/images/others-seventh-step.png" >
+                <img src="../../../../assets/images/others-seventh-step.png" >
             </div>
         </div>
     </div>

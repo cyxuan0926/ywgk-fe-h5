@@ -13,6 +13,7 @@
     "lint": "eslint --ext .js,.vue src test/unit/specs test/e2e/specs",
     "build:dev": "cross-env CURRENT_ENV=dev node build/build.js",
     "build:prod": "cross-env CURRENT_ENV=production node build/build.js",
+    "build:auth": "cross-env CURRENT_ENV=auth node build/build.js",
     "commit": "git-cz"
   },
   "dependencies": {

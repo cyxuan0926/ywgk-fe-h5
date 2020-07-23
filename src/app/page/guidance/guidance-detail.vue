@@ -8,16 +8,16 @@
                     <p style="width: 11.2rem;">进入“设置” 点击“更多应用”，进入应用管理</p>
                 </div>
                 <div>
-                 <img src="@/assets/images/first-step.png">
+                 <img src="../../../assets/images/first-step.png">
                 </div>
             </div>
             <div class="second-step" style="padding: 1.6rem 0 1.8rem">
                 <div>
-                    <img src="@/assets/images/second-step.png">
+                    <img src="../../../assets/images/second-step.png">
                 </div>
                 <div style="margin-left: 1.7rem;padding-right: .6rem">
                     <p style="text-align: right">第2步</p>
-                    <p style="width: 11rem;">定位至“狱务通”应用，点击进入应用详情</p>
+                    <p style="width: 11rem;">定位至“国科服务”应用，点击进入应用详情</p>
                 </div>
                 <div class="circle" style="margin-top: .3rem"></div>
             </div>
