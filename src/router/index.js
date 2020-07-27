@@ -93,6 +93,10 @@ let routes = [
         ]
     },
     {
+        path: '/download',
+        component: resolve => require(['@/app/page/download'], resolve)
+    },
+    {
         path: '*',
         redirect: '/'
     }
