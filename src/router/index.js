@@ -94,6 +94,7 @@ let routes = [
     },
     {
         path: '/download',
+        name: '国科服务APP下载',
         component: resolve => require(['@/app/page/download'], resolve)
     },
     {
