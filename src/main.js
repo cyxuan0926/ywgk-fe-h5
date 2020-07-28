@@ -37,7 +37,7 @@ window.router = new Router({
     linkActiveClass: 'active'
 })
 router.beforeEach((to, from, next) => {
-    document.title = to.name
+    // document.title = to.name
     next()
 })
 /* eslint-disable no-new */

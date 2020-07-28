@@ -85,16 +85,23 @@
             },
 
             downloadApp() {
-                if (this.browser.weixin) {
+                if (this.browser.weixin && this.browser.android) {
                     this.isShowModal = true
+                    return
                 }
-                else {
-                    if (this.browser.iPhone || this.browser.iPad) {
-                        window.location.href = 'https://itunes.apple.com/cn/app/%E7%8B%B1%E5%8A%A1%E9%80%9A/id1102307635?mt=8'
-                    }
-                    else if (this.browser.android) {
-                        window.location.href = 'https://www.yuwugongkai.com/app/yuwutong_f.apk?from=wechat'
-                    }
+                // else {
+                //     if (this.browser.iPhone || this.browser.iPad) {
+                //         window.location.href = 'https://itunes.apple.com/cn/app/%E7%8B%B1%E5%8A%A1%E9%80%9A/id1102307635?mt=8'
+                //     }
+                //     else if (this.browser.android) {
+                //         window.location.href = 'https://www.yuwugongkai.com/app/yuwutong_f.apk?from=wechat'
+                //     }
+                // }
+                if (this.browser.iPhone || this.browser.iPad) {
+                    window.location.href = 'https://itunes.apple.com/cn/app/%E7%8B%B1%E5%8A%A1%E9%80%9A/id1102307635?mt=8'
+                }
+                else if (this.browser.android) {
+                    window.location.href = 'https://www.yuwugongkai.com/app/yuwutong_f.apk?from=wechat'
                 }
             }
         },
