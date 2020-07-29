@@ -152,6 +152,9 @@
                     background: none;
                     border: none;
                     appearance: none;
+                    tap-highlight-color: transparent;
+	                touch-callout: none;
+	                user-select: none;
 
                     &:focus,
                     &:active {
@@ -192,7 +195,7 @@
             width: 24.16rem;
             height: 23.08rem;
             padding-left: 1.45rem;
-            padding-top: 2.7rem;
+            padding-top: 2.3rem;
             margin: 0 auto;
             background: url(../../../assets/images/download-con-bg.png) no-repeat left top;
             background-size: 100% auto;
@@ -206,15 +209,15 @@
 
             p {
                 padding-left: 1.25rem;
-                margin: 0 0 1.9rem;
+                margin: 0 0 2rem;
             }
             
             &-sp {
                 background-color: #0A7AE3;
-                font-size: 16px;
+                font-size: 14px;
                 font-weight: 400;
-                border-radius: 1.25rem;
-                padding: .58rem 1.25rem;
+                border-radius: 1.7rem;
+                padding: .5rem 1.5rem;
                 color: #fff;
                 display: inline-block;
             }
@@ -253,7 +256,7 @@
                     font-size: 12px;
                     font-weight: 400;
                     color: #999;
-                    margin:  0 0 .4rem;
+                    margin:  0 0 .2rem;
                 }
 
                 p {
