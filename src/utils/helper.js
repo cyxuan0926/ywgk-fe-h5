@@ -1,3 +1,5 @@
+import { apiList } from '@/api'
+
 // 工具类函数
 let fillPre = (val) => {
     return `00${ val }`.slice(-2)
@@ -49,5 +51,49 @@ export default {
             mm = (duration - ss) / 60
             return `${ mm >= 100 ? mm : fillPre(mm) }:${ fillPre(ss) }`
         }
+    },
+
+    loadScript(url) {
+        return new Promise((resolve, reject) => {
+            const script = document.createElement('script')
+            script.type = 'text/javascript'
+            if (script.readyState) {
+                script.onreadystatechange = function() {
+                    if (script.readyState === 'loaded' || script.readyState === 'complete') {
+                        script.onreadystatechange = null
+                        resolve()
+                    }
+                }
+            }
+            else {
+                script.onload = function() {
+                    resolve()
+                }
+            }
+            script.src = url
+            document.getElementsByTagName('head')[0].appendChild(script)
+        })
+    },
+
+    async setWxConfig(jsApiList = ['updateAppMessageShareData', 'updateTimelineShareData']) {
+        const { data = {} } = await apiList.getweixinConfig({
+            url: location.href.split('#')[0]
+        })
+        return new Promise((resolve, reject) => {
+            if (wx) {
+                wx.config({
+                    appId: data.appId,
+                    timestamp: data.timestamp,
+                    nonceStr: data.nonceStr,
+                    signature: data.signature,
+                    jsApiList
+                })
+                wx.ready(resolve)
+                wx.error(reject)
+            }
+            else {
+                reject()
+            }
+        })
     }
 }

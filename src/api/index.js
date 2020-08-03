@@ -75,5 +75,8 @@ export const apiList = {
     },
     testPost: params => { // post请求
         return axios.post(`${ proxyBaseUrl }/testUrl`, params).then(res => res)
+    },
+    getweixinConfig: params => {
+        return axios.get(`${ proxyBaseUrl }/wx/sign`, { params }).then(res => res)
     }
 }

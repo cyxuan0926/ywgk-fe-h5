@@ -29,7 +29,11 @@
 </template>
 
 <script>
-    import detect from '@/utils/detect.js'
+    import detect from '@/utils/detect'
+    import help from '@/utils/helper'
+    import weixin from '@/common/constants/weixin'
+    import urlConfig from '@/api/urls'
+    
     export default {
         data() {
             return {
@@ -105,7 +109,25 @@
                 }
             }
         },
-        mounted() {
+
+        async mounted() {
+            if (this.browser.weixin) {
+                if (!window.wx) {
+                    await help.loadScript('http://res.wx.qq.com/open/js/jweixin-1.6.0.js')
+                }
+                let link = `${ urlConfig.apiHost }/h5/#/download`
+                help.setWxConfig().then(() => {
+                    wx.updateAppMessageShareData({
+                        ...weixin.SHARE_DATA,
+                        link
+                    })
+
+                    wx.updateTimelineShareData({
+                        ...weixin.SHARE_DATA,
+                        link
+                    })
+                })
+            }
             document.querySelector('#app-download-modal').onclick = () => {
                 this.isShowModal = false
             }
