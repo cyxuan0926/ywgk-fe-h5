@@ -58,6 +58,7 @@ module.exports = {
         'no-useless-return': 0,
         'no-multiple-empty-lines': 0,
         'no-duplicate-imports': 0,
-        'no-undef': 0
+        'no-undef': 0,
+        'no-useless-escape': 0
     }
 }

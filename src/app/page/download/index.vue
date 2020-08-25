@@ -2,7 +2,23 @@
     <div class="app-download">
         <h1 class="app-logo">国科服务</h1>
         <div class="app-download-btn">
-            <span class="app-download-btn__open"><button @click="openApp">打开APP</button></span>
+            <span class="app-download-btn__wxopen" v-if="isCanWxtag">
+                <span class="button">
+                    <wx-open-launch-app
+                        id="wxopen-tag"
+                        class="wxopen-tag"
+                        appid="wx4973a8b575999262"
+                        >
+                        <script type="text/wxtag-template">
+                            <style>.wxtag-btn {display: inline-block; width: 100%; height: 3.75rem; line-height: 3.4rem; text-align: center; font-family: "Microsoft YaHei", sans-serif; font-size: 16px; color: #097AE3;}</style>
+                            <div class="wxtag-btn">打开APP</div>
+                        </script>
+                    </wx-open-launch-app>
+                </span>
+            </span>
+            <span class="app-download-btn__open" v-else>
+                <button @click="openApp">打开APP</button>
+            </span>
             <span class="app-download-btn__download"><button @click="downloadApp">立即下载</button></span>
         </div>
         <h2 class="app-download-title">传递亲情，助力帮教</h2>
@@ -39,10 +55,22 @@
             return {
                 browser: detect(),
                 isShowModal: false,
-                isChecking: false
+                isChecking: false,
+                isCanWxtag: false
             }
         },
         methods: {
+            checkWxVersion(version) {
+                let v = version.split('.')
+                if (v[0] >= 7) {
+                    if (v[1] >= 0) {
+                        if (v[2] >= 12) {
+                            this.isCanWxtag = true
+                        }
+                    }
+                }
+            },
+
             checkAppIsOpen() {
                 return new Promise((resolve, reject) => {
                     let _checkTime = Date.now(),
@@ -110,13 +138,21 @@
             }
         },
 
+        created() {
+            const wechat = navigator.userAgent.match(/MicroMessenger\/([\d\.]+)/i)
+            if (wechat) {
+                this.checkWxVersion(wechat[1])
+            }
+        },
+
         async mounted() {
+            let _this = this
             if (this.browser.weixin) {
                 if (!window.wx) {
-                    await help.loadScript('http://res.wx.qq.com/open/js/jweixin-1.6.0.js')
+                    await help.loadScript('https://res.wx.qq.com/open/js/jweixin-1.6.0.js')
                 }
                 let link = `${ urlConfig.apiHost }/h5/#/download`
-                help.setWxConfig().then(() => {
+                help.setWxConfig().then(data => {
                     wx.updateAppMessageShareData({
                         ...weixin.SHARE_DATA,
                         link
@@ -127,9 +163,20 @@
                         link
                     })
                 })
+                .catch(err => {
+                    alert(err)
+                })
             }
             document.querySelector('#app-download-modal').onclick = () => {
                 this.isShowModal = false
+            }
+
+            if (this.isCanWxtag) {
+                document.getElementById('wxopen-tag').addEventListener('error', function(e) {
+                    if (e && e.detail && e.detail.errMsg) {
+                        _this.downloadApp()
+                    }
+                })
             }
         }
     }
@@ -160,14 +207,17 @@
             text-align: center;
 
             &__open,
+            &__wxopen,
             &__download {
                 display: inline-block;
                 width: 11.25rem;
                 height: 4.58rem;
                 text-align: center;
                 border: none;
+                vertical-align: top;
 
-                button {
+                button, .button {
+                    display: inline-block;
                     width: 100%;
                     height: 3.75rem;
                     font-size: 16px;
@@ -185,8 +235,9 @@
                 }
             }
 
-            &__open {
-                button {
+            &__open,
+            &__wxopen {
+                button, .button {
                     color: #097AE3;
                 }
                 margin-right: 1.16rem;
@@ -200,6 +251,19 @@
                 }
                 background: #B7D9FA url(../../../assets/images/btn-download-bg.png) no-repeat left top;
                 background-size: 100% auto;
+            }
+
+            &__wxopen {
+                .button {
+                    position: relative;
+                    .wxopen-tag {
+                        position: absolute;
+                        left: 0;
+                        top: 0;
+                        width: 100%;
+                        text-align: center;
+                    }
+                }
             }
         }
 

@@ -75,7 +75,7 @@ export default {
         })
     },
 
-    async setWxConfig(jsApiList = ['updateAppMessageShareData', 'updateTimelineShareData']) {
+    async setWxConfig(jsApiList = ['updateAppMessageShareData', 'updateTimelineShareData'], openTagList = ['wx-open-launch-app']) {
         const { data = {} } = await apiList.getweixinConfig({
             url: location.href.split('#')[0]
         })
@@ -86,9 +86,12 @@ export default {
                     timestamp: data.timestamp,
                     nonceStr: data.nonceStr,
                     signature: data.signature,
-                    jsApiList
+                    jsApiList,
+                    openTagList
                 })
-                wx.ready(resolve)
+                wx.ready(() => {
+                    resolve(data)
+                })
                 wx.error(reject)
             }
             else {

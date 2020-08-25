@@ -11,6 +11,7 @@ import * as filters from './filters'
 import './assets/fonts/iconfont.css'
 import './assets/scss/style.scss'
 Vue.config.productionTip = false
+Vue.config.ignoredElements = ['wx-open-launch-app']
 Vue.use(Router)
 
 Object.keys(filters).forEach(k => { Vue.filter(k, filters[k]) }) // 注册过滤器
