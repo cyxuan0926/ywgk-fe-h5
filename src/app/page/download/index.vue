@@ -62,8 +62,15 @@
         methods: {
             checkWxVersion(version) {
                 let v = version.split('.')
-                if (v[0] >= 7) {
-                    if (v[1] >= 0) {
+                v = v.map(n => parseInt(n))
+                if (v[0] > 7) {
+                    this.isCanWxtag = true
+                }
+                else if (v[0] === 7) {
+                    if (v[1] > 0) {
+                        this.isCanWxtag = true
+                    }
+                    else if (v[1] === 0) {
                         if (v[2] >= 12) {
                             this.isCanWxtag = true
                         }
