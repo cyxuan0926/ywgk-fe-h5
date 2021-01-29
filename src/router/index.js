@@ -98,6 +98,11 @@ let routes = [
         component: resolve => require(['@/app/page/download'], resolve)
     },
     {
+        path: '/provice-notice',
+        name: 'ProvinceNotice',
+        component: resolve => require(['@/app/page/province-notices'], resolve)
+    },
+    {
         path: '*',
         redirect: '/'
     }
