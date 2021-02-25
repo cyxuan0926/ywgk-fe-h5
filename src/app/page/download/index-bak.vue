@@ -1,24 +1,35 @@
 <template>
     <div class="app-download">
+        <h1 class="app-logo">国科服务</h1>
         <div class="app-download-btn">
-            <span class="app-download-btn__download"><button @click="downloadApp">立即下载</button></span>
             <span class="app-download-btn__wxopen" v-if="isCanWxtag">
                 <span class="button">
                     <wx-open-launch-app
                         id="wxopen-tag"
                         class="wxopen-tag"
-                        :appid="wx.AppId">
+                        appid="wx4973a8b575999262"
+                        >
                         <script type="text/wxtag-template">
-                            <style>.wxtag-btn {display: inline-block; width: 100%; height: 3.75rem; line-height: 3.4rem; text-align: center; font-family: "Microsoft YaHei", sans-serif; font-size: 14px; color: #097AE3;}</style>
-                            <div class="wxtag-btn">点击打开</div>
+                            <style>.wxtag-btn {display: inline-block; width: 100%; height: 3.75rem; line-height: 3.4rem; text-align: center; font-family: "Microsoft YaHei", sans-serif; font-size: 16px; color: #097AE3;}</style>
+                            <div class="wxtag-btn">打开APP</div>
                         </script>
                     </wx-open-launch-app>
                 </span>
             </span>
             <span class="app-download-btn__open" v-else>
-                <button @click="openApp">点击打开</button>
+                <button @click="openApp">打开APP</button>
             </span>
+            <span class="app-download-btn__download"><button @click="downloadApp">立即下载</button></span>
         </div>
+        <h2 class="app-download-title">传递亲情，助力帮教</h2>
+        <section class="app-download-content">
+            <h3><span class="app-download-content-sp">AI智能识别</span></h3>
+            <p>人脸识别、 声纹识别家属身份</p>
+            <h3><span class="app-download-content-sp">设备安装简单</span></h3>
+            <p>无需技术人员到现场安装</p>
+            <h3><span class="app-download-content-sp">线上可视预约，线上可视通话</span></h3>
+            <p>从申请探视到可视通话，所有流程线上完成</p>
+        </section>
         <div class="app-download-modal" id="app-download-modal" :style="{display: isShowModal ? 'block' : 'none'}">
             <div class="app-download-modal-mask"></div>
             <div class="app-download-modal-content" @click.stop>
@@ -45,8 +56,7 @@
                 browser: detect(),
                 isShowModal: false,
                 isChecking: false,
-                isCanWxtag: false,
-                wx: weixin
+                isCanWxtag: false
             }
         },
         methods: {
@@ -192,24 +202,26 @@
     }
     .app-download {
         width: 100%;
-        height: 60rem;
+        height: 59.1rem;
         background: #B7D9FA url(../../../assets/images/download-bg.png) no-repeat left top;
         background-size: 100% auto;
         overflow: hidden;
 
         &-btn {
             width: 100%;
-            padding-top: 43rem;
+            margin-bottom: 9rem;
+            vertical-align: top;
+            text-align: center;
 
             &__open,
             &__wxopen,
             &__download {
-                display: block;
-                width: 14.58rem;
-                height: 3.75rem;
+                display: inline-block;
+                width: 11.25rem;
+                height: 4.58rem;
                 text-align: center;
                 border: none;
-                margin: 0 auto;
+                vertical-align: top;
 
                 button, .button {
                     display: inline-block;
@@ -233,16 +245,18 @@
             &__open,
             &__wxopen {
                 button, .button {
-                    font-size: 14px;
                     color: #097AE3;
                 }
+                margin-right: 1.16rem;
+                background: #B7D9FA url(../../../assets/images/btn-open-bg.png) no-repeat left top;
+                background-size: 100% auto;
             }
 
             &__download {
                 button {
                     color: #fff;
                 }
-                background: url(../../../assets/images/btn-download-bg.png) no-repeat left top;
+                background: #B7D9FA url(../../../assets/images/btn-download-bg.png) no-repeat left top;
                 background-size: 100% auto;
             }
 

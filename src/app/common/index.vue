@@ -5,6 +5,7 @@
     <li @click="goPage('/prison/detail/104')">监狱详情</li>
     <li @click="goPage('/guidance/guidance-detail')">自启动权限设置引导</li>
     <li @click="goPage('/meeting-notification/detail')">会见告知书</li>
+    <li @click="goPage('/download')">下载页</li>
   </ul>
 </template>
 
