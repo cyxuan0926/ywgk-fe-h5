@@ -6,6 +6,8 @@ import gansuLanzhou from '@/assets/images/gansu-lanzhou.png'
 
 import gansuNvzi from '@/assets/images/gansu-nvzi.png'
 
+import guangdongProvinceDongguang from '@/assets/images/guangdong-province-dongguang.png'
+
 export const noticeImgSwitchJaild = [
     {
         jaild: 20,
@@ -22,5 +24,9 @@ export const noticeImgSwitchJaild = [
     {
         jaild: 86,
         url: gansuNvzi
+    },
+    {
+        jaild: 54,
+        url: guangdongProvinceDongguang
     }
 ]

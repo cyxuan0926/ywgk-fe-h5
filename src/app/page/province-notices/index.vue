@@ -17,7 +17,9 @@ export default {
     created() {
         const { jaild } = this.$route.query
 
-        const { url } = (noticeImgSwitchJaild.filter(item => +item.jaild === +jaild))[0]
+        const result = (noticeImgSwitchJaild.filter(item => +item.jaild === +jaild))[0]
+
+        const url = result ? result.url : ''
 
         this.url = url
     }
