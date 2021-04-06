@@ -10,6 +10,14 @@ import guangdongProvinceDongguang from '@/assets/images/guangdong-province-dongg
 
 import guangdongProvinceSihui from '@/assets/images/guangdong-province-sihui.png'
 
+import guangdongProvinceHeyuan from '@/assets/images/guangdong-province-heyuan.png'
+
+import guangdongProvinceJieyang from '@/assets/images/guangdong-province-jieyang.png'
+
+import guangdongProvinceZhaoqing from '@/assets/images/guangdong-province-zhaoqing.png'
+
+import guangdongProvinceHuizhou from '@/assets/images/guangdong-province-huizhou.png'
+
 export const noticeImgSwitchJaild = [
     {
         jaild: 20,
@@ -34,5 +42,21 @@ export const noticeImgSwitchJaild = [
     {
         jaild: 52,
         url: guangdongProvinceSihui
+    },
+    {
+        jaild: 68,
+        url: guangdongProvinceHeyuan
+    },
+    {
+        jaild: 65,
+        url: guangdongProvinceHuizhou
+    },
+    {
+        jaild: 57,
+        url: guangdongProvinceJieyang
+    },
+    {
+        jaild: 53,
+        url: guangdongProvinceZhaoqing
     }
 ]
