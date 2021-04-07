@@ -3,7 +3,9 @@ const env = CURRENT_ENV
 const config = {
     dev: {
         apiHost: 'http://qa-ywgk.yuwugongkai.com',
-        apiPath: '/ywgk/api'
+        apiPath: '/ywgk/api',
+        yangguangApiHost: 'http://120.78.190.101:8113',
+        yangguangApiPath: '/sunjail'
     },
     production: {
         apiHost: 'https://www.yuwugongkai.com',

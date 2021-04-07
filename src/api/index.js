@@ -12,6 +12,7 @@ let state = ''
 // axios.defaults.baseURL = 'http://39.108.185.51:8081/ywgk'
 
 const proxyBaseUrl = ulrs.apiPath
+const yangguangBaseUrl = `${ ulrs.yangguangApiHost }${ ulrs.yangguangApiPath }`
 const handleApiErr = (res) => {
     if (res.status && res.status >= 500) {
         router.replace({ path: '/net-error', query: { r: router.currentRoute.fullPath } })
@@ -78,5 +79,6 @@ export const apiList = {
     },
     getweixinConfig: params => {
         return axios.get(`${ proxyBaseUrl }/wx/sign`, { params }).then(res => res)
-    }
+    },
+    getAffairsDetail: id => axios.get(`${ yangguangBaseUrl }/contents/getContents/${ id }`)
 }

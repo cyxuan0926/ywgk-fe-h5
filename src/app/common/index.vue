@@ -3,6 +3,7 @@
     <li @click="goPage('/law/list?prisonerId=88')">法律法规</li>
     <li @click="goPage('/news/detail/1')">新闻详情</li>
     <li @click="goPage('/prison/detail/104')">监狱详情</li>
+    <li @click="goPage('/affairs/detail/1331070721997697026')">工作动态详情</li>
     <li @click="goPage('/guidance/guidance-detail')">自启动权限设置引导</li>
     <li @click="goPage('/meeting-notification/detail')">会见告知书</li>
     <li @click="goPage('/download')">下载页</li>
