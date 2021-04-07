@@ -20,14 +20,14 @@ module.exports = {
             },
             // 测试/开发环境 本地代理
             '/ywgk/api': {
-                target: 'http://47.107.245.151:8021',
+                target: 'http://qa-ywgk.yuwugongkai.com',
                 changeOrigin: true,
                 pathRewrite: {
                     '^/ywgk/api': '/ywgk/api'
                 }
             },
             '/ywgk-auth/api': {
-                target: 'http://192.168.0.230:8088',
+                target: 'http://qa-auth-api.yuwugongkai.com',
                 changeOrigin: true,
                 pathRewrite: {
                     '^/ywgk-auth/api': '/ywgk-auth/api'

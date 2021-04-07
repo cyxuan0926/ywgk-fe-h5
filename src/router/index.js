@@ -67,6 +67,11 @@ let routes = [
                 path: '/prison/detail/:id',
                 name: '监狱详情',
                 component: resolve => require(['@/app/page/prison/prison-detail'], resolve)
+            },
+            {
+                path: '/affairs/detail/:id',
+                name: '狱务公开详情',
+                component: resolve => require(['@/app/page/prison/affairs-detail'], resolve)
             }
         ]
     },
