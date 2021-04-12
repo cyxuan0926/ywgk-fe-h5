@@ -5,6 +5,7 @@
         { 'loading' : fullLoading },
         { 'no-content' : !fullLoading && (!prison || !prison.createdAt) }
       ]">
+      
       <div class="content inner-content"  v-if="prison && prison.createdAt">
           <h3 class="title">{{ prison.title }}</h3>
           <p class="time">发布于  {{ (prison.updatedAt || prison.createdAt) | formatDate }}</p>
@@ -45,6 +46,7 @@ import AudioThree from '@/assets/images/audio-icon.png'
 import AudioOne from '@/assets/images/audio-no.png'
 import audioTwo from '@/assets/images/audio-one.png'
 import helper from '@/utils/helper'
+
 export default {
     props: ['api', 'fullLoading'],
     data() {

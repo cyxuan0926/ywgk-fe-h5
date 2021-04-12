@@ -7,9 +7,13 @@ const baseWebpackConfig = require('./webpack.base.conf')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin')
 const portfinder = require('portfinder')
-
-const HOST = process.env.HOST
+const address = require('address');
+const defaultGateway = require('default-gateway')
+const result = defaultGateway.v4.sync()
+const HOST = result ? address.ip(result.interface) : '127.0.0.1'
 const PORT = process.env.PORT && Number(process.env.PORT)
+
+console.log(process.env)
 
 const devWebpackConfig = merge(baseWebpackConfig, {
   module: {
