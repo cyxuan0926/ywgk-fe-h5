@@ -72,9 +72,6 @@ export default {
             interval: null
         }
     },
-    created() {
-        console.log('created==', this.value)
-    },
     watch: {
         audioStatus(val) {
             if (!this.$refs.audio.paused) {
@@ -90,7 +87,6 @@ export default {
     },
     methods: {
         handleTimeUpdate() {
-            console.log('handleTimeUpdate==')
             if (!this.$refs.audio) return
             let totalTime = parseInt(this.$refs.audio.duration),
                 currentTime = parseInt(this.$refs.audio.currentTime)
@@ -110,7 +106,6 @@ export default {
                 this.$refs.audio.play()
                 this.$emit('update:videoStatus', 0)
                 let index = 0
-                console.log('update:videoStatus---0000')
                 this.interval = setInterval(() => {
                     this.audioImg = this.audioImgs[index]
                     index++
