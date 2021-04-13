@@ -9,7 +9,9 @@ const config = {
     },
     production: {
         apiHost: 'https://www.yuwugongkai.com',
-        apiPath: '/ywgk/api'
+        apiPath: '/ywgk/api',
+        yangguangApiHost: 'https://sunjail-api.yuwugongkai.com',
+        yangguangApiPath: '/sunjail'
     },
     auth: {
         apiHost: 'http://192.168.0.230:8088',
