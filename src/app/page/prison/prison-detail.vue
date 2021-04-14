@@ -13,21 +13,21 @@
             :audioStatus.sync="audioStatus"
             :videoStatus.sync="videoStatus"
             v-if="prison.videoPath"
-            :value="prison.videoPath + '?token=' + $store.state.img.imgToken" />
+            :value="`${ prison.videoPath.includes('token') ?  prison.videoPath : `${ prison.videoPath }?token=${ $store.state.img.imgToken }` }`" />
           <div
               class="image-container"
               style="margin-bottom: 1rem"
               v-if="prison.imageUrl">
               <img
                   class="prison-image"
-                  :src="prison.imageUrl + '?token=' + $store.state.img.imgToken"
+                  :src="`${ prison.imageUrl.includes('token') ?  prison.imageUrl : `${ prison.imageUrl }?token=${ $store.state.img.imgToken }` }`"
                   alt="">
           </div>
           <m-audio
             :videoStatus.sync="videoStatus"
             :audioStatus.sync="audioStatus"
             v-if="prison.audioPath"
-            :value="prison.audioPath + '?token=' + $store.state.img.imgToken"
+            :value="`${ prison.audioPath.includes('token') ?  prison.audioPath : `${ prison.audioPath }?token=${ $store.state.img.imgToken }` }`"
             width="100%" />
           <p
               class="prison-description-title"
