@@ -13,8 +13,6 @@ const result = defaultGateway.v4.sync()
 const HOST = result ? address.ip(result.interface) : '127.0.0.1'
 const PORT = process.env.PORT && Number(process.env.PORT)
 
-console.log(process.env)
-
 const devWebpackConfig = merge(baseWebpackConfig, {
   module: {
     rules: utils.styleLoaders({ sourceMap: config.dev.cssSourceMap, usePostCSS: true })

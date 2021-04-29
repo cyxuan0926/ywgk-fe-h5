@@ -8,7 +8,7 @@
         </div>
         <div class="affairs-detail-createtime">发布于 {{affairsData.createTime}}</div>
         <div class="affairs-detail-content" v-if="affairsData.videoUrl">
-            <video :src="affairsData.videoUrl" poster="http://qa-ywgk.yuwugongkai.com/static/images/video-cover.png" controls="controls" width="100%"></video></p>
+            <video :src="affairsData.videoUrl" poster="http://qa-ywgk.yuwugongkai.com/static/images/video-cover.png" controls="controls" width="100%" />
         </div>
         <div class="affairs-detail-content" v-html="affairsData.content"></div>
     </section>

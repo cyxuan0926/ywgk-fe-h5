@@ -18,6 +18,8 @@ import guangdongProvinceZhaoqing from '@/assets/images/guangdong-province-zhaoqi
 
 import guangdongProvinceHuizhou from '@/assets/images/guangdong-province-huizhou.png'
 
+import guangdongProvinceMaoMing from '@/assets/images/guangdong-province-maoming.png'
+
 export const noticeImgSwitchJaild = [
     {
         jaild: 20,
@@ -58,5 +60,9 @@ export const noticeImgSwitchJaild = [
     {
         jaild: 53,
         url: guangdongProvinceZhaoqing
+    },
+    {
+        jaild: 58,
+        url: guangdongProvinceMaoMing
     }
 ]
