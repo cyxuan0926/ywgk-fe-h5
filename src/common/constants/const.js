@@ -2,9 +2,17 @@ import guangdongProvince from '@/assets/images/guangdong-province.png'
 
 import guangxiProvince from '@/assets/images/guangxi-province.png'
 
-import gansuLanzhou from '@/assets/images/gansu-lanzhou.png'
+// 收费广告 甘肃-兰州
+// import gansuLanzhou from '@/assets/images/gansu-lanzhou.png'
 
-import gansuNvzi from '@/assets/images/gansu-nvzi.png'
+// 提示广告 甘肃-兰州
+import gansuLanzhou from '@/assets/images/gansu-lanzhou-warnning.png'
+
+// 收费广告 甘肃-女子
+// import gansuNvzi from '@/assets/images/gansu-nvzi.png'
+
+// 提示广告 甘肃-女子
+import gansuNvzi from '@/assets/images/gansu-nvzi-warnning.png'
 
 import guangdongProvinceDongguang from '@/assets/images/guangdong-province-dongguang.png'
 
