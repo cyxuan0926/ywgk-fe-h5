@@ -28,6 +28,12 @@ import guangdongProvinceHuizhou from '@/assets/images/guangdong-province-huizhou
 
 import guangdongProvinceMaoMing from '@/assets/images/guangdong-province-maoming.png'
 
+import shanxiHuangLing from '@/assets/images/shanxi-huangling.png'
+
+import shanxiMaLan from '@/assets/images/shanxi-malan.png'
+
+import shanxiShangZhou from '@/assets/images/shanxi-shangzhou.png'
+
 export const noticeImgSwitchJaild = [
     {
         jaild: 20,
@@ -72,5 +78,17 @@ export const noticeImgSwitchJaild = [
     {
         jaild: 58,
         url: guangdongProvinceMaoMing
+    },
+    {
+        jaild: 11,
+        url: shanxiHuangLing
+    },
+    {
+        jaild: 10,
+        url: shanxiMaLan
+    },
+    {
+        jaild: 25,
+        url: shanxiShangZhou
     }
 ]
