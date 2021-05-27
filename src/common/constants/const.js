@@ -3,10 +3,10 @@ import guangdongProvince from '@/assets/images/guangdong-province.png'
 import guangxiProvince from '@/assets/images/guangxi-province.png'
 
 // 收费广告 甘肃-兰州
-// import gansuLanzhou from '@/assets/images/gansu-lanzhou.png'
+import gansuLanzhou from '@/assets/images/gansu-lanzhou.png'
 
 // 提示广告 甘肃-兰州
-import gansuLanzhou from '@/assets/images/gansu-lanzhou-warnning.png'
+// import gansuLanzhou from '@/assets/images/gansu-lanzhou-warnning.png'
 
 // 收费广告 甘肃-女子
 // import gansuNvzi from '@/assets/images/gansu-nvzi.png'
@@ -33,6 +33,10 @@ import shanxiHuangLing from '@/assets/images/shanxi-huangling.png'
 import shanxiMaLan from '@/assets/images/shanxi-malan.png'
 
 import shanxiShangZhou from '@/assets/images/shanxi-shangzhou.png'
+
+import shanxiNvZi from '@/assets/images/shanxi-nvzi.png'
+
+import ningxiaNvZi from '@/assets/images/ningxia-nvzi.png'
 
 export const noticeImgSwitchJaild = [
     {
@@ -90,5 +94,13 @@ export const noticeImgSwitchJaild = [
     {
         jaild: 25,
         url: shanxiShangZhou
+    },
+    {
+        jaild: 21,
+        url: shanxiNvZi
+    },
+    {
+        jaild: 81,
+        url: ningxiaNvZi
     }
 ]
