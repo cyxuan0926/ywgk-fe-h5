@@ -1,5 +1,6 @@
 <template>
     <div class="app-download">
+        <h1 class="app-logo">国科服务</h1>
         <div class="app-download-btn">
             <span class="app-download-btn__download"><button @click="downloadApp">立即下载</button></span>
             <span class="app-download-btn__wxopen" v-if="isCanWxtag">
@@ -181,14 +182,24 @@
 
 <style lang="scss" scoped>
     .app-logo {
-        width: 8.83rem;
-        height: 8.83rem;
-        margin: 2.41rem auto 1.16rem;
-        background: #B7D9FA url(../../../assets/images/logo.png) no-repeat left top;
+        // width: 8.83rem;
+        // height: 8.83rem;
+        // margin: 2.41rem auto 1.16rem;
+        // background: #B7D9FA url(../../../assets/images/logo.png) no-repeat left top;
+        // background-size: 100% auto;
+        // font-size: 0;
+        // color: #264C90;
+        // text-indent: -99px;
+        position: absolute;
+        left: 1rem;
+        top: 1.37rem;
+        width: 8.54rem;
+        height: 2.37rem;
+        background: url(../../../assets/images/download-logo.png) no-repeat left top;
         background-size: 100% auto;
+        margin: 0;
         font-size: 0;
-        color: #264C90;
-        text-indent: -99px;
+        color: transparent;
     }
     .app-download {
         width: 100%;
