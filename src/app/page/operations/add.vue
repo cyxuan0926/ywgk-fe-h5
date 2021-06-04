@@ -97,16 +97,18 @@
             </van-cell-group>  
         </div>
         <div class="app-layout-btns">
-            <van-button type="info" size="large" native-type="submit" block>提 交</van-button>
+            <van-button type="info" size="large" native-type="submit" :loading="loading" loading-type="spinner" loading-text="提交中..." block>提 交</van-button>
         </div>
     </van-form>
 </template>
 
 <script>
     import { apiList } from '@/api/index'
+    import { mapGetters } from 'vuex'
     export default {
         data() {
             return {
+                loading: false,
                 xitongName: '全国安置帮教工作信息系统',
                 context: '',
                 fileList: [],
@@ -116,18 +118,7 @@
                 area: '',
                 areaValue: '',
                 areaCodes: [],
-                areaOptions: [
-                    {
-                        text: '浙江省',
-                        id: '330000',
-                        children: [{ text: '杭州市', id: '330100' }]
-                    },
-                    {
-                        text: '江苏省',
-                        id: '320000',
-                        children: [{ text: '南京市', id: '320100' }]
-                    }
-                ],
+                areaOptions: [],
                 sbDanwei: '',
                 rules: {
                     context: [
@@ -196,6 +187,10 @@
                     ]
                 }
             }
+        },
+
+        computed: {
+            ...mapGetters(['userId'])
         },
 
         created() {
@@ -279,8 +274,11 @@
             },
             // 校验成功 提交工单
             async handleSubmit(values) {
+                if (this.loading) {
+                    return
+                }
                 let params = {
-                    userId: '13429897824',
+                    userId: this.userId,
                     xitongName: values.xitongName,
                     context: values.context,
                     lianxiren: values.lianxiren,
@@ -293,16 +291,21 @@
                 if (values.uploader && values.uploader.length) {
                     params.fileIds = values.uploader.map(v => v.res && v.res.id).join(',')
                 }
+                this.loading = true
                 // 提交工单
                 let { data } = await apiList.addOperations(params)
                 if (data) {
                     this.$toast({
                         type: 'success',
                         message: '创建工单成功',
-                        onClose: () => this.$router.push('/operations/list')
+                        onClose: () => {
+                            this.loading = false
+                            this.$router.push('/operations/list')
+                        }
                     })
                 }
                 else {
+                    this.loading = false
                     this.$toast('创建工单失败')
                 }
             }

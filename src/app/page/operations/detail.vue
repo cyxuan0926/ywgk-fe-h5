@@ -103,15 +103,16 @@
                         type: 'success',
                         message: '提交成功',
                         onClose: () => {
+                            this.loading = false
                             this.operationData.state = '4'
                             this.setOperation(this.operationData)
                         }
                     })
                 }
                 else {
+                    this.loading = false
                     this.$toast('提交失败')
                 }
-                this.loading = false
             }
         }
     }

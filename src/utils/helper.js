@@ -6,7 +6,7 @@ let fillPre = (val) => {
 }
 export default {
     generateId() {
-        return `GK_APP_${ `${ Math.random() }`.replace('.', '') }`
+        return `${ `${ Math.random() }`.replace('.', '') }`
     },
     formatDate: (timestamp, fmt) => {
         var date = new Date(timestamp),
