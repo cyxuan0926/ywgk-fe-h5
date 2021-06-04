@@ -13,6 +13,7 @@ let state = ''
 
 const proxyBaseUrl = ulrs.apiPath
 const yangguangBaseUrl = `${ ulrs.yangguangApiHost }${ ulrs.yangguangApiPath }`
+export const opeartionBaseUrl = `${ ulrs.opeartionApiHost }${ ulrs.opeartionApiPath }`
 const handleApiErr = (res) => {
     if (res.status && res.status >= 500) {
         router.replace({ path: '/net-error', query: { r: router.currentRoute.fullPath } })
@@ -80,5 +81,19 @@ export const apiList = {
     getweixinConfig: params => {
         return axios.get(`${ proxyBaseUrl }/wx/sign`, { params }).then(res => res)
     },
-    getAffairsDetail: id => axios.get(`${ yangguangBaseUrl }/contents/getContents/${ id }`)
+    getAffairsDetail: id => axios.get(`${ yangguangBaseUrl }/contents/getContents/${ id }`),
+    // 国科运维 - 查询工单
+    getOperationsList: params => axios.get(`${ opeartionBaseUrl }/resource/problem/searchProblem`, { params }),
+    // 国科运维 - 创建工单
+    addOperations: data => axios.post(`${ opeartionBaseUrl }/resource/problem/saveProblem`, data),
+    // 国科运维 - 添加回复
+    addReplys: data => axios.post(`${ opeartionBaseUrl }/resource/problem/saveReply`, data),
+    // 国科运维 - 添加评价
+    addEvaluates: data => axios.post(`${ opeartionBaseUrl }/resource/problem/saveEvaluate`, data),
+    // 国科运维 - 查询省市区街道
+    getDivisionCode: pid => axios.get(`${ opeartionBaseUrl }/search/code/native?parentId=${ pid }`),
+    // 国科运维 - 图片上传
+    uploadOperationsFile: data => axios.post(`${ opeartionBaseUrl }/saveImg`, data, {
+        headers: { 'content-type': 'multipart/form-data' }
+    })
 }

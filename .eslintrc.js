@@ -36,7 +36,7 @@ module.exports = {
         'no-debugger': process.env.NODE_ENV === 'production' ? 2 : 0,
         'no-console': process.env.NODE_ENV === 'production' ? 2 : 0,
         // 连续声明
-        'one-var': [2, { var: 'always', let: 'always', const: 'never' }],
+        'one-var': [0, { var: 'always', let: 'always', const: 'never' }],
         // switch 必须带有default
         'default-case': 2,
         // 变量的解构赋值前后必须有空格
