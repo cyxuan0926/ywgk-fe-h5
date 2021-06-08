@@ -1,5 +1,5 @@
 <template>
-    <van-form class="app-layout" validate-first @submit="handleSubmit">
+    <van-form class="app-layout" validate-first :show-error="false" @submit="handleSubmit">
         <div class="operation-form">
             <van-cell-group>
                 <van-cell title="（单选）请选择需要运维的系统" />
@@ -39,13 +39,19 @@
                     <template #title>
                         <van-field name="uploader">
                             <template #input>
-                                <van-uploader v-model="fileList" :max-count="4" :after-read="handleAfterRead" />
+                                <van-uploader 
+                                    v-model="fileList"
+                                    multiple
+                                    :max-size="2 * 1024 * 1024"
+                                    :max-count="4"
+                                    :after-read="handleAfterRead"
+                                    @oversize="handleOversize" />
                             </template>
                         </van-field>
                     </template>
                 </van-cell>
             </van-cell-group>
-            <van-cell-group>
+            <van-cell-group class="operation-form-fields">
                 <van-field
                     v-model="lianxiren"
                     required
@@ -59,6 +65,7 @@
                     v-model="phone"
                     required
                     clearable
+                    type="tel"
                     name="phone"
                     label="手机号"
                     maxlength="11"
@@ -97,7 +104,7 @@
             </van-cell-group>  
         </div>
         <div class="app-layout-btns">
-            <van-button type="info" size="large" native-type="submit" :loading="loading" loading-type="spinner" loading-text="提交中..." block>提 交</van-button>
+            <van-button class="app-btn-info" type="info" size="large" native-type="submit" :loading="loading" loading-type="spinner" loading-text="提交中..." block>提 交</van-button>
         </div>
     </van-form>
 </template>
@@ -212,8 +219,8 @@
                     target[`${ n }Code`] = _code.id
                 })
             },
-            // 图片上传
-            async handleAfterRead(f) {
+            // 保存图片到服务器
+            async saveOperationsFile(f) {
                 f.status = 'uploading'
                 f.message = '上传中...'
                 const formData = new FormData()
@@ -227,7 +234,19 @@
                 else {
                     f.status = 'failed'
                     f.message = '上传失败'
+                    f.content = ''
                 }
+            },
+            // 图片上传
+            async handleAfterRead(files) {
+                if (!Array.isArray(files)) {
+                    files = [files]
+                }
+                files.forEach(f => this.saveOperationsFile(f))
+            },
+            // 处理上传图片超过大小限制
+            handleOversize() {
+                this.$toast('图片大小不能超过2M')
             },
             // 显示级联菜单
             handleAreaShow() {
@@ -260,6 +279,9 @@
                         this.setAreaData(clone, value, data)
                         this.areaOptions = clone
                     }
+                    else {
+                        this.handleAreaClose()
+                    }
                 }
             },
             // 省市区级联下拉选择 选择节点
@@ -289,7 +311,7 @@
                 this.resetDivisonParams(params)
                 // 获取工单上传的图片
                 if (values.uploader && values.uploader.length) {
-                    params.fileIds = values.uploader.map(v => v.res && v.res.id).join(',')
+                    params.fileIds = values.uploader.filter(v => v.content && v.res).map(v => v.res.id).join(',')
                 }
                 this.loading = true
                 // 提交工单
@@ -320,11 +342,41 @@
     /deep/ .van-field__word-limit {
         color: #999;
     }
+    /deep/ .van-icon-clear {
+        margin-right: 5px;
+    }
+    /deep/ .van-cell--required {
+        padding-left: 20px;
+    }
     .operation-textarea {
         padding: 0 !important;
     }
     .operation-form {
         flex: 1;
         overflow: auto;
+
+        &-fields {
+            /deep/ .van-field {
+                line-height: 32px;
+            }
+            /deep/ .van-field__body {
+                padding-left: 1rem;
+                background-color: #F4F6F7;
+            }
+            /deep/ .van-field__label {
+                width: 5rem;
+            }
+            /deep/ .van-cell::after {
+                display: none;
+            }
+            /deep/ .van-icon-arrow {
+                margin-left: 0;
+                background-color: #F4F6F7;
+                height: 32px;
+                line-height: 32px;
+                padding-right: .25rem;
+                color: #dcdee0;
+            }
+        }
     }
 </style>

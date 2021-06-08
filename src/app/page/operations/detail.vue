@@ -50,8 +50,8 @@
             </div>
         </div>
         <div class="app-layout-btns">
-            <van-button v-if="operationData.replyList.length && operationData.state != '4'" :loading="loading" type="info" size="large" loading-type="spinner" loading-text="提交中..." block @click="handleClick">提 交</van-button>
-            <van-button v-else type="info" size="large" to="/operations/list" block>返 回</van-button>
+            <van-button class="app-btn-info" v-if="operationData.replyList.length && operationData.state != '4'" :loading="loading" type="info" size="large" loading-type="spinner" loading-text="提交中..." block @click="handleClick">提 交</van-button>
+            <van-button class="app-btn-info" v-else type="info" size="large" to="/operations/list" block>返 回</van-button>
         </div>  
     </div>
 </template>
@@ -76,6 +76,12 @@
 
         computed: {
             ...mapGetters(['operationData', 'userId'])
+        },
+
+        created() {
+            if (this.operationData.state !== '4') {
+                this.operationData.estate = '1'
+            }
         },
 
         methods: {

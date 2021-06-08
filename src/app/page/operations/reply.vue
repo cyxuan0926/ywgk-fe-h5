@@ -16,8 +16,8 @@
                 </template>
             </van-cell>
         </van-cell-group>
-        <div class="app-layout-btns">
-            <van-button :loading="loading" type="info" size="large" loading-type="spinner" loading-text="提交中..." block @click="handleClick">提 交</van-button>
+        <div class="app-layout-btns" style="background-color: #fff;">
+            <van-button class="app-btn-info" :loading="loading" type="info" size="large" loading-type="spinner" loading-text="提交中..." block @click="handleClick">提 交</van-button>
         </div>
     </div>
 </template>
@@ -68,6 +68,7 @@
                                 createTime: moment().format('YYYY-MM-DD HH:mm:ss')
                             })
                             this.setOperation(clone)
+                            this.$router.back()
                         }
                     })
                 }
@@ -84,6 +85,9 @@
     .operation-reply {
         .operation-textarea {
             padding: 0 !important;
+        }
+        /deep/ .van-cell-group {
+            margin-bottom: 1rem;
         }
         /deep/ .van-field__control {
             background-color: #F4F6F7;

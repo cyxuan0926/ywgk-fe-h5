@@ -19,7 +19,7 @@
                         <span class="pull-right" @click="toDetail(item)">全文</span>
                         <span class="operation-item-time">{{ item.createTime }}</span>
                     </dd>
-                    <reply-list v-if="item.replyList.length" :list="item.replyList" />
+                    <reply-list v-if="item.replyList.length" :list="item.replyList" :data="item" />
                     <template v-if="item.replyList.length && item.state != '4'">
                         <dd class="clearfix">
                             <van-button class="operation-item-comment pull-right" type="info" size="small" icon="comment-o" plain @click="toDetail(item)">立即评价</van-button>
@@ -37,7 +37,7 @@
             </template>
         </van-list>
         <div class="app-layout-btns">
-            <van-button type="info" size="large" block @click="handleClick">创建工单</van-button>
+            <van-button class="app-btn-info" type="info" size="large" block @click="handleClick">创建工单</van-button>
         </div>
     </div>
     
