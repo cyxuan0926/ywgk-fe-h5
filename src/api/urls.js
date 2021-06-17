@@ -5,7 +5,9 @@ const config = {
         apiHost: 'http://qa-ywgk.yuwugongkai.com',
         apiPath: '/ywgk/api',
         yangguangApiHost: 'http://120.78.190.101:8113',
-        yangguangApiPath: '/sunjail'
+        yangguangApiPath: '/sunjail',
+        opeartionApiHost: 'http://39.104.161.9:9999',
+        opeartionApiPath: '/problem'
     },
     production: {
         apiHost: 'https://www.yuwugongkai.com',

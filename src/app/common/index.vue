@@ -7,6 +7,7 @@
     <li @click="goPage('/guidance/guidance-detail')">自启动权限设置引导</li>
     <li @click="goPage('/meeting-notification/detail')">会见告知书</li>
     <li @click="goPage('/download')">下载页</li>
+    <li @click="goPage('/operations/list')">国科运维</li>
   </ul>
 </template>
 

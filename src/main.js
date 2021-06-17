@@ -16,9 +16,16 @@ Vue.use(Router)
 
 Object.keys(filters).forEach(k => { Vue.filter(k, filters[k]) }) // 注册过滤器
 // 声明公共功能组件
+// 带install方法的是vant组件 其他是自定义组件
 Object.keys(components).forEach((key) => {
-    let name = key.replace(/(\w)/, (v) => v.toUpperCase())
-    Vue.component(`m${ name }`, components[key])
+    let comp = components[key]
+    if (comp.install) {
+        Vue.use(comp)
+    }
+    else {
+        let name = key.replace(/(\w)/, (v) => v.toUpperCase())
+        Vue.component(`m${ name }`, components[key])
+    }
 })
 window.router = new Router({
     routes,

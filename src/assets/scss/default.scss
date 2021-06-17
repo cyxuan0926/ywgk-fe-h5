@@ -24,3 +24,14 @@ video{
 table, img, video,audio{
   max-width: 100%;
 }
+.pull-left {
+  float: left;
+}
+.pull-right {
+  float: right;
+}
+.clearfix::after {
+  display: table;
+  content: ' ';
+  clear: both;
+}

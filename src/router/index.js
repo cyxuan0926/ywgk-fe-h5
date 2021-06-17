@@ -108,6 +108,33 @@ let routes = [
         component: resolve => require(['@/app/page/province-notices'], resolve)
     },
     {
+        path: '/operations',
+        component: main,
+        name: '国科运维',
+        children: [
+            {
+                path: '/operations/list',
+                name: '国科运维',
+                component: resolve => require(['@/app/page/operations/index'], resolve)
+            },
+            {
+                path: '/operations/detail',
+                name: '国科运维详情',
+                component: resolve => require(['@/app/page/operations/detail'], resolve)
+            },
+            {
+                path: '/operations/add',
+                name: '国科运维',
+                component: resolve => require(['@/app/page/operations/add'], resolve)
+            },
+            {
+                path: '/operations/reply/:id',
+                name: '国科运维',
+                component: resolve => require(['@/app/page/operations/reply'], resolve)
+            }
+        ]
+    },
+    {
         path: '*',
         redirect: '/'
     }
