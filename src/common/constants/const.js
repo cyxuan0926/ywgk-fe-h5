@@ -38,6 +38,8 @@ import shanxiNvZi from '@/assets/images/shanxi-nvzi.png'
 
 import ningxiaNvZi from '@/assets/images/ningxia-nvzi.png'
 
+import softwareUpgradeNotice from '@/assets/images/software-upgrade-notice.jpg'
+
 export const noticeImgSwitchJaild = [
     {
         jaild: 20,
@@ -102,5 +104,10 @@ export const noticeImgSwitchJaild = [
     {
         jaild: 81,
         url: ningxiaNvZi
+    },
+
+    {
+        jaild: -1,
+        url: softwareUpgradeNotice
     }
 ]
