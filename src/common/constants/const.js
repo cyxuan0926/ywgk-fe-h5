@@ -18,7 +18,7 @@ import guangdongProvinceDongguang from '@/assets/images/guangdong-province-dongg
 
 import guangdongProvinceSihui from '@/assets/images/guangdong-province-sihui.png'
 
-import guangdongProvinceHeyuan from '@/assets/images/guangdong-province-heyuan.png'
+import guangdongProvinceHeyuan from '@/assets/images/guangdong-province-heyuan.jpg'
 
 import guangdongProvinceJieyang from '@/assets/images/guangdong-province-jieyang.png'
 
