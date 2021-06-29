@@ -39,6 +39,7 @@
     import help from '@/utils/helper'
     import weixin from '@/common/constants/weixin'
     import urlConfig from '@/api/urls'
+    import qs from 'qs'
     
     export default {
         data() {
@@ -47,10 +48,14 @@
                 isShowModal: false,
                 isChecking: false,
                 isCanWxtag: false,
-                wx: weixin
+                wx: weixin,
+                search: this.$route.query ? `?${ qs.stringify(this.$route.query) }` : ''
             }
         },
         methods: {
+            // 微信开放标签 https://developers.weixin.qq.com/doc/offiaccount/OA_Web_Apps/Wechat_Open_Tag.html
+            // 微信版本要求为：7.0.12及以上
+            // 系统版本要求为：iOS 10.3及以上、Android 5.0及以上
             checkWxVersion(version) {
                 let v = version.split('.')
                 v = v.map(n => parseInt(n))
@@ -68,7 +73,7 @@
                     }
                 }
             },
-
+            // 比较定时器的执行时间
             checkAppIsOpen() {
                 return new Promise((resolve, reject) => {
                     let _checkTime = Date.now(),
@@ -88,7 +93,9 @@
                         }, 30)
                 })
             },
-
+            // 不支持微信开放标签
+            // 在普通浏览器 或者 微信
+            // 在普通浏览器通过延迟判断 当唤起app成功 浏览器切到后台时 延迟执行的时间会更长
             async openApp() {
                 if (this.isChecking) {
                     return
@@ -100,10 +107,10 @@
                     this.isChecking = true
                     let appUrl, _isOpen
                     if (this.browser.iPhone || this.browser.iPad) {
-                        appUrl = 'GKService://'
+                        appUrl = `GKService://${ this.search }`
                     }
                     else if (this.browser.android) {
-                        appUrl = 'com.gkzxhn://gkprison:8080/splash'
+                        appUrl = `com.gkzxhn://gkprison:8080/splash${ this.search }`
                     }
                     window.location.href = appUrl
                     _isOpen = await this.checkAppIsOpen()
@@ -113,7 +120,7 @@
                     }
                 }
             },
-
+            // 下载app
             downloadApp() {
                 if (this.browser.weixin && this.browser.android) {
                     this.isShowModal = true

@@ -97,6 +97,7 @@
                 }
                 this.loading = true
                 let { problemId, star, econtext, estate } = this.operationData
+                star = star || 5
                 let { data } = await apiList.addEvaluates({
                     userId: this.userId,
                     pid: problemId,
@@ -111,7 +112,8 @@
                         onClose: () => {
                             this.loading = false
                             this.operationData.state = '4'
-                            this.setOperation(this.operationData)
+                            this.operationData.star = star
+                            this.setOperation(JSON.parse(JSON.stringify(this.operationData)))
                         }
                     })
                 }

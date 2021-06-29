@@ -13,7 +13,9 @@ const config = {
         apiHost: 'https://www.yuwugongkai.com',
         apiPath: '/ywgk/api',
         yangguangApiHost: 'https://sunjail-api.yuwugongkai.com',
-        yangguangApiPath: '/sunjail'
+        yangguangApiPath: '/sunjail',
+        opeartionApiHost: 'http://39.104.161.9:9999',
+        opeartionApiPath: '/problem'
     },
     auth: {
         apiHost: 'http://192.168.0.230:8088',

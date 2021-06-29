@@ -1,5 +1,5 @@
 <template>
-    <van-form class="app-layout" validate-first :show-error="false" @submit="handleSubmit">
+    <van-form class="app-layout" validate-first validate-trigger="onSubmit" :show-error="false" @submit="handleSubmit">
         <div class="operation-form">
             <van-cell-group>
                 <van-cell title="（单选）请选择需要运维的系统" />
@@ -42,7 +42,7 @@
                                 <van-uploader 
                                     v-model="fileList"
                                     multiple
-                                    :max-size="2 * 1024 * 1024"
+                                    :max-size="5 * 1024 * 1024"
                                     :max-count="4"
                                     :after-read="handleAfterRead"
                                     @oversize="handleOversize" />
@@ -246,7 +246,7 @@
             },
             // 处理上传图片超过大小限制
             handleOversize() {
-                this.$toast('图片大小不能超过2M')
+                this.$toast('图片大小不能超过5M')
             },
             // 显示级联菜单
             handleAreaShow() {
@@ -347,6 +347,11 @@
     }
     /deep/ .van-cell--required {
         padding-left: 20px;
+    }
+    /deep/ .van-uploader__preview-image,
+    /deep/ .van-uploader__upload {
+        width: 78px;
+        height: 78px;
     }
     .operation-textarea {
         padding: 0 !important;

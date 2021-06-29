@@ -45,7 +45,7 @@ window.router = new Router({
     linkActiveClass: 'active'
 })
 router.beforeEach((to, from, next) => {
-    // document.title = to.name
+    document.title = to.meta.title || '国科服务'
     next()
 })
 /* eslint-disable no-new */
