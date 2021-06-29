@@ -18,7 +18,7 @@ import guangdongProvinceDongguang from '@/assets/images/guangdong-province-dongg
 
 import guangdongProvinceSihui from '@/assets/images/guangdong-province-sihui.png'
 
-import guangdongProvinceHeyuan from '@/assets/images/guangdong-province-heyuan.png'
+import guangdongProvinceHeyuan from '@/assets/images/guangdong-province-heyuan.jpg'
 
 import guangdongProvinceJieyang from '@/assets/images/guangdong-province-jieyang.png'
 
@@ -37,6 +37,10 @@ import shanxiShangZhou from '@/assets/images/shanxi-shangzhou.png'
 import shanxiNvZi from '@/assets/images/shanxi-nvzi.png'
 
 import ningxiaNvZi from '@/assets/images/ningxia-nvzi.png'
+
+import softwareUpgradeNotice from '@/assets/images/software-upgrade-notice.jpg'
+
+import visitPhoneOperationNotice from '@/assets/images/visit-phone-operation-notice-3.0.jpg'
 
 export const noticeImgSwitchJaild = [
     {
@@ -102,5 +106,15 @@ export const noticeImgSwitchJaild = [
     {
         jaild: 81,
         url: ningxiaNvZi
+    },
+
+    {
+        jaild: -1,
+        url: softwareUpgradeNotice
+    },
+
+    {
+        jaild: -2,
+        url: visitPhoneOperationNotice
     }
 ]
