@@ -42,6 +42,10 @@ import softwareUpgradeNotice from '@/assets/images/software-upgrade-notice.jpg'
 
 import visitPhoneOperationNotice from '@/assets/images/visit-phone-operation-notice-3.0.jpg'
 
+import shanxiFuPing from '@/assets/images/shanxi-fuping.jpg'
+
+import shanxiZhuangLi from '@/assets/images/shanxi-zhuangli.jpg'
+
 export const noticeImgSwitchJaild = [
     {
         jaild: 20,
@@ -116,5 +120,15 @@ export const noticeImgSwitchJaild = [
     {
         jaild: -2,
         url: visitPhoneOperationNotice
+    },
+
+    {
+        jaild: 18,
+        url: shanxiFuPing
+    },
+
+    {
+        jaild: 26,
+        url: shanxiZhuangLi
     }
 ]
