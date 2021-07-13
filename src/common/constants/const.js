@@ -46,6 +46,9 @@ import shanxiFuPing from '@/assets/images/shanxi-fuping.jpg'
 
 import shanxiZhuangLi from '@/assets/images/shanxi-zhuangli.jpg'
 
+// 国科会务操作流程图
+import GKConferenceOperationProcess from '@/assets/images/conference-operation-process.jpg'
+
 export const noticeImgSwitchJaild = [
     {
         jaild: 20,
@@ -130,5 +133,10 @@ export const noticeImgSwitchJaild = [
     {
         jaild: 26,
         url: shanxiZhuangLi
+    },
+
+    {
+        jaild: 'conferenceProcess',
+        url: GKConferenceOperationProcess
     }
 ]
