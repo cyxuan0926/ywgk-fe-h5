@@ -10,14 +10,14 @@ import { noticeImgSwitchJaild } from '@/common/constants/const'
 export default {
     data() {
         return {
-            url: {}
+            url: ''
         }
     },
 
     created() {
         const { jaild } = this.$route.query
 
-        const result = (noticeImgSwitchJaild.filter(item => +item.jaild === +jaild))[0]
+        const result = (noticeImgSwitchJaild.filter(item => +item.jaild === +jaild || item.jaild === jaild))[0]
 
         const url = result ? result.url : ''
 
