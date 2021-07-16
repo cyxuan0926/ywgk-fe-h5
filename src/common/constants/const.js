@@ -40,6 +40,8 @@ import ningxiaNvZi from '@/assets/images/ningxia-nvzi.png'
 
 import softwareUpgradeNotice from '@/assets/images/software-upgrade-notice.jpg'
 
+import wxpayUpgradeNotice from '@/assets/images/wxpay-upgrade-notice.jpg'
+
 import visitPhoneOperationNotice from '@/assets/images/visit-phone-operation-notice-3.0.jpg'
 
 import shanxiFuPing from '@/assets/images/shanxi-fuping.jpg'
@@ -120,6 +122,11 @@ export const noticeImgSwitchJaild = [
     {
         jaild: -2,
         url: visitPhoneOperationNotice
+    },
+
+    {
+        jaild: -3,
+        url: wxpayUpgradeNotice
     },
 
     {
