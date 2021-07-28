@@ -50,6 +50,12 @@ import shanxiFuPing from '@/assets/images/shanxi-fuping.jpg'
 
 import shanxiZhuangLi from '@/assets/images/shanxi-zhuangli.jpg'
 
+import guoyuxuexiGuanliduan from '@/assets/images/guoyuxuexi-guanliduan.jpg'
+
+import guoyuxuexiXueyuanduan from '@/assets/images/guoyuxuexi-xueyuanduan.jpg'
+
+import guoyuxuexiXueyuanGuanliduan from '@/assets/images/guoyuxuexi-xueyuanguanliduan.jpg'
+
 // 国科会务操作流程图
 import GKConferenceOperationProcess from '@/assets/images/conference-operation-process.jpg'
 
@@ -152,5 +158,17 @@ export const noticeImgSwitchJaild = [
     {
         jaild: 'upgrade-0728',
         url: appUpgradeNotice0728
+    },
+    {
+        jaild: 'guoyu-gl',
+        url: guoyuxuexiGuanliduan
+    },
+    {
+        jaild: 'guoyu-xy',
+        url: guoyuxuexiXueyuanduan
+    },
+    {
+        jaild: 'guoyu-xygl',
+        url: guoyuxuexiXueyuanGuanliduan
     }
 ]
