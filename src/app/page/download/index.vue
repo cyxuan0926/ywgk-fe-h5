@@ -138,7 +138,11 @@
                     window.location.href = 'https://itunes.apple.com/cn/app/%E7%8B%B1%E5%8A%A1%E9%80%9A/id1102307635?mt=8'
                 }
                 else if (this.browser.android) {
+                    // 国科服务 app
                     window.location.href = 'https://www.yuwugongkai.com/app/yuwutong_f.apk?from=wechat'
+
+                    // 国科服务 app（新疆版 qa环境发版使用)
+                    // window.location.href = 'https://www.yuwugongkai.com/app/yuwutong_g.apk?from=wechat'
                 }
             }
         },
