@@ -42,6 +42,8 @@ import softwareUpgradeNotice from '@/assets/images/software-upgrade-notice.jpg'
 
 import wxpayUpgradeNotice from '@/assets/images/wxpay-upgrade-notice.jpg'
 
+import appUpgradeNotice0728 from '@/assets/images/app-upgrade-notice-0728.jpg'
+
 import visitPhoneOperationNotice from '@/assets/images/visit-phone-operation-notice-3.0.jpg'
 
 import shanxiFuPing from '@/assets/images/shanxi-fuping.jpg'
@@ -145,5 +147,10 @@ export const noticeImgSwitchJaild = [
     {
         jaild: 'conferenceProcess',
         url: GKConferenceOperationProcess
+    },
+
+    {
+        jaild: 'upgrade-0728',
+        url: appUpgradeNotice0728
     }
 ]
