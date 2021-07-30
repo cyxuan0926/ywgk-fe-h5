@@ -108,6 +108,11 @@ let routes = [
         component: resolve => require(['@/app/page/province-notices'], resolve)
     },
     {
+        path: '/language/:type', // 学员-stu  管理-adm 双身份-all
+        name: '国语学习',
+        component: resolve => require(['@/app/page/language'], resolve)
+    },
+    {
         path: '/operations',
         component: main,
         name: '国科运维',

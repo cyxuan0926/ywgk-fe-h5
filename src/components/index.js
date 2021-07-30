@@ -2,7 +2,7 @@
 import form from './form'
 import audio from './audio'
 import video from './video'
-import { Toast, Button, Cell, CellGroup, List, RadioGroup, Radio, Form, Field, Popup, Uploader, Cascader, Rate } from 'vant'
+import { Toast, Button, Cell, CellGroup, List, RadioGroup, Radio, Form, Field, Popup, Uploader, Cascader, Rate, Image, Lazyload } from 'vant'
 
 export default {
     form,
@@ -20,5 +20,7 @@ export default {
     Popup,
     Uploader,
     Cascader,
-    Rate
+    Rate,
+    Image,
+    Lazyload
 }
