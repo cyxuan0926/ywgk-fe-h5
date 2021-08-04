@@ -58,6 +58,9 @@ import guoyuxuexiXueyuanGuanliduan from '@/assets/images/guoyuxuexi-xueyuanguanl
 
 // 国科会务操作流程图
 import GKConferenceOperationProcess from '@/assets/images/conference-operation-process.jpg'
+// 国科会务操作流程图
+import loadingBanner from '@/assets/images/loadingBanner.jpg'
+
 
 export const noticeImgSwitchJaild = [
     {
@@ -170,5 +173,9 @@ export const noticeImgSwitchJaild = [
     {
         jaild: 'guoyu-xygl',
         url: guoyuxuexiXueyuanGuanliduan
+    },
+    {
+        jaild: 'loadingBanner',
+        url: loadingBanner
     }
 ]
