@@ -139,10 +139,7 @@
                 }
                 else if (this.browser.android) {
                     // 国科服务 app
-                    window.location.href = 'https://www.yuwugongkai.com/app/yuwutong_f.apk?from=wechat'
-
-                    // 国科服务 app（新疆版 qa环境发版使用)
-                    // window.location.href = 'https://www.yuwugongkai.com/app/yuwutong_g.apk?from=wechat'
+                    window.location.href = urlConfig.downloadApkUrl
                 }
             }
         },
