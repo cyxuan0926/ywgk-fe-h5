@@ -1,66 +1,68 @@
-import guangdongProvince from '@/assets/images/guangdong-province.png'
+import guangdongProvince from '@/assets/images/notices/guangdong-province.png'
 
-import guangxiProvince from '@/assets/images/guangxi-province.png'
+import guangxiProvince from '@/assets/images/notices/guangxi-province.png'
 
 // 收费广告 甘肃-兰州
-import gansuLanzhou from '@/assets/images/gansu-lanzhou.png'
+import gansuLanzhou from '@/assets/images/notices/gansu-lanzhou.png'
 
 // 提示广告 甘肃-兰州
-// import gansuLanzhou from '@/assets/images/gansu-lanzhou-warnning.png'
+// import gansuLanzhou from '@/assets/images/notices/gansu-lanzhou-warnning.png'
 
 // 收费广告 甘肃-女子
-// import gansuNvzi from '@/assets/images/gansu-nvzi.png'
+// import gansuNvzi from '@/assets/images/notices/gansu-nvzi.png'
 
 // 提示广告 甘肃-女子
-import gansuNvzi from '@/assets/images/gansu-nvzi-warnning.png'
+import gansuNvzi from '@/assets/images/notices/gansu-nvzi-warnning.png'
 
-import guangdongProvinceDongguang from '@/assets/images/guangdong-province-dongguang.png'
+import guangdongProvinceDongguang from '@/assets/images/notices/guangdong-province-dongguang.png'
 
-import guangdongProvinceSihui from '@/assets/images/guangdong-province-sihui.png'
+import guangdongProvinceSihui from '@/assets/images/notices/guangdong-province-sihui.png'
 
-import guangdongProvinceHeyuan from '@/assets/images/guangdong-province-heyuan.jpg'
+import guangdongProvinceHeyuan from '@/assets/images/notices/guangdong-province-heyuan.jpg'
 
-import guangdongProvinceJieyang from '@/assets/images/guangdong-province-jieyang.png'
+import guangdongProvinceJieyang from '@/assets/images/notices/guangdong-province-jieyang.png'
 
-import guangdongProvinceZhaoqing from '@/assets/images/guangdong-province-zhaoqing.png'
+import guangdongProvinceZhaoqing from '@/assets/images/notices/guangdong-province-zhaoqing.png'
 
-import guangdongProvinceHuizhou from '@/assets/images/guangdong-province-huizhou.png'
+import guangdongProvinceHuizhou from '@/assets/images/notices/guangdong-province-huizhou.png'
 
-import guangdongProvinceMaoMing from '@/assets/images/guangdong-province-maoming.png'
+import guangdongProvinceMaoMing from '@/assets/images/notices/guangdong-province-maoming.png'
 
-import shanxiHuangLing from '@/assets/images/shanxi-huangling.png'
+import shanxiHuangLing from '@/assets/images/notices/shanxi-huangling.png'
 
-import shanxiMaLan from '@/assets/images/shanxi-malan.png'
+import shanxiMaLan from '@/assets/images/notices/shanxi-malan.png'
 
-import shanxiShangZhou from '@/assets/images/shanxi-shangzhou.png'
+import shanxiShangZhou from '@/assets/images/notices/shanxi-shangzhou.png'
 
-import shanxiNvZi from '@/assets/images/shanxi-nvzi.png'
+import shanxiNvZi from '@/assets/images/notices/shanxi-nvzi.png'
 
-import ningxiaNvZi from '@/assets/images/ningxia-nvzi.png'
+import ningxiaNvZi from '@/assets/images/notices/ningxia-nvzi.png'
 
-import softwareUpgradeNotice from '@/assets/images/software-upgrade-notice.jpg'
+import softwareUpgradeNotice from '@/assets/images/notices/software-upgrade-notice.jpg'
 
-import wxpayUpgradeNotice from '@/assets/images/wxpay-upgrade-notice.jpg'
+import wxpayUpgradeNotice from '@/assets/images/notices/wxpay-upgrade-notice.jpg'
 
-import appUpgradeNotice0728 from '@/assets/images/app-upgrade-notice-0728.jpg'
+import appUpgradeNotice0728 from '@/assets/images/notices/app-upgrade-notice-0728.jpg'
 
-import visitPhoneOperationNotice from '@/assets/images/visit-phone-operation-notice-3.0.jpg'
+import visitPhoneOperationNotice from '@/assets/images/notices/visit-phone-operation-notice-3.0.jpg'
 
-import shanxiFuPing from '@/assets/images/shanxi-fuping.jpg'
+import shanxiFuPing from '@/assets/images/notices/shanxi-fuping.jpg'
 
-import shanxiZhuangLi from '@/assets/images/shanxi-zhuangli.jpg'
+import shanxiZhuangLi from '@/assets/images/notices/shanxi-zhuangli.jpg'
 
-import guoyuxuexiGuanliduan from '@/assets/images/guoyuxuexi-guanliduan.jpg'
+import guoyuxuexiGuanliduan from '@/assets/images/notices/guoyuxuexi-guanliduan.jpg'
 
-import guoyuxuexiXueyuanduan from '@/assets/images/guoyuxuexi-xueyuanduan.jpg'
+import guoyuxuexiXueyuanduan from '@/assets/images/notices/guoyuxuexi-xueyuanduan.jpg'
 
-import guoyuxuexiXueyuanGuanliduan from '@/assets/images/guoyuxuexi-xueyuanguanliduan.jpg'
+import guoyuxuexiXueyuanGuanliduan from '@/assets/images/notices/guoyuxuexi-xueyuanguanliduan.jpg'
 
 // 国科会务操作流程图
-import GKConferenceOperationProcess from '@/assets/images/conference-operation-process.jpg'
+import GKConferenceOperationProcess from '@/assets/images/notices/conference-operation-process.jpg'
 // 国科会务操作流程图
-import loadingBanner from '@/assets/images/loadingBanner.jpg'
+import loadingBanner from '@/assets/images/notices/loadingBanner.jpg'
 
+// 亲情短信操作指南
+import GKFamilyMessage from '@/assets/images/notices/family-message-operation.jpg'
 
 export const noticeImgSwitchJaild = [
     {
@@ -177,5 +179,9 @@ export const noticeImgSwitchJaild = [
     {
         jaild: 'loadingBanner',
         url: loadingBanner
+    },
+    {
+        jaild: 'familyMessage',
+        url: GKFamilyMessage
     }
 ]
