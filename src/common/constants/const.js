@@ -64,6 +64,9 @@ import loadingBanner from '@/assets/images/notices/loadingBanner.jpg'
 // 亲情短信操作指南
 import GKFamilyMessage from '@/assets/images/notices/family-message-operation.jpg'
 
+// 陕西省-榆林监狱
+import shanxiYuLin from '@/assets/images/notices/shanxi-yulin.jpg'
+
 export const noticeImgSwitchJaild = [
     {
         jaild: 20,
@@ -183,5 +186,10 @@ export const noticeImgSwitchJaild = [
     {
         jaild: 'familyMessage',
         url: GKFamilyMessage
+    },
+
+    {
+        jaild: 14,
+        url: shanxiYuLin
     }
 ]
