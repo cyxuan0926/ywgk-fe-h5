@@ -67,6 +67,9 @@ import GKFamilyMessage from '@/assets/images/notices/family-message-operation.jp
 // 陕西省-榆林监狱
 import shanxiYuLin from '@/assets/images/notices/shanxi-yulin.jpg'
 
+// 广东省-会城监狱
+import guangdongHuiCheng from '@/assets/images/notices/guangdong-huicheng.jpg'
+
 export const noticeImgSwitchJaild = [
     {
         jaild: 20,
@@ -191,5 +194,10 @@ export const noticeImgSwitchJaild = [
     {
         jaild: 14,
         url: shanxiYuLin
+    },
+
+    {
+        jaild: 101,
+        url: guangdongHuiCheng
     }
 ]
