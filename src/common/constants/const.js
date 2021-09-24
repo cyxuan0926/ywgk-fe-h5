@@ -16,7 +16,7 @@ import gansuNvzi from '@/assets/images/notices/gansu-nvzi-warnning.png'
 
 import guangdongProvinceDongguang from '@/assets/images/notices/guangdong-province-dongguang.png'
 
-import guangdongProvinceSihui from '@/assets/images/notices/guangdong-province-sihui.png'
+import guangdongProvinceSihui from '@/assets/images/notices/guangdong-province-sihui.jpg'
 
 import guangdongProvinceHeyuan from '@/assets/images/notices/guangdong-province-heyuan.jpg'
 
