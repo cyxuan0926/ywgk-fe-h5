@@ -64,11 +64,32 @@ import loadingBanner from '@/assets/images/notices/loadingBanner.jpg'
 // 亲情短信操作指南
 import GKFamilyMessage from '@/assets/images/notices/family-message-operation.jpg'
 
-// 陕西省-榆林监狱
+// 陕西省 - 榆林监狱
 import shanxiYuLin from '@/assets/images/notices/shanxi-yulin.jpg'
 
-// 广东省-会城监狱
+// 广东省 - 会城监狱
 import guangdongHuiCheng from '@/assets/images/notices/guangdong-huicheng.jpg'
+
+// 陕西省 - 安康监狱
+import shanxiAnKang from '@/assets/images/notices/shanxi-ankang.jpg'
+
+// 陕西省 - 崔家沟监狱
+import shanxiCuiJiaGou from '@/assets/images/notices/shanxi-cuijiagou.jpg'
+
+// 陕西省 - 汉江监狱
+import shanxiHanJiang from '@/assets/images/notices/shanxi-hanjiang.jpg'
+
+// 陕西省 - 汉中监狱
+import shanxiHanZhong from '@/assets/images/notices/shanxi-hanzhong.jpg'
+
+// 陕西省 - 华山监狱
+import shanxiHuaShan from '@/assets/images/notices/shanxi-huashan.jpg'
+
+// 陕西省 - 未管所监狱
+import shanxiWeiGuanSuo from '@/assets/images/notices/shanxi-weiguansuo.jpg'
+
+// 陕西省 - 雁塔监狱
+import shanxiYanTa from '@/assets/images/notices/shanxi-yanta.jpg'
 
 export const noticeImgSwitchJaild = [
     {
@@ -199,5 +220,40 @@ export const noticeImgSwitchJaild = [
     {
         jaild: 101,
         url: guangdongHuiCheng
+    },
+
+    {
+        jaild: 27,
+        url: shanxiAnKang
+    },
+
+    {
+        jaild: 9,
+        url: shanxiCuiJiaGou
+    },
+
+    {
+        jaild: 15,
+        url: shanxiHanJiang
+    },
+
+    {
+        jaild: 20,
+        url: shanxiHanZhong
+    },
+
+    {
+        jaild: 23,
+        url: shanxiHuaShan
+    },
+
+    {
+        jaild: 13,
+        url: shanxiWeiGuanSuo
+    },
+
+    {
+        jaild: 8,
+        url: shanxiYanTa
     }
 ]
