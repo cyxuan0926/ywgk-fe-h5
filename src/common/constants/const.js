@@ -238,7 +238,7 @@ export const noticeImgSwitchJaild = [
     },
 
     {
-        jaild: 20,
+        jaild: '20hz',
         url: shanxiHanZhong
     },
 
