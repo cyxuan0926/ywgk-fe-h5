@@ -91,6 +91,9 @@ import shanxiWeiGuanSuo from '@/assets/images/notices/shanxi-weiguansuo.jpg'
 // 陕西省 - 雁塔监狱
 import shanxiYanTa from '@/assets/images/notices/shanxi-yanta.jpg'
 
+// 广东省 - 女子监狱
+import guangdongNvZi from '@/assets/images/notices/guangdong-nvzi.jpg'
+
 export const noticeImgSwitchJaild = [
     {
         jaild: 20,
@@ -255,5 +258,10 @@ export const noticeImgSwitchJaild = [
     {
         jaild: 8,
         url: shanxiYanTa
+    },
+
+    {
+        jaild: 46,
+        url: guangdongNvZi
     }
 ]
