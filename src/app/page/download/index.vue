@@ -3,7 +3,7 @@
         <h1 class="app-logo">国科服务</h1>
         <div class="app-download-btn">
             <span class="app-download-btn__download"><button @click="downloadApp">立即下载</button></span>
-            <span class="app-download-btn__wxopen" v-if="isCanWxtag">
+            <!-- <span class="app-download-btn__wxopen" v-if="isCanWxtag">
                 <span class="button">
                     <wx-open-launch-app
                         id="wxopen-tag"
@@ -18,7 +18,7 @@
             </span>
             <span class="app-download-btn__open" v-else>
                 <button @click="openApp">点击打开</button>
-            </span>
+            </span> -->
         </div>
         <div class="app-download-modal" id="app-download-modal" :style="{display: isShowModal ? 'block' : 'none'}">
             <div class="app-download-modal-mask"></div>
@@ -208,23 +208,27 @@
         margin: 0;
         font-size: 0;
         color: transparent;
+        display: none;
     }
     .app-download {
         width: 100%;
-        height: 60rem;
-        background: #B7D9FA url(../../../assets/images/download-bg.png) no-repeat left top;
+        height: 62.5rem;
+        background: #489DFF url(../../../assets/images/download-bg.png) no-repeat left top;
         background-size: 100% auto;
         overflow: hidden;
 
         &-btn {
             width: 100%;
-            padding-top: 43rem;
+            // padding-top: 43rem;
+            padding-top: 50rem;
 
             &__open,
             &__wxopen,
             &__download {
                 display: block;
-                width: 14.58rem;
+                // width: 14.58rem;
+                // height: 3.75rem;
+                width: 20.25rem;
                 height: 3.75rem;
                 text-align: center;
                 border: none;
