@@ -2,6 +2,7 @@
 // The Vue build version to load with the `import` command
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 import Vue from 'vue'
+import VueCompositionAPI from '@vue/composition-api'
 import App from './App'
 import routes from './router'
 import Router from 'vue-router'
@@ -13,6 +14,7 @@ import './assets/scss/style.scss'
 Vue.config.productionTip = false
 Vue.config.ignoredElements = ['wx-open-launch-app']
 Vue.use(Router)
+Vue.use(VueCompositionAPI)
 
 Object.keys(filters).forEach(k => { Vue.filter(k, filters[k]) }) // 注册过滤器
 // 声明公共功能组件

@@ -212,7 +212,7 @@
     }
     .app-download {
         width: 100%;
-        height: 62.5rem;
+        height: 60rem;
         background: #489DFF url(../../../assets/images/download-bg.png) no-repeat left top;
         background-size: 100% auto;
         overflow: hidden;

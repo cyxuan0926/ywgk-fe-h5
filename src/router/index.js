@@ -152,6 +152,21 @@ let routes = [
         ]
     },
     {
+        path: '/conference',
+        component: main,
+        name: '国科会务',
+        children: [
+            {
+                path: '/conference/sign-up',
+                name: '国科会务报名',
+                meta: {
+                    title: '国科会务报名'
+                },
+                component: resolve => require(['@/app/page/conference/sign-up'], resolve)
+            }
+        ]
+    },
+    {
         path: '*',
         redirect: '/'
     }
