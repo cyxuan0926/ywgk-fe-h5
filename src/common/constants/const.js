@@ -91,6 +91,18 @@ import shanxiWeiGuanSuo from '@/assets/images/notices/shanxi-weiguansuo.jpg'
 // 陕西省 - 雁塔监狱
 import shanxiYanTa from '@/assets/images/notices/shanxi-yanta.jpg'
 
+// 陕西省 - 延安监狱
+import shanxiYanAn from '@/assets/images/notices/shanxi-yanan.jpg'
+
+// 陕西省 - 渭南监狱
+import shanxiWeiNan from '@/assets/images/notices/shanxi-weinan.jpg'
+
+// 陕西省 - 宝鸡监狱
+import shanxiBaoJi from '@/assets/images/notices/shanxi-baoji.jpg'
+
+// 陕西省 - 杨凌监狱
+import shanxiYangLing from '@/assets/images/notices/shanxi-yangling.jpg'
+
 // 广东省 - 女子监狱
 import guangdongNvZi from '@/assets/images/notices/guangdong-nvzi.jpg'
 
@@ -263,5 +275,25 @@ export const noticeImgSwitchJaild = [
     {
         jaild: 46,
         url: guangdongNvZi
+    },
+
+    {
+        jaild: 24,
+        url: shanxiYanAn
+    },
+
+    {
+        jaild: 19,
+        url: shanxiWeiNan
+    },
+
+    {
+        jaild: 12,
+        url: shanxiBaoJi
+    },
+
+    {
+        jaild: 16,
+        url: shanxiYangLing
     }
 ]
