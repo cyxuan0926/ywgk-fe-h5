@@ -151,6 +151,24 @@
             }
         },
 
+        // 扫描国科会务参会二维码
+        // https://www.yuwugongkai.com/h5/#/download?gkqr=module://gkhw/join?code&type_join1455031505293152259&0CIoFBPfT2QiaWEfXFBaiU
+        beforeRouteEnter(to, from, next) {
+            let _path = decodeURIComponent(to.fullPath)
+            if (to.query && _path.includes('module://gkhw/join')) {
+                let id = ''
+                _path.split('&').forEach(q => {
+                    if (q.includes('type_join')) {
+                        id = q.substring(9)
+                    }
+                })
+                next({ path: `/conference/sign-up?id=${ id }`, replace: true })
+            }
+            else {
+                next()
+            }
+        },
+
         async mounted() {
             let _this = this
             if (this.browser.weixin) {

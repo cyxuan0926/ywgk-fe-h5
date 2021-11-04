@@ -163,6 +163,14 @@ let routes = [
                     title: '国科会务报名'
                 },
                 component: resolve => require(['@/app/page/conference/sign-up'], resolve)
+            },
+            {
+                path: '/conference/sign-result',
+                name: '国科会务报名',
+                meta: {
+                    title: '国科会务报名'
+                },
+                component: resolve => require(['@/app/page/conference/sign-result'], resolve)
             }
         ]
     },

@@ -8,6 +8,9 @@ const config = {
         yangguangApiPath: '/sunjail',
         opeartionApiHost: 'http://39.104.161.9:9999',
         opeartionApiPath: '/problem',
+        publicApiHost: 'http://qa-auth-api.yuwugongkai.com',
+        gkConferenceHost: 'http://qa-convention-api.yuwugongkai.com',
+        gkConferenceClientKey: '8adabdb81bc84fc987cec5e569383635',
         downloadApkUrl: 'https://www.yuwugongkai.com/app/yuwutong_g.apk?from=wechat' // 国科服务 app（新疆版 qa环境发版使用)
     },
     production: {
@@ -17,6 +20,9 @@ const config = {
         yangguangApiPath: '/sunjail',
         opeartionApiHost: 'http://39.104.161.9:9999',
         opeartionApiPath: '/problem',
+        publicApiHost: 'https://auth-api.yuwugongkai.com',
+        gkConferenceHost: 'https://convention-api.yuwugongkai.com',
+        gkConferenceClientKey: '4953a771a7ed4da1a5700933a4c83570',
         downloadApkUrl: 'https://www.yuwugongkai.com/app/yuwutong_f.apk?from=wechat' // 国科服务 app
     },
     auth: {
