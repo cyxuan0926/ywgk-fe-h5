@@ -17,6 +17,7 @@
     "commit": "git-cz"
   },
   "dependencies": {
+    "@vue/composition-api": "^1.2.4",
     "axios": "^0.17.1",
     "default-gateway": "5.0.3",
     "moment": "^2.29.1",

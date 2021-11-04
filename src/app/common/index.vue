@@ -9,6 +9,7 @@
     <li @click="goPage('/download')">下载页</li>
     <li @click="goPage('/operations/list')">国科运维</li>
     <li @click="goPage('/language/all')">国科学习（/language/stu 学员端 /language/adm 管理端）</li>
+    <li @click="goPage('/conference/sign-up')">国科会务报名</li>
   </ul>
 </template>
 

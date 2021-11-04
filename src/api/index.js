@@ -3,6 +3,7 @@ import axios from 'axios'
 import resCode from './resCode'
 import store from '@/store'
 import ulrs from './urls'
+import qs from 'qs'
 
 let state = ''
 // const baseUrl = 'https://www.yuwugongkai.com/ywgk/api'
@@ -95,5 +96,29 @@ export const apiList = {
     // 国科运维 - 图片上传
     uploadOperationsFile: data => axios.post(`${ opeartionBaseUrl }/saveImg`, data, {
         headers: { 'content-type': 'multipart/form-data' }
-    })
+    }),
+    // 国科会务 - 手机号发送验证码
+    sendVerificationCode: phoneNumber => axios.post(`${ ulrs.publicApiHost }/sms/verification-codes`, { phoneNumber }),
+    // 国科会务 - 手机号注册
+    signupRegister: data => axios.post(`${ ulrs.publicApiHost }/users/of-mobile`, {
+        ...data,
+        group: 'customer',
+        source: '1'
+    }),
+    // 国科会务 - 登录
+    signupLogin: data => axios.post(`${ ulrs.publicApiHost }/oauth/token`, qs.stringify(data), {
+        auth: {
+            username: 'convention.admin',
+            password: ulrs.gkConferenceClientKey
+        },
+        headers: { 'content-type': 'application/x-www-form-urlencoded' }
+    }),
+    // 国科会务 - 报名
+    signupApply: (data, token) => axios.post(`${ ulrs.gkConferenceHost }/conventionPersonInfo/h5/apply`, data, {
+        headers: {
+            Authorization: token
+        }
+    }),
+    // 国科会务 - 查询会议详情
+    getConferenceDetail: id => axios.get(`${ ulrs.gkConferenceHost }/conventionInfo/getDetails/${ id }`)
 }
