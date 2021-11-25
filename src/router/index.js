@@ -108,6 +108,21 @@ let routes = [
         component: resolve => require(['@/app/page/province-notices'], resolve)
     },
     {
+        path: '/private-lawyer-agreement',
+        name: '私人律师咨询服务协议',
+        component: resolve => require(['@/app/page/private-lawyer/agreement/consulting'], resolve)
+    },
+    {
+        path: '/private-lawyer-protocol',
+        name: '私人律师脸部图像采集协议',
+        component: resolve => require(['@/app/page/private-lawyer/agreement/face'], resolve)
+    },
+    {
+        path: '/private-lawyer-guide/:id', // 1-用户 2-律师
+        name: '私人律师操作指南',
+        component: resolve => require(['@/app/page/private-lawyer/guide/index'], resolve)
+    },
+    {
         path: '/language/:type', // 学员-stu  管理-adm 双身份-all
         name: '国语学习',
         component: resolve => require(['@/app/page/language'], resolve)
