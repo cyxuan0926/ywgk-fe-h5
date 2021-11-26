@@ -1,25 +1,29 @@
 <template>
-    <div>
-        私人律师操作指南
-    </div>
+  <div class="province-notices">
+      <img :src="url" alt="广告图片">
+  </div>
 </template>
 
 <script>
-import { reactive, toRefs } from '@vue/composition-api'
+import { ImgSwitchId } from '../constants/const'
 
 export default {
-    setup() {
-        const state = reactive({
-            count: 0
-        })
-
+    data() {
         return {
-            ...toRefs(state)
+            url: ''
         }
+    },
+
+    created() {
+        const { id } = this.$route.params
+        const result = ImgSwitchId.filter(item => +item.id === +id)[0]
+        this.url = result.url
     }
 }
 </script>
 
 <style lang="scss" scoped>
-
+.province-notices {
+    text-align: center;
+}
 </style>
