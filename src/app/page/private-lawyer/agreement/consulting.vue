@@ -1,8 +1,7 @@
 <template>
   <div class="consulting-content">
       <p class=MsoNormal  align=center  style="mso-pagination:widow-orphan;text-align:center;mso-line-height-alt:12pt;margin-bottom:0.8em" ><b><span style="mso-spacerun:'yes';font-family:宋体;color:rgb(40,40,40);
-font-weight:bold;font-size:14.0000pt;mso-font-kerning:0.0000pt;
-background:rgb(255,255,255);mso-shading:rgb(255,255,255);" ><font face="宋体" >私人律师</font></span></b><b><span style="mso-spacerun:'yes';font-family:宋体;color:rgb(40,40,40);
+font-weight:bold;font-size:14.0000pt;mso-font-kerning:0.0000pt;background:rgb(255,255,255);mso-shading:rgb(255,255,255);" ><font face="宋体" >私人律师</font></span></b><b><span style="mso-spacerun:'yes';font-family:宋体;color:rgb(40,40,40);
 font-weight:bold;font-size:14.0000pt;mso-font-kerning:0.0000pt;
 background:rgb(255,255,255);mso-shading:rgb(255,255,255);" ><font face="宋体" >咨询</font></span></b><b><span style="mso-spacerun:'yes';font-family:宋体;color:rgb(40,40,40);
 font-weight:bold;font-size:14.0000pt;mso-font-kerning:0.0000pt;
@@ -439,8 +438,7 @@ mso-font-kerning:1.0000pt;" ><span></span></span></p><p class=MsoNormal  style="
 background:rgb(255,255,255);" ><span style="mso-spacerun:'yes';font-family:宋体;color:rgb(40,40,40);
 font-size:14.0000pt;mso-font-kerning:0.0000pt;background:rgb(255,255,255);
 mso-shading:rgb(255,255,255);" ><font face="宋体" >3、私人律师平台的关联公司是指与私人律师平台存在相同股东的公司。</font></span><span style="mso-spacerun:'yes';font-family:宋体;font-size:14.0000pt;
-mso-font-kerning:1.0000pt;" ><span></span></span></p><p class=MsoNormal  style="mso-pagination:widow-orphan;text-align:left;mso-line-height-alt:12pt;
-background:rgb(255,255,255);" ><span style="mso-spacerun:'yes';font-family:宋体;color:rgb(40,40,40);
+mso-font-kerning:1.0000pt;" ><span></span></span></p><p class=MsoNormal  style="mso-pagination:widow-orphan;text-align:left;mso-line-height-alt:12pt;background:rgb(255,255,255);" ><span style="mso-spacerun:'yes';font-family:宋体;color:rgb(40,40,40);
 font-size:14.0000pt;mso-font-kerning:0.0000pt;background:rgb(255,255,255);
 mso-shading:rgb(255,255,255);" ><font face="宋体" >4、因履行本协议过程中发生的争议，即任何会员与私人律师平台发生的争议，均由国科政信科技（北京）股份有限公司所在地的人民法院管辖。</font></span><span style="mso-spacerun:'yes';font-family:宋体;font-size:20.0000pt;
 mso-font-kerning:1.0000pt;" ><span></span></span></p></div>
@@ -452,36 +450,39 @@ export default {}
 </script>
 <style lang="scss" scoped>
 .consulting-content {
-  font-size: 12px;
+  font-size: 12px !important;
   padding: 2em 2em;
   margin-top: 5px;
   p {
     padding: 0;
     margin: 0;
-    font-size: 1.2em;
-    line-height: 2em;
+    font-size: 14px !important;
+    line-height: 24px !important;
     color: #222;
+    span, font {
+        font-size: 14px !important;
+    }
   }
   .title {
     text-align: center;
-    line-height: 3em;
-    font-size: 1.3em;
+    line-height: 3em !important;
+    font-size: 1.3em !important;
   }
   .bold {
     font-weight: bold;
   }
   .indent {
-    text-indent: 2em;
+    text-indent: 2em !important;
   }
   table {
     text-align: center;
-    line-height: 1.7em;
+    line-height: 1.7em !important;
     border-collapse: collapse;
-    margin-bottom: 4em;
+    margin-bottom: 4em !important;
   }
   th,
   td {
-    line-height: 2em;
+    line-height: 2em !important;
   }
   tr span {
     background: #ffff00;
