@@ -108,12 +108,12 @@ let routes = [
         component: resolve => require(['@/app/page/province-notices'], resolve)
     },
     {
-        path: '/private-lawyer-protocol',
+        path: '/private-lawyer-protocol.html',
         name: '私人律师咨询服务协议',
         component: resolve => require(['@/app/page/private-lawyer/agreement/consulting'], resolve)
     },
     {
-        path: '/private-lawyer-agreement',
+        path: '/private-lawyer-agreement.html',
         name: '私人律师脸部图像采集协议',
         component: resolve => require(['@/app/page/private-lawyer/agreement/face'], resolve)
     },
