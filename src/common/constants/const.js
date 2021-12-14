@@ -106,6 +106,12 @@ import shanxiYangLing from '@/assets/images/notices/shanxi-yangling.jpg'
 // 广东省 - 女子监狱
 import guangdongNvZi from '@/assets/images/notices/guangdong-nvzi.jpg'
 
+// 甘肃省 - 永登监狱
+import gansuYongDeng from '@/assets/images/notices/gansu-yongdeng.jpg'
+
+// 甘肃省 - 兰州新桥监狱
+import gansuLanzhouXinQiao from '@/assets/images/notices/gansu-lanzhou-xinqiao.jpg'
+
 export const noticeImgSwitchJaild = [
     {
         jaild: 20,
@@ -295,5 +301,16 @@ export const noticeImgSwitchJaild = [
     {
         jaild: 16,
         url: shanxiYangLing
+    },
+
+    {
+        // 新桥监狱
+        jaild: 90,
+        url: gansuLanzhouXinQiao
+    },
+
+    {
+        jaild: 91,
+        url: gansuYongDeng
     }
 ]
