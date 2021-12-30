@@ -75,7 +75,7 @@
                         />
                     </van-cell-group>
                     <van-cell-group v-show="isOpened">
-                        <van-field
+                        <!-- <van-field
                             v-model="formData.cardId"
                             label="身份证号"
                             placeholder="请输入身份证号"
@@ -109,7 +109,7 @@
                             placeholder="请输入房间要求"
                             maxlength="20"
                             clearable
-                        />
+                        /> -->
                         <van-field
                             name="arriveTime"
                             v-model="formData.arriveTime"
@@ -124,12 +124,12 @@
                         <van-field
                             name="arriveTrafficInfo"
                             v-model="formData.arriveTrafficInfo"
-                            label="到达信息"
-                            placeholder="请输入到达车次（航班号）"
+                            label="其他信息"
+                            placeholder="请输入其他信息"
                             maxlength="20"
                             clearable
                         />
-                        <van-field
+                        <!-- <van-field
                             name="returnTime"
                             v-model="formData.returnTime"
                             label="返程时间"
@@ -147,7 +147,7 @@
                             placeholder="请输入返程车次（航班号）"
                             maxlength="20"
                             clearable
-                        />
+                        /> -->
                     </van-cell-group>
                     <div class="btn-open-block">
                         <van-button class="btn-clear" :icon="`arrow-${ isOpened ? 'up' : 'down' }`" size="small" @click.prevent="handleOpen">{{ isOpened ? '收起' : '更多信息（选填）' }}</van-button>
@@ -224,14 +224,14 @@ export default {
             gender: '0',
             companyName: '',
             jobTitle: '',
-            cardId: '',
-            hotelName: '',
-            stayStartTime: '',
-            roomRequire: '',
+            // cardId: '',
+            // hotelName: '',
+            // stayStartTime: '',
+            // roomRequire: '',
             arriveTime: '',
-            arriveTrafficInfo: '',
-            returnTime: '',
-            returnTrafficInfo: ''
+            arriveTrafficInfo: ''
+            // returnTime: '',
+            // returnTrafficInfo: ''
         })
 
         const formRules = {
@@ -297,18 +297,18 @@ export default {
                         return true
                     }
                 }
-            ],
-            cardId: [
-                {
-                    validator: (val) => {
-                        if (val && !/(^\d{15}$)|(^\d{18}$)|(^\d{17}(\d|X|x)$)/.test(val)) {
-                            Toast('请输入15或18位身份证号')
-                            return false
-                        }
-                        return true
-                    }
-                }
             ]
+            // cardId: [
+            //     {
+            //         validator: (val) => {
+            //             if (val && !/(^\d{15}$)|(^\d{18}$)|(^\d{17}(\d|X|x)$)/.test(val)) {
+            //                 Toast('请输入15或18位身份证号')
+            //                 return false
+            //             }
+            //             return true
+            //         }
+            //     }
+            // ]
         }
 
         const smsCountdown = ref(60)
@@ -355,15 +355,15 @@ export default {
         // 处理日期时间
         const _resetSubmitData = () => {
             let _data = Object.assign({}, formData)
-            if (_data.stayStartTime) {
-                _data.stayStartTime = `${ _data.stayStartTime } 00:00:00`
-            }
+            // if (_data.stayStartTime) {
+            //     _data.stayStartTime = `${ _data.stayStartTime } 00:00:00`
+            // }
             if (_data.arriveTime) {
                 _data.arriveTime = `${ _data.arriveTime }:00`
             }
-            if (_data.returnTime) {
-                _data.returnTime = `${ _data.returnTime }:00`
-            }
+            // if (_data.returnTime) {
+            //     _data.returnTime = `${ _data.returnTime }:00`
+            // }
             // 支付类型设置为 0 线上 1 线下已支付 2 会员免费
             _data.payType = '2'
             return _data
@@ -424,9 +424,9 @@ export default {
 
         let currentDateField = ''
         let titleText = {
-            stayStartTime: '住宿日期',
-            arriveTime: '到达时间',
-            returnTime: '返程时间'
+            // stayStartTime: '住宿日期',
+            arriveTime: '到达时间'
+            // returnTime: '返程时间'
         }
         // 弹出日期选择器
         const handleShowCalendar = (flag) => {
