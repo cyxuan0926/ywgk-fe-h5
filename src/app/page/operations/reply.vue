@@ -3,7 +3,7 @@
         <van-cell-group>
             <van-cell title="我的回复：" />
             <van-cell>
-                <template #title>
+                <template slot="title">
                     <van-field
                         class="operation-textarea"
                         v-model="context"

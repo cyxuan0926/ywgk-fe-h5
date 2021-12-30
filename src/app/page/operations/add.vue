@@ -4,51 +4,43 @@
             <van-cell-group>
                 <van-cell title="（单选）请选择需要运维的系统" />
                 <van-cell>
-                    <template #title>
-                        <van-field name="xitongName">
-                            <template #input>
-                                <van-radio-group v-model="xitongName">
-                                    <van-radio name="全国安置帮教工作信息系统">全国安置帮教工作信息系统</van-radio>
-                                </van-radio-group>
-                            </template>
-                        </van-field>
-                    </template>
+                    <van-field slot="title" name="xitongName">
+                        <van-radio-group slot="input" v-model="xitongName">
+                            <van-radio name="全国安置帮教工作信息系统">全国安置帮教工作信息系统</van-radio>
+                        </van-radio-group>
+                    </van-field>
                 </van-cell>
             </van-cell-group>
             <van-cell-group>
                 <van-cell required title="请补充详细问题和意见" />
                 <van-cell>
-                    <template #title>
-                        <van-field
-                            name="context"
-                            class="operation-textarea"
-                            v-model="context"
-                            rows="5"
-                            autosize
-                            type="textarea"
-                            maxlength="500"
-                            placeholder="请输入不少于10个字的描述"
-                            show-word-limit 
-                            :rules="rules.context" />
-                    </template>
+                    <van-field
+                        slot="title"
+                        name="context"
+                        class="operation-textarea"
+                        v-model="context"
+                        rows="5"
+                        autosize
+                        type="textarea"
+                        maxlength="500"
+                        placeholder="请输入不少于10个字的描述"
+                        show-word-limit 
+                        :rules="rules.context" />
                 </van-cell>
             </van-cell-group>
             <van-cell-group>
                 <van-cell title="请提供相关问题的截图或照片（最多4张）" />
                 <van-cell>
-                    <template #title>
-                        <van-field name="uploader">
-                            <template #input>
-                                <van-uploader 
-                                    v-model="fileList"
-                                    multiple
-                                    :max-size="5 * 1024 * 1024"
-                                    :max-count="4"
-                                    :after-read="handleAfterRead"
-                                    @oversize="handleOversize" />
-                            </template>
-                        </van-field>
-                    </template>
+                    <van-field slot="title" name="uploader">
+                        <van-uploader
+                            slot="input"
+                            v-model="fileList"
+                            multiple
+                            :max-size="5 * 1024 * 1024"
+                            :max-count="4"
+                            :after-read="handleAfterRead"
+                            @oversize="handleOversize" />
+                    </van-field>
                 </van-cell>
             </van-cell-group>
             <van-cell-group class="operation-form-fields">

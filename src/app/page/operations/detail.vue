@@ -8,20 +8,20 @@
                         <img :src="`${ imgUrl }/readPartImage?url=${ f.filePath }${ f.uploadFileName }`" :alt="f.uploadFileName">
                     </dd>
                     <dd class="operation-detail-time">{{ operationData.createTime }}</dd>
-                    <reply-list v-if="operationData.replyList.length" :list="operationData.replyList" />
+                    <reply-list v-if="operationData.replyList && operationData.replyList.length" :list="operationData.replyList" />
                 </dl>
             </div>
-            <div class="operation-detail-content" style="padding: .5rem 0;" v-if="operationData.replyList.length">
+            <div class="operation-detail-content" style="padding: .5rem 0;" v-if="operationData.replyList && operationData.replyList.length">
                 <template v-if="operationData.state != '4'">
                     <van-cell-group>
                         <van-cell>
-                            <template #title>
+                            <template slot="title">
                                 <span class="operation-detail-label">服务：</span>
                                 <van-rate v-model="operationData.star" color="#E8A341" void-color="#E8A341" />
                             </template>
                         </van-cell>
                         <van-cell>
-                            <template #title>
+                            <template slot="title">
                                 <van-field
                                     class="operation-textarea"
                                     v-model="operationData.econtext"
@@ -34,7 +34,7 @@
                             </template>
                         </van-cell>
                         <van-cell>
-                            <template #title>
+                            <template slot="title">
                                 <span class="operation-detail-label">是否解决问题：</span>
                                 <van-radio-group v-model="operationData.estate" direction="horizontal">
                                     <van-radio name="1" shape="square" icon-size="16px">是</van-radio>
@@ -50,7 +50,7 @@
             </div>
         </div>
         <div class="app-layout-btns">
-            <van-button class="app-btn-info" v-if="operationData.replyList.length && operationData.state != '4'" :loading="loading" type="info" size="large" loading-type="spinner" loading-text="提交中..." block @click="handleClick">提 交</van-button>
+            <van-button class="app-btn-info" v-if="operationData.replyList && operationData.replyList.length && operationData.state != '4'" :loading="loading" type="info" size="large" loading-type="spinner" loading-text="提交中..." block @click="handleClick">提 交</van-button>
             <van-button class="app-btn-info" v-else type="info" size="large" to="/operations/list" block>返 回</van-button>
         </div>  
     </div>

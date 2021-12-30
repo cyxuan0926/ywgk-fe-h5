@@ -2,19 +2,19 @@
     <section :class="['evaluate-item', type === 'index' ? 'evaluate-item-index' : '']">
         <van-cell-group>
             <van-cell>
-                <template #title>
+                <template slot="title">
                     <span class="evaluate-item-label">服务：</span>
                     <van-rate v-model="star" color="#E8A341" void-color="#E8A341" readonly />
                 </template>
             </van-cell>
             <van-cell>
-                <template #title>
+                <template slot="title">
                     <span class="evaluate-item-label">评价：</span>
                     <span class="evaluate-item-text">{{ econtext }}</span>
                 </template>
             </van-cell>
             <van-cell>
-                <template #title>
+                <template slot="title">
                     <span class="evaluate-item-label">是否解决问题：</span>
                     <span class="evaluate-item-text">{{ estate == '1' ? '是' : '否'}}</span>
                 </template>

@@ -34,9 +34,7 @@
                             placeholder="请输入验证码"
                             :rules="formRules.verificationCode"
                         >
-                            <template #button>
-                                <van-button class="sms-btn" size="small" type="primary" @click.prevent="handleSmscode" :disabled="isGetSmscode">{{ smsCodeText }}</van-button>
-                            </template>
+                            <van-button slot="button" class="sms-btn" size="small" type="primary" @click.prevent="handleSmscode" :disabled="isGetSmscode">{{ smsCodeText }}</van-button>
                         </van-field>
                         <van-field
                             v-model="formData.personName"
@@ -48,12 +46,10 @@
                             :rules="formRules.personName"
                         />
                         <van-field label="性别" required>
-                            <template #input>
-                                <van-radio-group v-model="formData.gender" direction="horizontal">
-                                    <van-radio name="0" icon-size="16px">男</van-radio>
-                                    <van-radio name="1" icon-size="16px">女</van-radio>
-                                </van-radio-group>
-                            </template>
+                            <van-radio-group slot="input" v-model="formData.gender" direction="horizontal">
+                                <van-radio name="0" icon-size="16px">男</van-radio>
+                                <van-radio name="1" icon-size="16px">女</van-radio>
+                            </van-radio-group>
                         </van-field>
                         <van-field
                             v-model="formData.companyName"
