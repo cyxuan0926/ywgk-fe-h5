@@ -32,6 +32,13 @@ module.exports = {
                 pathRewrite: {
                     '^/ywgk-auth/api': '/ywgk-auth/api'
                 }
+            },
+            '/gkWorkApi': {
+                target: 'https://139.159.158.173',
+                secure: false,
+                pathRewrite: {
+                    '^/gkWorkApi': '/api'
+                }
             }
             // 生产环境https 本地代理
             // '/ywgk/api': {
@@ -85,6 +92,7 @@ module.exports = {
 
         // Paths
         assetsRoot: path.resolve(__dirname, '../dist'),
+        // assetsSubDirectory: 'op/h5/static', // 打包国科运维
         assetsSubDirectory: 'h5/static',
         assetsPublicPath: '/',
 

@@ -163,6 +163,14 @@ let routes = [
                     title: '回复'
                 },
                 component: resolve => require(['@/app/page/operations/reply'], resolve)
+            },
+            {
+                path: '/operations/static',
+                name: '国科运维统计',
+                meta: {
+                    title: '国科运维统计'
+                },
+                component: resolve => require(['@/app/page/operations/static'], resolve)
             }
         ]
     },
@@ -186,6 +194,21 @@ let routes = [
                     title: '国科会务报名'
                 },
                 component: resolve => require(['@/app/page/conference/sign-result'], resolve)
+            }
+        ]
+    },
+    {
+        path: '/terminal',
+        component: main,
+        name: '终端',
+        children: [
+            {
+                path: '/terminal/charge-config/:id',
+                name: '收费配置',
+                meta: {
+                    title: '亲情电话收费标准'
+                },
+                component: resolve => require(['@/app/page/terminal/charge-config'], resolve)
             }
         ]
     },

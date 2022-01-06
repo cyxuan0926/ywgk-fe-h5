@@ -8,8 +8,10 @@
     <li @click="goPage('/meeting-notification/detail')">会见告知书</li>
     <li @click="goPage('/download')">下载页</li>
     <li @click="goPage('/operations/list')">国科运维</li>
+    <li @click="goPage('/operations/static?uid=GXRRh13YRuUqRQHFa_rbmk&auditSection=2021-12&auditType=3&appVersion=312')">国科运维-审计统计</li>
     <li @click="goPage('/language/all')">国科学习（/language/stu 学员端 /language/adm 管理端）</li>
     <li @click="goPage('/conference/sign-up')">国科会务报名</li>
+    <li @click="goPage('/terminal/charge-config/65')">终端亲情电话-收费标准</li>
   </ul>
 </template>
 
