@@ -1,7 +1,7 @@
 <template>
     <div class="charge-config-container">
         <dl class="charge-config-info">
-            <dt><h3>{{ projectName }}</h3></dt>
+            <dt><h3>{{ auditSection }}</h3></dt>
         </dl>
         <dl class="charge-config-info">
             <dd>
@@ -53,12 +53,14 @@
         data() {
             return {
                 projectName: '',
+                auditSection: '',
                 auditSummary: {},
                 auditDetailList: []
             }
         },
         created() {
             let { uid, auditSection, auditType, appVersion } = this.$route.query || {}
+            this.auditSection = auditSection
             this.getAuditDetail({
                 uid,
                 auditSection,
