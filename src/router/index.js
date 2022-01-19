@@ -123,7 +123,7 @@ let routes = [
         component: resolve => require(['@/app/page/private-lawyer/guide/index'], resolve)
     },
     {
-        path: '/language/:type', // 学员-stu  管理-adm 双身份-all
+        path: '/language/:type', // 学员-stu  管理-adm 双身份-all 国科运维操作指南-oper
         name: '国语学习',
         component: resolve => require(['@/app/page/language'], resolve)
     },

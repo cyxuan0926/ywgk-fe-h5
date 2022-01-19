@@ -14,7 +14,8 @@ const manualLazyUrls = require.context('@/assets/images/manual')
 const languageLazyUrls = {
     stu: [],
     adm: [],
-    all: []
+    all: [],
+    oper: []
 }
 manualLazyUrls.keys().forEach(f => {
     f = path.join(``, manualLazyUrls(f))
@@ -24,8 +25,11 @@ manualLazyUrls.keys().forEach(f => {
     else if (f.includes('adm')) {
         languageLazyUrls.adm.push(f)
     }
-    else {
+    else if (f.includes('all')) {
         languageLazyUrls.all.push(f)
+    }
+    else if (f.includes('oper')) {
+        languageLazyUrls.oper.push(f)
     }
 })
 
