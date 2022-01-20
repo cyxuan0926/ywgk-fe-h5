@@ -11,8 +11,8 @@ const config = {
         publicApiHost: 'http://qa-auth-api.yuwugongkai.com',
         gkConferenceHost: 'http://qa-convention-api.yuwugongkai.com',
         gkConferenceClientKey: '8adabdb81bc84fc987cec5e569383635',
-        // gkWorkApi: '/gkWorkApi', // 本地启服务用
-        gkWorkApi: 'https://139.159.158.173/api', // 国科运维测试环境打包用
+        gkWorkApi: '/gkWorkApi', // 本地启服务用
+        // gkWorkApi: 'https://139.159.158.173/api', // 国科运维测试环境打包用
         downloadApkUrl: 'https://www.yuwugongkai.com/app/yuwutong_g.apk?from=wechat' // 国科服务 app（新疆版 qa环境发版使用)
     },
     production: {
