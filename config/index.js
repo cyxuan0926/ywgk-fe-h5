@@ -92,8 +92,8 @@ module.exports = {
 
         // Paths
         assetsRoot: path.resolve(__dirname, '../dist'),
-        // assetsSubDirectory: 'op/h5/static', // 打包国科运维
-        assetsSubDirectory: 'h5/static',
+        assetsSubDirectory: 'op/h5/static', // 打包国科运维
+        // assetsSubDirectory: 'h5/static',
         assetsPublicPath: '/',
 
         /**

@@ -1,7 +1,10 @@
 <template>
     <div class="charge-config-container">
         <dl class="charge-config-info">
-            <dt><h3>{{ auditSection }}</h3></dt>
+            <dt>
+                <h3>{{ projectName }}</h3>
+                <h4>{{ auditSection }}</h4>
+            </dt>
         </dl>
         <dl class="charge-config-info">
             <dd>
@@ -72,10 +75,10 @@
             async getAuditDetail(params) {
                 let res = await apiList.getAuditDetail(params)
                 if (res && res.result) {
-                    let { auditSummary, auditDetail } = res.result
-                    this.projectName = auditSummary && auditSummary.projectName
-                    this.auditSummary = auditSummary || {}
-                    this.auditDetailList = auditDetail || []
+                    let { auditSummary = {}, auditDetail = [] } = res.result
+                    this.auditSummary = auditSummary
+                    this.auditDetailList = auditDetail
+                    this.projectName = auditSummary.projectName
                 }
             }
         }
@@ -95,12 +98,17 @@
             }
             dt {
                 margin: 0;
-                h3 {
+                h3, h4 {
                     margin: 0 0 10px;
                     font-size: 16px;
                     color: #333;
                     font-weight: 600;
                     text-align: center;
+                }
+
+                h4 {
+                    color: #666;
+                    font-size: 14px;
                 }
             }
             dd {
