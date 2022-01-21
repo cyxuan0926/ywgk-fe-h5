@@ -13,7 +13,9 @@ let state = ''
 // axios.defaults.baseURL = 'http://39.108.185.51:8081/ywgk'
 
 const proxyBaseUrl = ulrs.apiPath
+const ywgkBaseUrl = `${ ulrs.apiHost }/ywgk`
 const yangguangBaseUrl = `${ ulrs.yangguangApiHost }${ ulrs.yangguangApiPath }`
+const gkWorkBaseUrl = `${ ulrs.gkWorkApi }`
 export const opeartionBaseUrl = `${ ulrs.opeartionApiHost }${ ulrs.opeartionApiPath }`
 const handleApiErr = (res) => {
     if (res.status && res.status >= 500) {
@@ -97,6 +99,10 @@ export const apiList = {
     uploadOperationsFile: data => axios.post(`${ opeartionBaseUrl }/saveImg`, data, {
         headers: { 'content-type': 'multipart/form-data' }
     }),
+    // 国科运维 - 审计统计
+    getAuditDetail: ({ uid, auditSection, auditType, appVersion }) => axios.get(`${ gkWorkBaseUrl }/op/audit/auditDetail?uid=${ uid }&auditSection=${ auditSection }&auditType=${ auditType }`, {
+        headers: { 'appVersion': appVersion }
+    }),
     // 国科会务 - 手机号发送验证码
     sendVerificationCode: phoneNumber => axios.post(`${ ulrs.publicApiHost }/sms/verification-codes`, { phoneNumber }),
     // 国科会务 - 手机号注册
@@ -120,5 +126,7 @@ export const apiList = {
         }
     }),
     // 国科会务 - 查询会议详情
-    getConferenceDetail: id => axios.get(`${ ulrs.gkConferenceHost }/conventionInfo/getDetails/${ id }`)
+    getConferenceDetail: id => axios.get(`${ ulrs.gkConferenceHost }/conventionInfo/getDetails/${ id }`),
+    // 终端 - 亲情电话收费配置
+    getChargeConfig: id => axios.get(`${ ywgkBaseUrl }/familyPhoneCharge/getTemplate?jailId=${ id }`)
 }
